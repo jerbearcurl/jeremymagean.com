@@ -29,8 +29,14 @@
   .page {
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr auto auto;
     padding: 52px;
+  }
+  .pre-footer {
+    padding-bottom: 28px;
+  }
+  .pre-footer .status-block {
+    margin-bottom: 20px;
   }
   .main {
     display: flex;
@@ -69,7 +75,7 @@
   }
   .tagline {
     font-family: var(--serif);
-    font-style: italic;
+    font-style: normal;
     font-size: clamp(18px, 2.2vw, 28px);
     color: var(--muted);
     margin-top: 52px;
@@ -80,7 +86,6 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 52px;
   }
   .dot {
     width: 8px;
@@ -179,8 +184,8 @@
   .case-studies-tab {
     position: fixed;
     right: 0;
-    top: 40%;
-    transform: translateY(-40%);
+    top: 44%;
+    transform: translateY(-44%);
     z-index: 99;
     border: none;
     cursor: pointer;
@@ -194,7 +199,7 @@
     text-transform: uppercase;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    transform: translateY(-40%) rotate(180deg);
+    transform: translateY(-44%) rotate(180deg);
     transition: opacity 0.2s, padding 0.2s;
     border-radius: 0 6px 6px 0;
   }
@@ -376,18 +381,19 @@
   <main class="main">
     <h1 class="name">I'm a Design Strategist<br><span class="gradient-text">based in Denver Colorado</span></h1>
     <p class="tagline">Under Construction — Check back soon</p>
+  </main>
+
+  <div class="pre-footer">
     <div class="status-block">
       <div class="dot"></div>
       <span class="status-text">Build in progress — stay tuned</span>
     </div>
-    <div>
-      <form class="email-form" onsubmit="handleSubmit(event)">
-        <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" required>
-        <button type="submit">Notify me</button>
-      </form>
-      <p class="confirm-msg" id="confirm">↳ Got it — I'll be in touch.</p>
-    </div>
-  </main>
+    <form class="email-form" onsubmit="handleSubmit(event)">
+      <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" required>
+      <button type="submit">Notify me</button>
+    </form>
+    <p class="confirm-msg" id="confirm">↳ Got it — I'll be in touch.</p>
+  </div>
 
   <footer class="footer">
     <span class="footer-left">jeremymagean.com</span>
