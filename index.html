@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremy Magean — Coming Soon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1a1f;
+    --paper: #f6f5f8;
+    --violet: #6b3fa0;
+    --blue: #2d6ecf;
+    --teal: #1a9e82;
+    --muted: #8a8698;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+  }
+  html, body {
+    height: 100%;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--mono);
+    overflow-x: hidden;
+  }
+  .page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 52px;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--violet), var(--blue));
+  }
+  .name {
+    font-family: var(--serif);
+    font-size: clamp(58px, 8.5vw, 118px);
+    line-height: 0.91;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .name .gradient-text {
+    font-style: italic;
+    background: linear-gradient(105deg, var(--violet) 0%, var(--blue) 50%, var(--teal) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(18px, 2.2vw, 28px);
+    color: var(--muted);
+    margin-top: 28px;
+    margin-bottom: 52px;
+    line-height: 1.35;
+  }
+  .status-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 52px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--violet);
+    animation: pulse 2.4s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.75); }
+  }
+  .status-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .email-form {
+    display: flex;
+    max-width: 420px;
+    border: 1px solid rgba(26,26,31,0.2);
+    background: white;
+  }
+  .email-form input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 14px 18px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--ink);
+    outline: none;
+    min-width: 0;
+  }
+  .email-form input::placeholder { color: var(--muted); }
+  .email-form button {
+    border: none;
+    border-left: 1px solid rgba(26,26,31,0.15);
+    background: linear-gradient(135deg, var(--violet), var(--blue));
+    color: white;
+    padding: 14px 22px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .email-form button:hover { opacity: 0.85; }
+  .confirm-msg {
+    display: none;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--teal);
+    margin-top: 12px;
+    font-family: var(--mono);
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 48px;
+    border-top: 1px solid rgba(26,26,31,0.1);
+  }
+  .footer-left {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--violet); }
+  .deco {
+    position: fixed;
+    top: 0; right: 0;
+    width: 50vw; height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .page > * { position: relative; z-index: 1; }
+  @media (max-width: 600px) {
+    .page { padding: 32px 24px; }
+    .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .deco { width: 80vw; opacity: 0.5; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deco" aria-hidden="true">
+  <svg viewBox="0 0 500 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" cx="60%" cy="30%" r="60%">
+        <stop offset="0%" stop-color="#6b3fa0" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="#6b3fa0" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="g2" cx="40%" cy="70%" r="55%">
+        <stop offset="0%" stop-color="#2d6ecf" stop-opacity="0.10"/>
+        <stop offset="100%" stop-color="#2d6ecf" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="g3" cx="70%" cy="85%" r="45%">
+        <stop offset="0%" stop-color="#1a9e82" stop-opacity="0.09"/>
+        <stop offset="100%" stop-color="#1a9e82" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="gc" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#6b3fa0"/>
+        <stop offset="50%" stop-color="#2d6ecf"/>
+        <stop offset="100%" stop-color="#1a9e82"/>
+      </linearGradient>
+    </defs>
+    <rect width="500" height="900" fill="url(#g1)"/>
+    <rect width="500" height="900" fill="url(#g2)"/>
+    <rect width="500" height="900" fill="url(#g3)"/>
+    <line x1="80"  y1="0" x2="80"  y2="900" stroke="#6b3fa0" stroke-width="0.5" opacity="0.12"/>
+    <line x1="180" y1="0" x2="180" y2="900" stroke="#2d6ecf" stroke-width="0.5" opacity="0.08"/>
+    <line x1="280" y1="0" x2="280" y2="900" stroke="#1a9e82" stroke-width="0.5" opacity="0.06"/>
+    <circle cx="80"  cy="180" r="3" fill="#6b3fa0" opacity="0.35"/>
+    <circle cx="180" cy="390" r="3" fill="#2d6ecf" opacity="0.25"/>
+    <circle cx="280" cy="580" r="3" fill="#1a9e82" opacity="0.20"/>
+    <path d="M 20 750 Q 250 350 480 60" stroke="url(#gc)" stroke-width="0.75" opacity="0.12"/>
+  </svg>
+</div>
+
+<div class="page">
+  <main class="main">
+    <p class="eyebrow">UX &amp; Product Design</p>
+    <h1 class="name">Jeremy<br><span class="gradient-text">Magean</span></h1>
+    <p class="tagline">Something thoughtful<br>is on its way.</p>
+    <div class="status-block">
+      <div class="dot"></div>
+      <span class="status-text">Portfolio in development — launching soon</span>
+    </div>
+    <div>
+      <form class="email-form" onsubmit="handleSubmit(event)">
+        <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" required>
+        <button type="submit">Notify me</button>
+      </form>
+      <p class="confirm-msg" id="confirm">↳ Got it — I'll be in touch.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-left">jeremymagean.com</span>
+    <nav class="footer-links">
+      <a href="mailto:jeremy.magean@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/jeremy-magean/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </nav>
+  </footer>
+</div>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('confirm').style.display = 'block';
+  e.target.style.opacity = '0.4';
+  e.target.style.pointerEvents = 'none';
+}
+</script>
+</body>
+</html>
