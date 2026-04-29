@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jeremy Magean — Coming Soon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -16,6 +16,7 @@
     --teal: #1a9e82;
     --muted: #8a8698;
     --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
     --mono: 'DM Mono', monospace;
   }
   html, body {
@@ -34,7 +35,8 @@
   .main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 12vh;
   }
   .eyebrow {
     font-family: var(--mono);
@@ -56,25 +58,21 @@
     background: linear-gradient(90deg, var(--violet), var(--blue));
   }
   .name {
-    font-family: var(--serif);
-    font-size: clamp(58px, 8.5vw, 118px);
-    line-height: 0.91;
+    font-family: var(--sans);
+    font-size: clamp(36px, 5.5vw, 72px);
+    line-height: 1.38;
     letter-spacing: -0.02em;
     color: var(--ink);
   }
   .name .gradient-text {
-    font-style: italic;
-    background: linear-gradient(105deg, var(--violet) 0%, var(--blue) 50%, var(--teal) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--ink);
   }
   .tagline {
     font-family: var(--serif);
     font-style: italic;
     font-size: clamp(18px, 2.2vw, 28px);
     color: var(--muted);
-    margin-top: 28px;
+    margin-top: 52px;
     margin-bottom: 52px;
     line-height: 1.35;
   }
@@ -154,22 +152,173 @@
     border-top: 1px solid rgba(26,26,31,0.1);
   }
   .footer-left {
-    font-size: 11px;
+    font-size: 16.5px;
     font-weight: 300;
-    color: var(--muted);
     letter-spacing: 0.08em;
+    background: linear-gradient(135deg, var(--violet), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-  .footer-links { display: flex; gap: 24px; }
+  .footer-links { display: flex; gap: 24px; align-items: center; }
   .footer-links a {
-    font-size: 11px;
+    font-size: 16.5px;
     font-weight: 300;
-    color: var(--muted);
     text-decoration: none;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    background: linear-gradient(135deg, var(--violet), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: opacity 0.2s;
+  }
+  .footer-links a:hover { opacity: 0.7; }
+
+  /* Case Studies vertical tab */
+  .case-studies-tab {
+    position: fixed;
+    right: 0;
+    top: 40%;
+    transform: translateY(-40%);
+    z-index: 99;
+    border: none;
+    cursor: pointer;
+    padding: 30px 15px;
+    background: linear-gradient(180deg, var(--violet), var(--blue));
+    color: white;
+    font-family: var(--mono);
+    font-size: 16.5px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: translateY(-40%) rotate(180deg);
+    transition: opacity 0.2s, padding 0.2s;
+    border-radius: 0 6px 6px 0;
+  }
+  .case-studies-tab:hover { opacity: 0.85; padding: 30px 20px; }
+
+  /* Overlay */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26,26,31,0.35);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+  .drawer-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Drawer */
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(520px, 92vw);
+    height: 100vh;
+    background: var(--paper);
+    z-index: 101;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.32, 0, 0.14, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-left: 1px solid rgba(26,26,31,0.08);
+  }
+  .drawer.open {
+    transform: translateX(0);
+  }
+  .drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 36px 24px;
+    border-bottom: 1px solid rgba(26,26,31,0.08);
+    flex-shrink: 0;
+  }
+  .drawer-title {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .drawer-close {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--muted);
+    font-size: 22px;
+    line-height: 1;
     transition: color 0.2s;
   }
-  .footer-links a:hover { color: var(--violet); }
+  .drawer-close:hover { color: var(--ink); }
+  .drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 28px 36px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Case study cards */
+  .case-card {
+    background: white;
+    border: 1px solid rgba(26,26,31,0.08);
+    padding: 24px;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .case-card:hover {
+    box-shadow: 0 4px 24px rgba(107,63,160,0.08);
+    border-color: rgba(107,63,160,0.2);
+  }
+  .case-card-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 10px;
+  }
+  .case-card-title {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .case-card-desc {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .case-card-meta {
+    display: flex;
+    gap: 16px;
+  }
+  .case-card-meta span {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
   .deco {
     position: fixed;
     top: 0; right: 0;
@@ -183,6 +332,7 @@
     .page { padding: 32px 24px; }
     .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
     .deco { width: 80vw; opacity: 0.5; }
+    .drawer-header, .drawer-body { padding-left: 24px; padding-right: 24px; }
   }
 </style>
 </head>
@@ -224,12 +374,11 @@
 
 <div class="page">
   <main class="main">
-    <p class="eyebrow">UX &amp; Product Design</p>
     <h1 class="name">I'm a Design Strategist<br><span class="gradient-text">based in Denver Colorado</span></h1>
-    <p class="tagline">Under Construction —<br>Check back soon</p>
+    <p class="tagline">Under Construction — Check back soon</p>
     <div class="status-block">
       <div class="dot"></div>
-      <span class="status-text">Portfolio in development — launching soon</span>
+      <span class="status-text">Build in progress — stay tuned</span>
     </div>
     <div>
       <form class="email-form" onsubmit="handleSubmit(event)">
@@ -243,11 +392,67 @@
   <footer class="footer">
     <span class="footer-left">jeremymagean.com</span>
     <nav class="footer-links">
-      <a href="mailto:jeremy.magean@gmail.com">Email</a>
+      <a href="mailto:jeremy.magean@gmail.com">Contact</a>
       <a href="https://www.linkedin.com/in/jeremy-magean/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </nav>
   </footer>
 </div>
+
+<button class="case-studies-tab" onclick="openDrawer()">Case Studies</button>
+
+<!-- Drawer overlay -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<!-- Case studies drawer -->
+<aside class="drawer" id="drawer" aria-label="Case Studies">
+  <div class="drawer-header">
+    <span class="drawer-title">Case Studies</span>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">&times;</button>
+  </div>
+  <div class="drawer-body">
+
+    <div class="case-card">
+      <p class="case-card-tag">Product Design</p>
+      <h3 class="case-card-title">Redesigning the Onboarding Experience</h3>
+      <p class="case-card-desc">Reduced drop-off by 40% through a streamlined, persona-driven onboarding flow for a B2B SaaS platform.</p>
+      <div class="case-card-meta">
+        <span>2024</span>
+        <span>UX Research · Prototyping</span>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <p class="case-card-tag">Design Systems</p>
+      <h3 class="case-card-title">Building a Scalable Component Library</h3>
+      <p class="case-card-desc">Established a shared design system across 6 product teams, cutting design-to-dev handoff time in half.</p>
+      <div class="case-card-meta">
+        <span>2024</span>
+        <span>Systems Design · Figma</span>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <p class="case-card-tag">Strategy</p>
+      <h3 class="case-card-title">Zero-to-One Mobile App Launch</h3>
+      <p class="case-card-desc">Led end-to-end design strategy for a consumer mobile app from concept to 50k downloads in the first quarter.</p>
+      <div class="case-card-meta">
+        <span>2023</span>
+        <span>Product Strategy · iOS</span>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <p class="case-card-tag">Research</p>
+      <h3 class="case-card-title">Enterprise Dashboard Overhaul</h3>
+      <p class="case-card-desc">Translated complex data workflows into an intuitive dashboard, improving task completion rates by 55%.</p>
+      <div class="case-card-meta">
+        <span>2023</span>
+        <span>User Research · Data Viz</span>
+      </div>
+    </div>
+
+  </div>
+</aside>
 
 <script>
 function handleSubmit(e) {
@@ -256,6 +461,22 @@ function handleSubmit(e) {
   e.target.style.opacity = '0.4';
   e.target.style.pointerEvents = 'none';
 }
+
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeDrawer();
+});
 </script>
 </body>
 </html>
