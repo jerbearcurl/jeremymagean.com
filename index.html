@@ -29,9 +29,15 @@
   .page {
     min-height: 100vh;
     display: grid;
+    grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr auto auto;
+    gap: 0 28px;
     padding: 52px;
   }
+  .main       { grid-column: 1; grid-row: 1; }
+  .articles   { grid-column: 2; grid-row: 1; padding-top: 12vh; padding-right: 52px; overflow-y: auto; scrollbar-width: none; max-height: calc(100vh - 272px); display: flex; flex-direction: column; gap: 16px; mask-image: linear-gradient(to bottom, black 93%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 93%, transparent 100%); }
+  .pre-footer { grid-column: 1; grid-row: 2; }
+  .footer     { grid-column: 1 / -1; grid-row: 3; }
   .pre-footer {
     padding-bottom: 28px;
   }
@@ -74,7 +80,7 @@
     color: var(--ink);
   }
   .tagline {
-    font-family: var(--serif);
+    font-family: var(--sans);
     font-style: normal;
     font-size: clamp(18px, 2.2vw, 28px);
     color: var(--muted);
@@ -140,7 +146,7 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
-  .email-form button:hover { opacity: 0.85; }
+  .email-form button:hover { background: linear-gradient(135deg, #4e2e75, #1f4e99, #0a7c5c); color: white; }
   .confirm-msg {
     display: none;
     font-size: 13px;
@@ -178,7 +184,94 @@
     background-clip: text;
     transition: opacity 0.2s;
   }
-  .footer-links a:hover { opacity: 0.7; }
+  .footer-links a:hover { opacity: 1; -webkit-text-fill-color: var(--ink); }
+
+  .articles::-webkit-scrollbar { display: none; }
+
+  /* Article cards */
+  .article-card {
+    background: white;
+    border: 1px solid rgba(26,26,31,0.08);
+    padding: 22px 24px;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    text-decoration: none;
+    display: block;
+  }
+  .article-card:hover {
+    box-shadow: 0 4px 24px rgba(45,110,207,0.08);
+    border-color: rgba(45,110,207,0.2);
+  }
+  .article-card-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+  .article-card-title {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .article-card-excerpt {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+  .article-card-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* Top nav */
+  .top-nav {
+    position: fixed;
+    top: 32px;
+    right: 52px;
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+    z-index: 99;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.75);
+    box-shadow: 0 4px 24px rgba(107,63,160,0.10), 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .top-nav a {
+    display: block;
+    padding: 14px 22px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 16.5px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 0;
+    transition: opacity 0.2s;
+  }
+  .top-nav a:hover,
+  .top-nav a:nth-child(1):hover,
+  .top-nav a:nth-child(2):hover,
+  .top-nav a:nth-child(3):hover { opacity: 1; color: var(--ink); }
+  .top-nav a:nth-child(1) { color: var(--blue); }
+  .top-nav a:nth-child(2) { color: var(--blue); }
+  .top-nav a:nth-child(3) { color: var(--blue); }
 
   /* Case Studies vertical tab */
   .case-studies-tab {
@@ -203,7 +296,7 @@
     transition: opacity 0.2s, padding 0.2s;
     border-radius: 0 6px 6px 0;
   }
-  .case-studies-tab:hover { opacity: 0.85; padding: 30px 20px; }
+  .case-studies-tab:hover { background: linear-gradient(180deg, #4e2e75, #1f4e99, #0a7c5c); color: white; padding: 30px 20px; }
 
   /* Overlay */
   .drawer-overlay {
@@ -333,9 +426,12 @@
     z-index: 0;
   }
   .page > * { position: relative; z-index: 1; }
-  @media (max-width: 600px) {
-    .page { padding: 32px 24px; }
-    .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+  @media (max-width: 768px) {
+    .page { padding: 32px 24px; grid-template-columns: 1fr; grid-template-rows: auto auto auto auto; gap: 0; }
+    .main       { grid-column: 1; grid-row: 1; }
+    .articles   { grid-column: 1; grid-row: 2; padding-top: 32px; padding-right: 0; max-height: none; overflow-y: visible; }
+    .pre-footer { grid-column: 1; grid-row: 3; }
+    .footer     { grid-column: 1; grid-row: 4; flex-direction: column; align-items: flex-start; gap: 16px; }
     .deco { width: 80vw; opacity: 0.5; }
     .drawer-header, .drawer-body { padding-left: 24px; padding-right: 24px; }
   }
@@ -343,50 +439,97 @@
 </head>
 <body>
 
+<nav class="top-nav">
+  <a href="#">Thoughts</a>
+  <a href="#">Lab</a>
+  <a href="#">Info</a>
+</nav>
+
 <div class="deco" aria-hidden="true">
   <svg viewBox="0 0 500 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="g1" cx="60%" cy="30%" r="60%">
-        <stop offset="0%" stop-color="#6b3fa0" stop-opacity="0.12"/>
+      <radialGradient id="g1" cx="96%" cy="44%" r="70%">
+        <stop offset="0%" stop-color="#6b3fa0" stop-opacity="0.14"/>
         <stop offset="100%" stop-color="#6b3fa0" stop-opacity="0"/>
       </radialGradient>
-      <radialGradient id="g2" cx="40%" cy="70%" r="55%">
-        <stop offset="0%" stop-color="#2d6ecf" stop-opacity="0.10"/>
+      <radialGradient id="g2" cx="60%" cy="44%" r="65%">
+        <stop offset="0%" stop-color="#2d6ecf" stop-opacity="0.08"/>
         <stop offset="100%" stop-color="#2d6ecf" stop-opacity="0"/>
       </radialGradient>
-      <radialGradient id="g3" cx="70%" cy="85%" r="45%">
-        <stop offset="0%" stop-color="#1a9e82" stop-opacity="0.09"/>
+      <radialGradient id="g3" cx="70%" cy="75%" r="55%">
+        <stop offset="0%" stop-color="#1a9e82" stop-opacity="0.07"/>
         <stop offset="100%" stop-color="#1a9e82" stop-opacity="0"/>
       </radialGradient>
-      <linearGradient id="gc" x1="0%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#6b3fa0"/>
-        <stop offset="50%" stop-color="#2d6ecf"/>
-        <stop offset="100%" stop-color="#1a9e82"/>
-      </linearGradient>
     </defs>
     <rect width="500" height="900" fill="url(#g1)"/>
     <rect width="500" height="900" fill="url(#g2)"/>
     <rect width="500" height="900" fill="url(#g3)"/>
-    <line x1="80"  y1="0" x2="80"  y2="900" stroke="#6b3fa0" stroke-width="0.5" opacity="0.12"/>
-    <line x1="180" y1="0" x2="180" y2="900" stroke="#2d6ecf" stroke-width="0.5" opacity="0.08"/>
-    <line x1="280" y1="0" x2="280" y2="900" stroke="#1a9e82" stroke-width="0.5" opacity="0.06"/>
-    <circle cx="80"  cy="180" r="3" fill="#6b3fa0" opacity="0.35"/>
-    <circle cx="180" cy="390" r="3" fill="#2d6ecf" opacity="0.25"/>
-    <circle cx="280" cy="580" r="3" fill="#1a9e82" opacity="0.20"/>
-    <path d="M 20 750 Q 250 350 480 60" stroke="url(#gc)" stroke-width="0.75" opacity="0.12"/>
+
+    <!-- Concentric circles from hub at right edge, aligned with case studies tab (480, 396) -->
+    <circle cx="480" cy="396" r="90"  stroke="#6b3fa0" stroke-width="0.5" opacity="0.22"/>
+    <circle cx="480" cy="396" r="180" stroke="#6b3fa0" stroke-width="0.5" opacity="0.16"/>
+    <circle cx="480" cy="396" r="270" stroke="#2d6ecf" stroke-width="0.5" opacity="0.12"/>
+    <circle cx="480" cy="396" r="360" stroke="#2d6ecf" stroke-width="0.5" opacity="0.09"/>
+    <circle cx="480" cy="396" r="450" stroke="#1a9e82" stroke-width="0.5" opacity="0.07"/>
+    <circle cx="480" cy="396" r="560" stroke="#1a9e82" stroke-width="0.5" opacity="0.05"/>
+
+    <!-- Spokes radiating from hub -->
+    <line x1="480" y1="396" x2="-20" y2="396" stroke="#6b3fa0" stroke-width="0.5" opacity="0.10"/>
+    <line x1="480" y1="396" x2="480" y2="-20" stroke="#6b3fa0" stroke-width="0.5" opacity="0.08"/>
+    <line x1="480" y1="396" x2="480" y2="920" stroke="#2d6ecf" stroke-width="0.5" opacity="0.08"/>
+    <line x1="480" y1="396" x2="-20" y2="780" stroke="#2d6ecf" stroke-width="0.5" opacity="0.08"/>
+    <line x1="480" y1="396" x2="-20" y2="10"  stroke="#1a9e82" stroke-width="0.5" opacity="0.07"/>
+    <line x1="480" y1="396" x2="120" y2="920" stroke="#1a9e82" stroke-width="0.5" opacity="0.07"/>
+
+    <!-- Dots at key intersections along spokes -->
+    <circle cx="480" cy="396" r="3" fill="#6b3fa0" opacity="0.50"/>
+    <circle cx="390" cy="396" r="2" fill="#6b3fa0" opacity="0.28"/>
+    <circle cx="300" cy="396" r="2" fill="#2d6ecf" opacity="0.22"/>
+    <circle cx="210" cy="396" r="2" fill="#2d6ecf" opacity="0.16"/>
+    <circle cx="480" cy="306" r="2" fill="#6b3fa0" opacity="0.25"/>
+    <circle cx="480" cy="216" r="2" fill="#2d6ecf" opacity="0.18"/>
+    <circle cx="370" cy="486" r="2" fill="#1a9e82" opacity="0.18"/>
+    <circle cx="260" cy="576" r="2" fill="#1a9e82" opacity="0.14"/>
   </svg>
 </div>
 
 <div class="page">
   <main class="main">
-    <h1 class="name">I'm a Design Strategist<br><span class="gradient-text">based in Denver Colorado</span></h1>
+    <h1 class="name">I'm a Design Strategist<br><span class="gradient-text">based in Denver</span></h1>
     <p class="tagline">Under Construction — Check back soon</p>
   </main>
+
+  <aside class="articles">
+    <a class="article-card" href="#">
+      <p class="article-card-tag">Design Thinking</p>
+      <h3 class="article-card-title">Why the best interfaces feel invisible</h3>
+      <p class="article-card-excerpt">Great design removes itself from the equation. When users stop noticing the UI and start achieving their goals, that's when you know it's working.</p>
+      <span class="article-card-meta">Apr 2026 · 4 min read</span>
+    </a>
+    <a class="article-card" href="#">
+      <p class="article-card-tag">Strategy</p>
+      <h3 class="article-card-title">Designing for trust in an age of AI skepticism</h3>
+      <p class="article-card-excerpt">Users are increasingly wary of automated systems. Here's how to build products that earn confidence through transparency and consistency.</p>
+      <span class="article-card-meta">Mar 2026 · 6 min read</span>
+    </a>
+    <a class="article-card" href="#">
+      <p class="article-card-tag">Process</p>
+      <h3 class="article-card-title">The case for slower, deeper user research</h3>
+      <p class="article-card-excerpt">Speed is overrated in discovery. The most useful insights tend to surface in the awkward silences and the follow-up questions no one planned to ask.</p>
+      <span class="article-card-meta">Feb 2026 · 5 min read</span>
+    </a>
+    <a class="article-card" href="#">
+      <p class="article-card-tag">Systems</p>
+      <h3 class="article-card-title">Design tokens are a team sport</h3>
+      <p class="article-card-excerpt">Tokens only work when designers and engineers agree on meaning, not just values. Getting alignment early saves months of downstream confusion.</p>
+      <span class="article-card-meta">Jan 2026 · 3 min read</span>
+    </a>
+  </aside>
 
   <div class="pre-footer">
     <div class="status-block">
       <div class="dot"></div>
-      <span class="status-text">Build in progress — keep in touch</span>
+      <span class="status-text">Build in progress. Keep in touch:</span>
     </div>
     <form class="email-form" onsubmit="handleSubmit(event)">
       <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" required>
