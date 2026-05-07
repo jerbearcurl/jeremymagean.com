@@ -23,7 +23,7 @@ html, body {
   grid-template-columns: 3fr 2fr;
   grid-template-rows: 1fr auto auto;
   gap: 0 28px;
-  padding: 52px 52px 44px 52px;
+  padding: 42px 52px 44px 52px;
 }
 .main       { grid-column: 1; grid-row: 1; }
 .articles   { grid-column: 2; grid-row: 1; padding-top: 12vh; padding-right: 52px; margin-left: -24px; overflow-y: auto; scrollbar-width: none; max-height: calc(100vh - 272px); display: flex; flex-direction: column; gap: 16px; mask-image: linear-gradient(to bottom, black 93%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 93%, transparent 100%); }
