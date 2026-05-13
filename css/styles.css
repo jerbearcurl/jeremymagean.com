@@ -39,7 +39,7 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: 12vh;
+  padding-top: calc(12vh - 8px);
 }
 .eyebrow {
   font-family: var(--mono);
@@ -76,7 +76,7 @@ html, body {
   font-weight: 300;
   font-size: clamp(18px, 2.2vw, 28px);
   color: var(--teal);
-  margin-top: 28px;
+  margin-top: 36px;
   margin-bottom: 12px;
   line-height: 1.5;
   letter-spacing: -0.01em;
@@ -140,7 +140,7 @@ html, body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.email-form button:hover { background: linear-gradient(135deg, #4e2e75, #1f4e99, #0a8a5c); color: white; }
+.email-form button:hover { background: linear-gradient(135deg, #4e2e75, #1f4e99, #07704a); color: white; }
 .confirm-msg {
   display: none;
   font-size: 13px;
@@ -315,7 +315,7 @@ html, body {
   transition: opacity 0.2s, padding 0.2s;
   border-radius: 0 6px 6px 0;
 }
-.case-studies-tab:hover { background: linear-gradient(180deg, #4e2e75, #1f4e99, #0a8a5c); color: white; padding: 30px 20px; }
+.case-studies-tab:hover { background: linear-gradient(180deg, #4e2e75, #1f4e99, #07704a); color: white; padding: 30px 20px; }
 
 /* Overlay */
 .drawer-overlay {
