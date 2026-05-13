@@ -63,8 +63,9 @@ html, body {
 .name {
   font-family: var(--sans);
   font-size: clamp(36px, 5.5vw, 72px);
+  font-weight: 800;
   line-height: 1.38;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
   color: var(--ink);
 }
 .name .gradient-text {
@@ -137,7 +138,7 @@ html, body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.email-form button:hover { background: linear-gradient(135deg, #4e2e75, #1f4e99, #0a7c5c); color: white; }
+.email-form button:hover { background: linear-gradient(135deg, #4e2e75, #1f4e99, #0a8a5c); color: white; }
 .confirm-msg {
   display: none;
   font-size: 13px;
@@ -235,7 +236,7 @@ html, body {
   top: 32px;
   left: 52px;
   z-index: 99;
-  padding: 6px 9px;
+  padding: 6px;
   background: rgba(255,255,255,0.80);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -270,6 +271,7 @@ html, body {
   text-align: center;
   font-family: var(--mono);
   font-size: 16.5px;
+  line-height: 20px;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -277,13 +279,16 @@ html, body {
   border-radius: 0;
   transition: opacity 0.2s;
 }
+.top-nav a {
+  background: linear-gradient(135deg, var(--violet), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 .top-nav a:hover,
 .top-nav a:nth-child(1):hover,
 .top-nav a:nth-child(2):hover,
-.top-nav a:nth-child(3):hover { opacity: 1; color: var(--ink); }
-.top-nav a:nth-child(1) { color: var(--blue); }
-.top-nav a:nth-child(2) { color: var(--blue); }
-.top-nav a:nth-child(3) { color: var(--blue); }
+.top-nav a:nth-child(3):hover { opacity: 1; -webkit-text-fill-color: var(--ink); }
 
 /* Case Studies vertical tab */
 .case-studies-tab {
@@ -308,7 +313,7 @@ html, body {
   transition: opacity 0.2s, padding 0.2s;
   border-radius: 0 6px 6px 0;
 }
-.case-studies-tab:hover { background: linear-gradient(180deg, #4e2e75, #1f4e99, #0a7c5c); color: white; padding: 30px 20px; }
+.case-studies-tab:hover { background: linear-gradient(180deg, #4e2e75, #1f4e99, #0a8a5c); color: white; padding: 30px 20px; }
 
 /* Overlay */
 .drawer-overlay {
