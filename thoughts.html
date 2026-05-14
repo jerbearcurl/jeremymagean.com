@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremy Magean — Thoughts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  a.top-logo { text-decoration: none; }
+  a.top-logo:hover svg line { stroke: var(--ink); }
+
+  .thoughts-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: 1fr auto;
+    gap: 0 28px;
+    padding: 42px 52px 44px 52px;
+  }
+
+  .thoughts-page > * { position: relative; z-index: 1; }
+
+  .thoughts-main {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 12vh;
+  }
+
+  .thoughts-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .thoughts-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--violet), var(--blue));
+  }
+
+  .thoughts-heading {
+    font-family: var(--sans);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin-bottom: 40px;
+  }
+
+  .thoughts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .thought-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0 32px;
+    padding: 28px 0;
+    border-top: 1px solid rgba(26,26,31,0.08);
+    text-decoration: none;
+    transition: background 0.15s;
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .thought-item:last-child {
+    border-bottom: 1px solid rgba(26,26,31,0.08);
+  }
+
+  .thought-item:hover {
+    background: rgba(255,255,255,0.6);
+  }
+
+  .thought-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 3px;
+  }
+
+  .thought-date {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .thought-read {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    color: var(--teal);
+    white-space: nowrap;
+  }
+
+  .thought-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .thought-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  .thought-title {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .thought-excerpt {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--ink);
+    opacity: 0.65;
+    line-height: 1.7;
+    margin-top: 2px;
+  }
+
+  .thoughts-footer {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  @media (max-width: 768px) {
+    .thoughts-page { padding: 32px 24px; grid-template-columns: 1fr; grid-template-rows: auto auto; }
+    .thoughts-main { grid-column: 1; padding-top: 32px; }
+    .thoughts-footer { grid-column: 1; }
+    .thought-item { grid-template-columns: 64px 1fr; gap: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="top-logo">
+  <svg width="48" height="48" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="pyramidGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#241840"/>
+        <stop offset="55%" stop-color="#6b3fa0"/>
+        <stop offset="100%" stop-color="#2d6ecf"/>
+      </linearGradient>
+    </defs>
+    <line x1="21" y1="3"  x2="5"  y2="37" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="21" y1="3"  x2="34" y2="35" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="5"  y1="37" x2="34" y2="35" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="21" y1="3"  x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="34" y1="35" x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="5"  y1="37" x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
+  </svg>
+</a>
+
+<nav class="top-nav">
+  <a href="thoughts.html" style="text-decoration: underline; text-underline-offset: 4px;">Thoughts</a>
+  <a href="lab.html">Lab</a>
+  <a href="info.html">Info</a>
+</nav>
+
+<div class="deco" aria-hidden="true">
+  <svg viewBox="0 0 500 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs></defs>
+    <circle cx="500" cy="396" r="90"  stroke="#b0a89e" stroke-width="0.5" opacity="0.55"/>
+    <circle cx="500" cy="396" r="180" stroke="#b0a89e" stroke-width="0.5" opacity="0.42"/>
+    <circle cx="500" cy="396" r="270" stroke="#b0a89e" stroke-width="0.5" opacity="0.30"/>
+    <circle cx="500" cy="396" r="360" stroke="#b0a89e" stroke-width="0.5" opacity="0.22"/>
+    <circle cx="500" cy="396" r="450" stroke="#b0a89e" stroke-width="0.5" opacity="0.15"/>
+    <circle cx="500" cy="396" r="560" stroke="#b0a89e" stroke-width="0.5" opacity="0.09"/>
+    <line x1="500" y1="396" x2="-20" y2="396" stroke="#b0a89e" stroke-width="0.5" opacity="0.30"/>
+    <line x1="500" y1="396" x2="500" y2="-20" stroke="#b0a89e" stroke-width="0.5" opacity="0.25"/>
+    <line x1="500" y1="396" x2="500" y2="920" stroke="#b0a89e" stroke-width="0.5" opacity="0.25"/>
+    <line x1="500" y1="396" x2="-20" y2="780" stroke="#b0a89e" stroke-width="0.5" opacity="0.22"/>
+    <line x1="500" y1="396" x2="-20" y2="10"  stroke="#b0a89e" stroke-width="0.5" opacity="0.18"/>
+    <line x1="500" y1="396" x2="120" y2="920" stroke="#b0a89e" stroke-width="0.5" opacity="0.18"/>
+  </svg>
+</div>
+
+<div class="thoughts-page">
+  <main class="thoughts-main">
+    <p class="thoughts-eyebrow">Thoughts</p>
+    <h1 class="thoughts-heading">Writing &amp; Ideas</h1>
+
+    <div class="thoughts-list">
+
+      <a class="thought-item" href="#">
+        <div class="thought-meta">
+          <span class="thought-date">Apr 2026</span>
+          <span class="thought-read">4 min</span>
+        </div>
+        <div class="thought-content">
+          <span class="thought-tag">Design Thinking</span>
+          <h2 class="thought-title">Why the best interfaces feel invisible</h2>
+          <p class="thought-excerpt">Great design removes itself from the equation. When users stop noticing the UI and start achieving their goals, that's when you know it's working.</p>
+        </div>
+      </a>
+
+      <a class="thought-item" href="#">
+        <div class="thought-meta">
+          <span class="thought-date">Mar 2026</span>
+          <span class="thought-read">6 min</span>
+        </div>
+        <div class="thought-content">
+          <span class="thought-tag">Strategy</span>
+          <h2 class="thought-title">Designing for trust in an age of AI skepticism</h2>
+          <p class="thought-excerpt">Users are increasingly wary of automated systems. Here's how to build products that earn confidence through transparency and consistency.</p>
+        </div>
+      </a>
+
+      <a class="thought-item" href="#">
+        <div class="thought-meta">
+          <span class="thought-date">Feb 2026</span>
+          <span class="thought-read">5 min</span>
+        </div>
+        <div class="thought-content">
+          <span class="thought-tag">Process</span>
+          <h2 class="thought-title">The case for slower, deeper user research</h2>
+          <p class="thought-excerpt">Speed is overrated in discovery. The most useful insights tend to surface in the awkward silences and the follow-up questions no one planned to ask.</p>
+        </div>
+      </a>
+
+      <a class="thought-item" href="#">
+        <div class="thought-meta">
+          <span class="thought-date">Jan 2026</span>
+          <span class="thought-read">3 min</span>
+        </div>
+        <div class="thought-content">
+          <span class="thought-tag">Systems</span>
+          <h2 class="thought-title">Design tokens are a team sport</h2>
+          <p class="thought-excerpt">Tokens only work when designers and engineers agree on meaning, not just values. Getting alignment early saves months of downstream confusion.</p>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="footer thoughts-footer">
+    <span class="footer-left">jeremymagean.com</span>
+    <nav class="footer-links">
+      <a href="mailto:jeremy.magean@gmail.com">Contact</a>
+      <a href="https://www.linkedin.com/in/jeremy-magean/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </nav>
+  </footer>
+</div>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

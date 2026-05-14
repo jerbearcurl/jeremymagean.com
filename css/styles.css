@@ -21,17 +21,15 @@ html, body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  grid-template-rows: 1fr auto auto;
+  grid-template-rows: 1fr auto;
   gap: 0 28px;
   padding: 42px 52px 44px 52px;
 }
 .main       { grid-column: 1; grid-row: 1; }
 .articles   { grid-column: 2; grid-row: 1; padding-top: calc(12vh + 16px); padding-right: 52px; margin-left: -24px; overflow-y: auto; scrollbar-width: none; max-height: calc(100vh - 252px); display: flex; flex-direction: column; gap: 16px; mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 96%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 96%, transparent 100%); }
-.pre-footer { grid-column: 1; grid-row: 2; }
-.footer     { grid-column: 1 / -1; grid-row: 3; }
+.footer     { grid-column: 1 / -1; grid-row: 2; }
 .pre-footer {
-  padding-bottom: 24px;
-  margin-top: -32px;
+  margin-top: 56px;
 }
 .pre-footer .status-block {
   margin-bottom: 20px;

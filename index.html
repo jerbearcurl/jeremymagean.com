@@ -12,8 +12,8 @@
 
 
 <nav class="top-nav">
-  <a href="#">Thoughts</a>
-  <a href="#">Lab</a>
+  <a href="thoughts.html">Thoughts</a>
+  <a href="lab.html">Lab</a>
   <a href="info.html">Info</a>
 </nav>
 
@@ -40,6 +40,17 @@
   <main class="main">
     <h1 class="name">Design Strategist &amp; Digital Builder<br><span class="gradient-text">based in Denver</span></h1>
     <p class="tagline">Translating design intent<br>into working solutions</p>
+    <div class="pre-footer">
+      <div class="status-block">
+        <div class="dot"></div>
+        <span class="status-text">Build in progress. Keep in touch:</span>
+      </div>
+      <form class="email-form" onsubmit="handleSubmit(event)">
+        <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p class="confirm-msg" id="confirm">↳ Got it — I'll be in touch.</p>
+    </div>
   </main>
 
   <aside class="articles">
@@ -68,18 +79,6 @@
       <span class="article-card-meta">Jan 2026 · 3 min read</span>
     </a>
   </aside>
-
-  <div class="pre-footer">
-    <div class="status-block">
-      <div class="dot"></div>
-      <span class="status-text">Build in progress. Keep in touch:</span>
-    </div>
-    <form class="email-form" onsubmit="handleSubmit(event)">
-      <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" required>
-      <button type="submit">Sign Up</button>
-    </form>
-    <p class="confirm-msg" id="confirm">↳ Got it — I'll be in touch.</p>
-  </div>
 
   <footer class="footer">
     <span class="footer-left">jeremymagean.com</span>
