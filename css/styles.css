@@ -389,6 +389,9 @@ html, body {
   padding: 24px;
   cursor: pointer;
   transition: box-shadow 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+  color: inherit;
 }
 .case-card:hover {
   box-shadow: 0 4px 24px rgba(107,63,160,0.08);

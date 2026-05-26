@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextHealth Technologies — Jeremy Magean</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/styles.css">
+<style>
+html, body {
+  font-family: var(--sans);
+}
+
+a.top-logo { text-decoration: none; }
+a.top-logo:hover svg line { stroke: var(--ink); }
+
+.deco { display: none; }
+
+.cs-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 112px 48px 96px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover { color: var(--ink); }
+
+.breadcrumb-sep { opacity: 0.5; }
+
+/* Header */
+.case-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.case-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--violet), var(--blue));
+}
+
+.case-title {
+  font-family: var(--sans);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.case-subtitle {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--muted);
+  margin-bottom: 44px;
+  line-height: 1.6;
+}
+
+/* Metadata strip */
+.meta-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: white;
+  border: 1px solid rgba(26,26,31,0.08);
+  margin-bottom: 64px;
+}
+
+.meta-cell { padding: 20px 24px; }
+.meta-cell + .meta-cell { border-left: 1px solid rgba(26,26,31,0.08); }
+
+.meta-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 7px;
+}
+
+.meta-value {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+/* Blockquote */
+.case-blockquote {
+  font-family: var(--sans);
+  font-size: clamp(16px, 2vw, 21px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.65;
+  padding-left: 28px;
+  border-left: 2px solid var(--violet);
+  border-image: linear-gradient(180deg, var(--violet), var(--blue), var(--teal)) 1;
+  margin-bottom: 32px;
+}
+
+/* Intro body */
+.case-intro {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.85;
+  max-width: 660px;
+  margin-bottom: 64px;
+}
+
+/* Divider */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(26,26,31,0.08);
+  margin-bottom: 56px;
+}
+
+/* Sections */
+.case-section { margin-bottom: 72px; }
+
+.case-section-heading {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.case-section p {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.85;
+  max-width: 660px;
+  margin-bottom: 24px;
+}
+
+/* Image placeholders */
+.img-wrap { margin-top: 8px; margin-bottom: 8px; }
+
+.img-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: white;
+  border: 1px solid rgba(26,26,31,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-placeholder svg { opacity: 0.2; }
+
+.img-caption {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 10px;
+  margin-bottom: 32px;
+}
+
+/* Before/after pair */
+.img-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.img-pair .img-placeholder { aspect-ratio: 4 / 3; }
+
+.img-pair-captions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+/* Closing thoughts */
+.closing-block {
+  background: linear-gradient(135deg, rgba(107,63,160,0.05), rgba(45,110,207,0.05));
+  border: 1px solid rgba(107,63,160,0.12);
+  padding: 40px 44px;
+  margin-bottom: 64px;
+}
+
+.closing-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 16px;
+}
+
+.closing-body {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.85;
+}
+
+/* Footer nav */
+.case-footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(26,26,31,0.08);
+}
+
+.case-nav-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.2s;
+}
+
+.case-nav-link:hover { color: var(--ink); }
+.case-nav-link.prev::before { content: '←'; font-family: var(--sans); font-size: 14px; }
+.case-nav-link.next::after  { content: '→'; font-family: var(--sans); font-size: 14px; }
+
+@media (max-width: 640px) {
+  .cs-page { padding: 96px 24px 72px; }
+  .meta-strip { grid-template-columns: 1fr; }
+  .meta-cell + .meta-cell { border-left: none; border-top: 1px solid rgba(26,26,31,0.08); }
+  .img-pair { grid-template-columns: 1fr; }
+  .img-pair-captions { grid-template-columns: 1fr; }
+  .closing-block { padding: 32px 28px; }
+}
+</style>
+</head>
+<body>
+
+<a href="../../index.html" class="top-logo">
+  <svg width="48" height="48" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="pyramidGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#241840"/>
+        <stop offset="55%" stop-color="#6b3fa0"/>
+        <stop offset="100%" stop-color="#2d6ecf"/>
+      </linearGradient>
+    </defs>
+    <line x1="21" y1="3"  x2="5"  y2="37" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="21" y1="3"  x2="34" y2="35" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="5"  y1="37" x2="34" y2="35" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="21" y1="3"  x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="34" y1="35" x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="5"  y1="37" x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
+  </svg>
+</a>
+
+<nav class="top-nav">
+  <a href="../../thoughts.html">Thoughts</a>
+  <a href="../../lab.html">Lab</a>
+  <a href="../../info.html">Info</a>
+</nav>
+
+<div class="deco" aria-hidden="true">
+  <svg viewBox="0 0 500 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="500" cy="396" r="90"  stroke="#b0a89e" stroke-width="0.5" opacity="0.55"/>
+    <circle cx="500" cy="396" r="180" stroke="#b0a89e" stroke-width="0.5" opacity="0.42"/>
+    <circle cx="500" cy="396" r="270" stroke="#b0a89e" stroke-width="0.5" opacity="0.30"/>
+    <circle cx="500" cy="396" r="360" stroke="#b0a89e" stroke-width="0.5" opacity="0.22"/>
+    <circle cx="500" cy="396" r="450" stroke="#b0a89e" stroke-width="0.5" opacity="0.15"/>
+    <circle cx="500" cy="396" r="560" stroke="#b0a89e" stroke-width="0.5" opacity="0.09"/>
+    <line x1="500" y1="396" x2="-20" y2="396" stroke="#b0a89e" stroke-width="0.5" opacity="0.30"/>
+    <line x1="500" y1="396" x2="500" y2="-20" stroke="#b0a89e" stroke-width="0.5" opacity="0.25"/>
+    <line x1="500" y1="396" x2="500" y2="920" stroke="#b0a89e" stroke-width="0.5" opacity="0.25"/>
+    <line x1="500" y1="396" x2="-20" y2="780" stroke="#b0a89e" stroke-width="0.5" opacity="0.22"/>
+    <line x1="500" y1="396" x2="-20" y2="10"  stroke="#b0a89e" stroke-width="0.5" opacity="0.18"/>
+    <line x1="500" y1="396" x2="120" y2="920" stroke="#b0a89e" stroke-width="0.5" opacity="0.18"/>
+  </svg>
+</div>
+
+<div class="cs-page">
+
+  <nav class="breadcrumb">
+    <a href="../../index.html">Work</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>NextHealth Technologies</span>
+  </nav>
+
+  <header>
+    <p class="case-eyebrow">Healthcare Analytics</p>
+    <h1 class="case-title">NextHealth Technologies</h1>
+    <p class="case-subtitle">components library, navigation redesign, program creation, materialUI</p>
+    <div class="meta-strip">
+      <div class="meta-cell">
+        <p class="meta-label">Role</p>
+        <p class="meta-value">Product Design Lead</p>
+      </div>
+      <div class="meta-cell">
+        <p class="meta-label">Timeline</p>
+        <p class="meta-value">Sept 2020 — Mar 2022</p>
+      </div>
+      <div class="meta-cell">
+        <p class="meta-label">Context</p>
+        <p class="meta-value">1099 Contractor · First UX hire</p>
+      </div>
+    </div>
+  </header>
+
+  <blockquote class="case-blockquote">
+    This role expanded the scope of my responsibilities as a designer and gave me the opportunity to build a design framework from scratch.
+  </blockquote>
+
+  <p class="case-intro">
+    NextHealth Technologies is a healthcare analytics platform serving health plans, ACOs, and employer groups. When I joined as the first UX hire, the product had grown organically through engineering-led development — functional, but without a cohesive design language or systematic approach to interaction. My work focused on establishing that foundation while delivering immediate improvements to key product areas.
+  </p>
+
+  <div class="section-divider"></div>
+
+  <section class="case-section">
+    <h2 class="case-section-heading">Initial Assessment</h2>
+    <p>
+      The platform had accumulated years of interface debt. Components were inconsistent across modules, navigation patterns conflicted, and there was no shared vocabulary between design and engineering. Before any redesign work could begin, I needed to map what existed — conducting a full audit of the product's UI patterns, documenting inconsistencies, and identifying which areas had the highest user-facing impact.
+    </p>
+    <p>
+      Stakeholder interviews surfaced a recurring theme: users found the platform powerful but difficult to navigate, particularly when moving between programs and reports. The audit confirmed this — there were four distinct navigation paradigms operating simultaneously with no clear hierarchy.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">UI audit findings — component inconsistency mapping</span>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2 class="case-section-heading">Addressing the Platform UI</h2>
+    <p>
+      With Material UI already embedded in the engineering stack, I made the decision to build on top of it rather than replace it. The goal was to extend the Material component library with a cohesive visual layer specific to NextHealth — establishing consistent color use, typographic hierarchy, density standards, and interaction states that could be documented and handed off systematically.
+    </p>
+    <p>
+      The before/after below shows the shift from an ad-hoc component approach to a structured design language. This work reduced design-to-dev handoff friction significantly and gave the engineering team a clear reference for new feature work.
+    </p>
+    <div class="img-pair">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+    </div>
+    <div class="img-pair-captions">
+      <span class="img-caption">Before — legacy component patterns</span>
+      <span class="img-caption">After — unified component library</span>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2 class="case-section-heading">Navigating Platform Navigation</h2>
+    <p>
+      The navigation redesign was among the most complex challenges of the engagement. The platform served different user roles — care managers, analysts, and administrators — each with distinct workflows and access requirements. The existing navigation made no distinction between these paths, surfacing everything to everyone.
+    </p>
+    <p>
+      I worked closely with the product team to define a role-aware navigation model that surfaced relevant features contextually. The restructure reduced top-level navigation items by roughly 40% while improving discoverability of key features across user testing sessions.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">Navigation architecture — before and after restructure</span>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2 class="case-section-heading">Reusable Patterns</h2>
+    <p>
+      A significant output of this engagement was a documented pattern library built in Figma — covering form elements, data table variants, filter patterns, status indicators, and modal workflows. These patterns were tied directly to Material UI component names and variants, so engineers could cross-reference the design file without ambiguity.
+    </p>
+    <p>
+      Beyond components, I documented interaction patterns: how empty states behaved, when to use inline vs. modal editing, how error states should surface across different contexts. This gave the team a shared design language that extended past my direct involvement.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">Figma component library — pattern documentation</span>
+    </div>
+  </section>
+
+  <div class="closing-block">
+    <p class="closing-label">Closing Thoughts</p>
+    <p class="closing-body">
+      This engagement taught me a lot about the shape of design influence in organizations that are new to it. With no prior design culture, nearly every conversation was also an education — making the case for process, for documentation, for slowing down to go faster. The work that had the most lasting impact wasn't any single screen, but the systems and shared language left behind when the engagement concluded.
+    </p>
+  </div>
+
+  <nav class="case-footer-nav">
+    <a href="#" class="case-nav-link prev">Previous</a>
+    <a href="#" class="case-nav-link next">Next</a>
+  </nav>
+
+</div>
+
+<button class="case-studies-tab" onclick="openDrawer()">Case Studies</button>
+
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<aside class="drawer" id="drawer" aria-label="Case Studies">
+  <div class="drawer-header">
+    <span class="drawer-title">Case Studies</span>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="14" x2="26" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <polyline points="17,5 26,14 17,23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+
+    <div class="case-card">
+      <p class="case-card-tag">Video Live Streaming</p>
+      <h3 class="case-card-title">Wowza Video</h3>
+      <p class="case-card-desc">Strategic design leadership bridging product development with sales and marketing.</p>
+      <div class="case-card-meta">
+        <span>Navigation Redesign · Platform Merge · Sales Optimization</span>
+      </div>
+    </div>
+
+    <a class="case-card" href="./index.html">
+      <p class="case-card-tag">Healthcare Analytics</p>
+      <h3 class="case-card-title">NextHealth Technologies</h3>
+      <p class="case-card-desc">Design Lead role building UX focused practices in engineering platform migration.</p>
+      <div class="case-card-meta">
+        <span>Systems Design · Figma · Components Library</span>
+      </div>
+    </a>
+
+    <div class="case-card">
+      <p class="case-card-tag">Identity Verification</p>
+      <h3 class="case-card-title">Journey</h3>
+      <p class="case-card-desc">Stealth mode startup with a variety of design needs ahead of public launch.</p>
+      <div class="case-card-meta">
+        <span>Rapid Prototyping · Mobile Telehealth Solution</span>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <p class="case-card-tag">Online Store</p>
+      <h3 class="case-card-title">Flytedesk</h3>
+      <p class="case-card-desc">Full-time internship in close collaboration with product and engineering teams.</p>
+      <div class="case-card-meta">
+        <span>User Dashboard · Responsive Ad Shop</span>
+      </div>
+    </div>
+
+  </div>
+</aside>
+
+<script src="../../js/main.js" defer></script>
+</body>
+</html>
