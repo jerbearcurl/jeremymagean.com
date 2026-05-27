@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wowza Video — Jeremy Magean</title>
+<title>Flytedesk — Jeremy Magean</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../css/styles.css">
@@ -184,23 +184,11 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   background: white;
   border: 1px solid rgba(26,26,31,0.08);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 }
 
 .img-placeholder svg { opacity: 0.2; }
-
-.img-placeholder-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 300;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  opacity: 0.7;
-}
 
 .img-caption {
   display: block;
@@ -232,35 +220,26 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   margin-bottom: 32px;
 }
 
-/* Highlights list */
-.highlights-list {
-  list-style: none;
-  margin-top: 8px;
-  margin-bottom: 32px;
-  display: flex;
-  flex-direction: column;
+/* Multi-image rows */
+.img-row-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  max-width: 660px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
-.highlights-list li {
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--ink);
-  line-height: 1.7;
-  padding-left: 20px;
-  position: relative;
+.img-row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
-.highlights-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 11px;
-  width: 6px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--violet), var(--blue));
+.img-row-4 .img-placeholder,
+.img-row-3 .img-placeholder {
+  aspect-ratio: 3 / 4;
 }
 
 /* Closing thoughts */
@@ -320,13 +299,15 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   .cs-page { padding: 96px 24px 72px; }
   .meta-strip { grid-template-columns: 1fr; }
   .meta-cell + .meta-cell { border-left: none; border-top: 1px solid rgba(26,26,31,0.08); }
-  .img-pair { grid-template-columns: 1fr; }
-  .img-pair-captions { grid-template-columns: 1fr; }
+  .img-pair { grid-template-columns: 1fr 1fr; }
+  .img-pair-captions { grid-template-columns: 1fr 1fr; }
+  .img-row-4 { grid-template-columns: repeat(2, 1fr); }
+  .img-row-3 { grid-template-columns: repeat(3, 1fr); }
   .closing-block { padding: 32px 28px; }
 }
 </style>
 </head>
-<body data-case="wowza-video">
+<body data-case="flytedesk">
 
 <a href="../../index.html" class="top-logo">
   <svg width="48" height="48" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -374,42 +355,43 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   <nav class="breadcrumb">
     <a href="../../index.html">Work</a>
     <span class="breadcrumb-sep">/</span>
-    <span>Wowza Video</span>
+    <span>Flytedesk</span>
   </nav>
 
   <header>
-    <p class="case-eyebrow">Video Live Streaming</p>
-    <h1 class="case-title">Wowza Video</h1>
-    <p class="case-subtitle">navigation redesign, platform merge, sales funnel optimization</p>
+    <p class="case-eyebrow">College Media Advertising</p>
+    <h1 class="case-title">Flytedesk</h1>
+    <p class="case-subtitle">user dashboard + responsive ad shop</p>
     <div class="meta-strip">
       <div class="meta-cell">
         <p class="meta-label">Role</p>
-        <p class="meta-value">Design Lead, Product Organization</p>
+        <p class="meta-value">Digital Product Design</p>
       </div>
       <div class="meta-cell">
         <p class="meta-label">Timeline</p>
-        <p class="meta-value">Full-time role</p>
+        <p class="meta-value">May — Aug 2019</p>
       </div>
       <div class="meta-cell">
         <p class="meta-label">Context</p>
-        <p class="meta-value">Sole designer · 150+ person company</p>
+        <p class="meta-value">Full-time internship · Agile team</p>
       </div>
     </div>
   </header>
 
   <blockquote class="case-blockquote">
-    Working at Wowza was my first opportunity to contribute to strategic planning in a full time design role, reporting directly to the VP of Product and meeting on a regular cadence with the CEO.
+    Spending the summer working with Flytedesk was a valuable and eye-opening introduction to the daily life of a designer out in the wild.
   </blockquote>
+
+  <p class="case-intro">
+    The internship meant wearing multiple hats in a fast-moving startup environment. A single engineering team led by the VP of Product and one product designer defined the rhythm of the work — tasks were scoped in direct support of their efforts, touching multiple projects over the course of the summer rather than going deep on a single feature. That breadth turned out to be one of the most valuable parts of the experience.
+  </p>
 
   <div class="section-divider"></div>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Filling the Funnel</h2>
+    <h2 class="case-section-heading">Flytedesk 101</h2>
     <p>
-      Joining as the sole designer at a 150+ person company meant getting up to speed quickly. Early weeks were spent gathering landscape intel — reviewing analytics, sitting in on sales calls, and conducting informal interviews with customer success and marketing. The goal was to understand where the product was losing people before building anything new.
-    </p>
-    <p>
-      Those conversations surfaced three emerging priorities that would shape the work ahead: increase sales funnel conversions through an improved trial experience, continue refining the UI redesign and product rebrand already underway, and improve an inefficient internal process for capturing and communicating product requirements across teams.
+      Flytedesk connects local businesses and national brands with college media advertising opportunities — giving advertisers a single platform to reach the college audience across a wide range of formats. Alongside traditional print and digital ads, the platform offered on-campus placements including billboards, digital signs, stickers, and street teams, all purchasable through the platform's Ad Shop. The breadth of inventory was impressive and, it turned out, part of what made the product so complex to design for.
     </p>
     <div class="img-wrap">
       <div class="img-placeholder">
@@ -419,29 +401,49 @@ a.top-logo:hover svg line { stroke: var(--ink); }
           <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
         </svg>
       </div>
-      <span class="img-caption">Discovery phase — landscape research and priority mapping</span>
+      <span class="img-caption">Flytedesk platform — Ad Shop and inventory overview</span>
     </div>
   </section>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Choose Your Own Adventure</h2>
+    <h2 class="case-section-heading">Inventory and Tagging: Admin Tracking Tables</h2>
     <p>
-      Trial abandonment was the most pressing conversion problem. Outdated visuals and complicated form fields were creating friction before users ever reached the product. A competitive analysis of peer platforms revealed how far the trial onboarding experience had fallen behind — most competitors had reduced their sign-up to under three fields and led immediately into a guided first-use moment.
+      One of the first projects was designing low fidelity wireframes for internal admins to track and manage tags — representations of advertising inventory across the platform. The work reinforced an appreciation for well-organized data and surfaced the real difficulty of constraining large amounts of content into a single coherent view without losing context or creating new friction.
     </p>
-    <p>
-      To move quickly and build internal alignment, I facilitated a two-day onsite working session with stakeholders from product, marketing, and sales. The goal was to map the full trial journey, identify drop-off moments, and generate ideas across disciplines rather than passing documents back and forth. What came out of it shaped the redesigned trial flow directly.
-    </p>
-    <div class="img-wrap">
+    <div class="img-row-4">
       <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
           <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
           <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
         </svg>
-        <span class="img-placeholder-label">Image carousel</span>
       </div>
-      <span class="img-caption">Onsite workshop — trial journey mapping</span>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
     </div>
+    <span class="img-caption">Low fidelity wireframes — admin tag tracking table iterations</span>
+    <p>
+      User testing with internal stakeholders uncovered three specific needs that shaped the next iteration: a simple way to assign user-generated tags to a global super tag for organizational clarity, the ability to exclude irrelevant tags from a given view, and an option to create and manage new products directly within the table rather than navigating away.
+    </p>
     <div class="img-pair">
       <div class="img-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -459,18 +461,106 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
     </div>
     <div class="img-pair-captions">
-      <span class="img-caption">Before — original trial sign-up flow</span>
-      <span class="img-caption">After — redesigned onboarding experience</span>
+      <span class="img-caption">Before — initial table layout</span>
+      <span class="img-caption">After — refined with user testing findings</span>
+    </div>
+    <p>
+      Continued work on the inventory page led to the introduction of a slide-out drawer with tabs for critical user actions — a pattern that kept the table uncluttered while surfacing the full range of controls when needed. The solution was later approved and released to production.
+    </p>
+    <div class="img-row-3">
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+    </div>
+    <span class="img-caption">Slide-out drawer — tabbed actions panel, approved for production</span>
+  </section>
+
+  <section class="case-section">
+    <h2 class="case-section-heading">User Dashboard</h2>
+    <p>
+      Attending cross-departmental meetings early on provided a broader view of the company's needs beyond any single feature. During a brainstorming session focused on customer communication, it became clear that a high volume of transactional emails was creating noise for users and support overhead for the team. Suggesting a dashboard as a way to consolidate that information landed well — the idea evolved through power-user interviews and ultimately into a high fidelity mockup. A basic MVP of the dashboard concept went live in production in November 2019.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">Dashboard — high fidelity mockup, MVP released Nov 2019</span>
+    </div>
+    <p>
+      The dashboard was designed to enable users to access pending actions, verifications, and general notifications alongside trackable campaign statuses — all from a single view. Rather than hunting through emails or navigating multiple sections of the platform, users could arrive at a meaningful overview of everything that needed their attention.
+    </p>
+    <div class="img-row-4">
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="img-placeholder">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+    </div>
+    <span class="img-caption">Dashboard — component explorations and layout iterations</span>
+    <p>
+      A second round of user testing following the low fidelity wireframes revealed a clear preference: users wanted notifications as the main focal point rather than campaign status. That insight reordered the hierarchy of the dashboard and informed which elements received the most visual weight. The long-term vision was a fully customizable dashboard with user-configurable widgets, giving different personas — advertisers, publishers, admins — the ability to tailor their view to their own workflow.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">Dashboard — notification-first layout after second round of user testing</span>
     </div>
   </section>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Interfacing</h2>
+    <h2 class="case-section-heading">Responsive Ad Shop</h2>
     <p>
-      The visual redesign of Wowza Video was already in motion when I joined — brand direction had been established, but the execution was fragmented. My first task was importing the existing Sketch files into Figma and establishing a working component library that engineering could reference consistently. That alone reduced the back-and-forth on implementation questions significantly.
-    </p>
-    <p>
-      One of the more impactful early wins was solving the empty dashboard problem. New users landing in an empty product with no guidance were churning before reaching their first value moment. I designed a system of contextual prompts and getting-started links that surfaced the right action at the right time — reducing the gap between sign-up and first meaningful use.
+      The Ad Shop had been built and optimized for desktop — but local business advertising sales often happened in the field, on tablets and phones. That disconnect was a real problem. Starting with sketches of the existing desktop Ad Shop to understand its structure, I then moved into brainstorming sessions to explore how the layout could adapt to small screen constraints without losing the browsability that made the shop functional.
     </p>
     <div class="img-pair">
       <div class="img-placeholder">
@@ -489,24 +579,11 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
     </div>
     <div class="img-pair-captions">
-      <span class="img-caption">Before — fragmented visual language</span>
-      <span class="img-caption">After — unified Figma component system</span>
+      <span class="img-caption">Desktop Ad Shop — sketches and structural analysis</span>
+      <span class="img-caption">Small screen — layout brainstorm explorations</span>
     </div>
-    <ul class="highlights-list">
-      <li>Improved navigation contrast and hierarchy to reduce cognitive load across the primary sidebar</li>
-      <li>Removed the persistent trial banner that was visually dominating the interface and creating anxiety rather than urgency</li>
-      <li>Established a clearer visual hierarchy within the content panel so users could orient quickly to the task at hand</li>
-      <li>Introduced useful getting started content into the empty state experience to guide new users toward their first action</li>
-    </ul>
-  </section>
-
-  <section class="case-section">
-    <h2 class="case-section-heading">Cross-functional Communication</h2>
     <p>
-      One of the more unexpected dimensions of this role was stepping into a cross-functional facilitator position. As the sole designer embedded in the product organization, I became a natural connective point between departments that weren't communicating efficiently — particularly product, engineering, and marketing.
-    </p>
-    <p>
-      I introduced a lightweight requirements process that gave each team a consistent format for submitting and reviewing work, replacing informal Slack threads and misaligned email chains. Whiteboarding sessions that had previously been ad-hoc became structured touchpoints with clear outputs. Over time, the process improvements were as visible as the design work itself.
+      Digital mockups followed for both mobile and tablet screen sizes, working through the specific layout decisions each breakpoint required.
     </p>
     <div class="img-wrap">
       <div class="img-placeholder">
@@ -515,9 +592,21 @@ a.top-logo:hover svg line { stroke: var(--ink); }
           <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
         </svg>
-        <span class="img-placeholder-label">Image carousel</span>
       </div>
-      <span class="img-caption">Cross-functional workshops — process documentation</span>
+      <span class="img-caption">Responsive Ad Shop — mobile and tablet mockups</span>
+    </div>
+    <p>
+      The exploration also surfaced options for new mobile-friendly display formats, including publisher branding treatments that could give the Ad Shop a more tailored feel for different college media networks.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">Mobile display options — publisher branding explorations</span>
     </div>
     <div class="img-wrap">
       <div class="img-placeholder">
@@ -527,20 +616,23 @@ a.top-logo:hover svg line { stroke: var(--ink); }
           <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
         </svg>
       </div>
-      <span class="img-caption">Requirements framework — cross-team communication template</span>
+      <span class="img-caption">Publisher branding — alternative display treatments</span>
     </div>
+    <p>
+      The responsive Ad Shop ultimately fell outside the scope of what could be completed within the internship timeline. Identified next steps included contextual inquiry with publisher field reps to better understand how they used the platform in real selling situations, and dedicated research on the local buyer persona to inform layout priorities for a future responsive release.
+    </p>
   </section>
 
   <div class="closing-block">
-    <p class="closing-label">Closing Thoughts</p>
+    <p class="closing-label">Summary</p>
     <p class="closing-body">
-      This role reinforced something I carry into every engagement: clearly defined goals and genuine team alignment are prerequisites for good design work, not outcomes of it. Being included in strategic conversations from the start — sitting in the room with the VP of Product and the CEO — meant the work was grounded in business reality rather than design assumptions. Looking back, the value created here wasn't just in screens shipped, but in the connective tissue built between teams that hadn't previously had a shared language.
+      The Flytedesk team was consistently looking for ways to improve and genuinely open to suggestions — even from an intern. That openness made the work feel meaningful rather than peripheral. The complexity of the college media world also made the product more nuanced than anticipated: the range of inventory types, buyer personas, and publisher relationships meant that almost every design decision had a wrinkle worth examining. Most memorably, the value of constant dialogue with satisfied customers became concrete here — a half hour chat with a power user provided more actionable insight than hours of internal speculation.
     </p>
   </div>
 
   <nav class="case-footer-nav">
-    <a href="#" class="case-nav-link prev">Previous</a>
-    <a href="../nexthealth-technologies/index.html" class="case-nav-link next">Next</a>
+    <a href="../journeyid/index.html" class="case-nav-link prev">Previous</a>
+    <a href="#" class="case-nav-link next">Next</a>
   </nav>
 
 </div>
@@ -561,7 +653,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   </div>
   <div class="drawer-body">
 
-    <a class="case-card" href="./index.html" data-case="wowza-video">
+    <a class="case-card" href="../wowza-video/index.html" data-case="wowza-video">
       <p class="case-card-tag">Video Live Streaming</p>
       <h3 class="case-card-title">Wowza Video</h3>
       <p class="case-card-desc">Strategic design leadership bridging product development with sales and marketing.</p>
@@ -588,7 +680,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
     </a>
 
-    <a class="case-card" href="../flytedesk/index.html" data-case="flytedesk">
+    <a class="case-card" href="./index.html" data-case="flytedesk">
       <p class="case-card-tag">Online Store</p>
       <h3 class="case-card-title">Flytedesk</h3>
       <p class="case-card-desc">Full-time internship in close collaboration with product and engineering teams.</p>
