@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextHealth Technologies — Jeremy Magean</title>
+<title>JourneyID — Jeremy Magean</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../css/styles.css">
@@ -165,6 +165,19 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   margin-bottom: 20px;
 }
 
+.case-subsection-heading {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-top: 40px;
+  margin-bottom: 16px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(26,26,31,0.08);
+}
+
 .case-section p {
   font-family: var(--sans);
   font-size: 15px;
@@ -184,8 +197,10 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   background: white;
   border: 1px solid rgba(26,26,31,0.08);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .img-placeholder svg { opacity: 0.2; }
@@ -283,7 +298,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
 }
 </style>
 </head>
-<body data-case="nexthealth-technologies">
+<body data-case="journeyid">
 
 <a href="../../index.html" class="top-logo">
   <svg width="48" height="48" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -331,96 +346,42 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   <nav class="breadcrumb">
     <a href="../../index.html">Work</a>
     <span class="breadcrumb-sep">/</span>
-    <span>NextHealth Technologies</span>
+    <span>JourneyID</span>
   </nav>
 
   <header>
-    <p class="case-eyebrow">Healthcare Analytics</p>
-    <h1 class="case-title">NextHealth Technologies</h1>
-    <p class="case-subtitle">components library, navigation redesign, program creation, materialUI</p>
+    <p class="case-eyebrow">Identity Verification</p>
+    <h1 class="case-title">JourneyID</h1>
+    <p class="case-subtitle">simplified identity verification, mobile telehealth solution</p>
     <div class="meta-strip">
       <div class="meta-cell">
         <p class="meta-label">Role</p>
-        <p class="meta-value">Product Design Lead</p>
+        <p class="meta-value">Visual Design + Rapid Prototyping</p>
       </div>
       <div class="meta-cell">
         <p class="meta-label">Timeline</p>
-        <p class="meta-value">Sept 2020 — Mar 2022</p>
+        <p class="meta-value">Jan — Sept 2020</p>
       </div>
       <div class="meta-cell">
         <p class="meta-label">Context</p>
-        <p class="meta-value">1099 Contractor · First UX hire</p>
+        <p class="meta-value">Stealth mode startup · Pre-launch</p>
       </div>
     </div>
   </header>
 
   <blockquote class="case-blockquote">
-    This role expanded the scope of my responsibilities as a designer and gave me the opportunity to build a design framework from scratch.
+    Working with Journey was a fast paced learning opportunity. Prior experience in startup environments provided a reference point for wearing multiple hats and allowed me to create value across app development, marketing and sales.
   </blockquote>
-
-  <p class="case-intro">
-    NextHealth Technologies is a healthcare analytics platform serving health plans, ACOs, and employer groups. When I joined as the first UX hire, the product had grown organically through engineering-led development — functional, but without a cohesive design language or systematic approach to interaction. My work focused on establishing that foundation while delivering immediate improvements to key product areas.
-  </p>
 
   <div class="section-divider"></div>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Initial Assessment</h2>
+    <h2 class="case-section-heading">Early Stage Needs</h2>
     <p>
-      The platform had accumulated years of interface debt. Components were inconsistent across modules, navigation patterns conflicted, and there was no shared vocabulary between design and engineering. Before any redesign work could begin, I needed to map what existed — conducting a full audit of the product's UI patterns, documenting inconsistencies, and identifying which areas had the highest user-facing impact.
+      Journey provided identity verification solutions for digital applications — helping businesses confirm who their users are through document scanning, biometric checks, and real-time validation flows. I was initially brought in on a short-term basis to support specific design needs, but the scope evolved quickly into a broader full-time engagement as the team recognized the range of design challenges ahead of their public launch.
     </p>
     <p>
-      Stakeholder interviews surfaced a recurring theme: users found the platform powerful but difficult to navigate, particularly when moving between programs and reports. The audit confirmed this — there were four distinct navigation paradigms operating simultaneously with no clear hierarchy.
-    </p>
-    <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">UI audit findings — component inconsistency mapping</span>
-    </div>
-  </section>
-
-  <section class="case-section">
-    <h2 class="case-section-heading">Addressing the Platform UI</h2>
-    <p>
-      With Material UI already embedded in the engineering stack, I made the decision to build on top of it rather than replace it. The goal was to extend the Material component library with a cohesive visual layer specific to NextHealth — establishing consistent color use, typographic hierarchy, density standards, and interaction states that could be documented and handed off systematically.
-    </p>
-    <p>
-      The before/after below shows the shift from an ad-hoc component approach to a structured design language. This work reduced design-to-dev handoff friction significantly and gave the engineering team a clear reference for new feature work.
-    </p>
-    <div class="img-pair">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-    </div>
-    <div class="img-pair-captions">
-      <span class="img-caption">Before — legacy component patterns</span>
-      <span class="img-caption">After — unified component library</span>
-    </div>
-  </section>
-
-  <section class="case-section">
-    <h2 class="case-section-heading">Navigating Platform Navigation</h2>
-    <p>
-      The navigation redesign was among the most complex challenges of the engagement. The platform served different user roles — care managers, analysts, and administrators — each with distinct workflows and access requirements. The existing navigation made no distinction between these paths, surfacing everything to everyone.
-    </p>
-    <p>
-      I worked closely with the product team to define a role-aware navigation model that surfaced relevant features contextually. The restructure reduced top-level navigation items by roughly 40% while improving discoverability of key features across user testing sessions.
+      Early work involved supporting a senior designer whose focus was the company website, while I took ownership of product-facing design across the application suite. The nature of a pre-launch startup meant projects shifted constantly — one week deep in UI flows, the next producing sales collateral or working through marketing concepts. That dynamic became a defining feature of the engagement rather than a distraction from it.
     </p>
     <div class="img-wrap">
       <div class="img-placeholder">
@@ -430,17 +391,17 @@ a.top-logo:hover svg line { stroke: var(--ink); }
           <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
         </svg>
       </div>
-      <span class="img-caption">Navigation architecture — before and after restructure</span>
+      <span class="img-caption">Early stage — product and brand design overview</span>
     </div>
   </section>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Reusable Patterns</h2>
+    <h2 class="case-section-heading">Identity Verification App</h2>
     <p>
-      A significant output of this engagement was a documented pattern library built in Figma — covering form elements, data table variants, filter patterns, status indicators, and modal workflows. These patterns were tied directly to Material UI component names and variants, so engineers could cross-reference the design file without ambiguity.
+      Two demo applications were central to Journey's investor storytelling — they needed to work flawlessly and communicate the product's value clearly to non-technical audiences. I took on the task of improving both: updating flows based on accumulated user input, addressing bugs surfaced during internal testing, and tightening the visual presentation to match where the brand was heading.
     </p>
     <p>
-      Beyond components, I documented interaction patterns: how empty states behaved, when to use inline vs. modal editing, how error states should surface across different contexts. This gave the team a shared design language that extended past my direct involvement.
+      A sponsored event provided an unexpected source of real-world feedback — putting the demo applications in front of actual users outside the company for the first time and revealing friction points that internal review hadn't caught. Responsive design across screen sizes was an ongoing consideration, particularly for the agent dashboard which needed to function reliably across a wide range of device configurations used by field teams.
     </p>
     <div class="img-wrap">
       <div class="img-placeholder">
@@ -450,20 +411,78 @@ a.top-logo:hover svg line { stroke: var(--ink); }
           <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
         </svg>
       </div>
-      <span class="img-caption">Figma component library — pattern documentation</span>
+      <span class="img-caption">Identity verification app — demo flows and investor presentation</span>
+    </div>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">Agent dashboard — responsive design across screen sizes</span>
+    </div>
+    <p>
+      A parallel mobile application extended the core identity verification patterns into a native context, adding features for secure calls and seamless transfers between agents. Designing for mobile introduced constraints around touch targets, session continuity, and the specific trust signals users needed when handing sensitive information through a phone-based interface.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">Mobile app — secure calls and seamless agent transfers</span>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2 class="case-section-heading">Telehealth Iteration</h2>
+    <p>
+      A significant extension of the engagement involved creating a telehealth application that leveraged Journey's existing identity verification infrastructure with an added layer of healthcare-specific functionality. The application needed to support appointment setting, video calling, and payment — each of which introduced its own design requirements while building on the verification patterns already established.
+    </p>
+    <p>
+      Designing a product at the intersection of identity verification and telehealth meant navigating a high bar for trust and clarity. Users needed to feel confident that their identity was protected while also moving fluidly through appointment and payment flows that had to compete with dedicated, mature healthcare apps.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">Telehealth app — appointment, video, and payment flows</span>
+    </div>
+
+    <h3 class="case-subsection-heading">Rapid Prototyping</h3>
+    <p>
+      Alongside the product work, I supported the business development team with same-day mockup turnarounds tailored to specific client conversations. These weren't polished final designs — they were fast, credible representations of how Journey's platform could integrate into a prospective client's existing brand and workflow. Mirroring client branding accurately and quickly was the key skill: the goal was for a prospect to see their own product reflected back at them, powered by Journey's infrastructure.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <span class="img-caption">Rapid prototyping — client-branded mockups for business development</span>
     </div>
   </section>
 
   <div class="closing-block">
-    <p class="closing-label">Closing Thoughts</p>
+    <p class="closing-label">Takeaways</p>
     <p class="closing-body">
-      This engagement taught me a lot about the shape of design influence in organizations that are new to it. With no prior design culture, nearly every conversation was also an education — making the case for process, for documentation, for slowing down to go faster. The work that had the most lasting impact wasn't any single screen, but the systems and shared language left behind when the engagement concluded.
+      This engagement offered a valuable contrast to the more structured design process I had experienced at Flytedesk. The constant shifting of context — from product UI to sales collateral to investor demos — expanded my skillset quickly and built a kind of adaptability that slower-paced environments rarely demand. At the same time, it deepened my appreciation for the benefits of a more methodical approach to design: clear briefs, defined scope, and time to iterate properly. Both modes have their place, and having worked in both made me a more versatile designer.
     </p>
   </div>
 
   <nav class="case-footer-nav">
-    <a href="../wowza-video/index.html" class="case-nav-link prev">Previous</a>
-    <a href="../journeyid/index.html" class="case-nav-link next">Next</a>
+    <a href="../nexthealth-technologies/index.html" class="case-nav-link prev">Previous</a>
+    <a href="#" class="case-nav-link next">Next</a>
   </nav>
 
 </div>
@@ -493,7 +512,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
     </a>
 
-    <a class="case-card" href="./index.html" data-case="nexthealth-technologies">
+    <a class="case-card" href="../nexthealth-technologies/index.html" data-case="nexthealth-technologies">
       <p class="case-card-tag">Healthcare Analytics</p>
       <h3 class="case-card-title">NextHealth Technologies</h3>
       <p class="case-card-desc">Design Lead role building UX focused practices in engineering platform migration.</p>
@@ -502,7 +521,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
     </a>
 
-    <a class="case-card" href="../journeyid/index.html" data-case="journeyid">
+    <a class="case-card" href="./index.html" data-case="journeyid">
       <p class="case-card-tag">Identity Verification</p>
       <h3 class="case-card-title">JourneyID</h3>
       <p class="case-card-desc">Stealth mode startup with a variety of design needs ahead of public launch.</p>

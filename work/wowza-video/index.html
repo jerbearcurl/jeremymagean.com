@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextHealth Technologies — Jeremy Magean</title>
+<title>Wowza Video — Jeremy Magean</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../css/styles.css">
@@ -184,11 +184,23 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   background: white;
   border: 1px solid rgba(26,26,31,0.08);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .img-placeholder svg { opacity: 0.2; }
+
+.img-placeholder-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.7;
+}
 
 .img-caption {
   display: block;
@@ -218,6 +230,37 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-bottom: 32px;
+}
+
+/* Highlights list */
+.highlights-list {
+  list-style: none;
+  margin-top: 8px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 660px;
+}
+
+.highlights-list li {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.7;
+  padding-left: 20px;
+  position: relative;
+}
+
+.highlights-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--violet), var(--blue));
 }
 
 /* Closing thoughts */
@@ -283,7 +326,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
 }
 </style>
 </head>
-<body data-case="nexthealth-technologies">
+<body data-case="wowza-video">
 
 <a href="../../index.html" class="top-logo">
   <svg width="48" height="48" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -331,46 +374,42 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   <nav class="breadcrumb">
     <a href="../../index.html">Work</a>
     <span class="breadcrumb-sep">/</span>
-    <span>NextHealth Technologies</span>
+    <span>Wowza Video</span>
   </nav>
 
   <header>
-    <p class="case-eyebrow">Healthcare Analytics</p>
-    <h1 class="case-title">NextHealth Technologies</h1>
-    <p class="case-subtitle">components library, navigation redesign, program creation, materialUI</p>
+    <p class="case-eyebrow">Video Live Streaming</p>
+    <h1 class="case-title">Wowza Video</h1>
+    <p class="case-subtitle">navigation redesign, platform merge, sales funnel optimization</p>
     <div class="meta-strip">
       <div class="meta-cell">
         <p class="meta-label">Role</p>
-        <p class="meta-value">Product Design Lead</p>
+        <p class="meta-value">Design Lead, Product Organization</p>
       </div>
       <div class="meta-cell">
         <p class="meta-label">Timeline</p>
-        <p class="meta-value">Sept 2020 — Mar 2022</p>
+        <p class="meta-value">Full-time role</p>
       </div>
       <div class="meta-cell">
         <p class="meta-label">Context</p>
-        <p class="meta-value">1099 Contractor · First UX hire</p>
+        <p class="meta-value">Sole designer · 150+ person company</p>
       </div>
     </div>
   </header>
 
   <blockquote class="case-blockquote">
-    This role expanded the scope of my responsibilities as a designer and gave me the opportunity to build a design framework from scratch.
+    Working at Wowza was my first opportunity to contribute to strategic planning in a full time design role, reporting directly to the VP of Product and meeting on a regular cadence with the CEO.
   </blockquote>
-
-  <p class="case-intro">
-    NextHealth Technologies is a healthcare analytics platform serving health plans, ACOs, and employer groups. When I joined as the first UX hire, the product had grown organically through engineering-led development — functional, but without a cohesive design language or systematic approach to interaction. My work focused on establishing that foundation while delivering immediate improvements to key product areas.
-  </p>
 
   <div class="section-divider"></div>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Initial Assessment</h2>
+    <h2 class="case-section-heading">Filling the Funnel</h2>
     <p>
-      The platform had accumulated years of interface debt. Components were inconsistent across modules, navigation patterns conflicted, and there was no shared vocabulary between design and engineering. Before any redesign work could begin, I needed to map what existed — conducting a full audit of the product's UI patterns, documenting inconsistencies, and identifying which areas had the highest user-facing impact.
+      Joining as the sole designer at a 150+ person company meant getting up to speed quickly. Early weeks were spent gathering landscape intel — reviewing analytics, sitting in on sales calls, and conducting informal interviews with customer success and marketing. The goal was to understand where the product was losing people before building anything new.
     </p>
     <p>
-      Stakeholder interviews surfaced a recurring theme: users found the platform powerful but difficult to navigate, particularly when moving between programs and reports. The audit confirmed this — there were four distinct navigation paradigms operating simultaneously with no clear hierarchy.
+      Those conversations surfaced three emerging priorities that would shape the work ahead: increase sales funnel conversions through an improved trial experience, continue refining the UI redesign and product rebrand already underway, and improve an inefficient internal process for capturing and communicating product requirements across teams.
     </p>
     <div class="img-wrap">
       <div class="img-placeholder">
@@ -380,17 +419,58 @@ a.top-logo:hover svg line { stroke: var(--ink); }
           <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
         </svg>
       </div>
-      <span class="img-caption">UI audit findings — component inconsistency mapping</span>
+      <span class="img-caption">Discovery phase — landscape research and priority mapping</span>
     </div>
   </section>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Addressing the Platform UI</h2>
+    <h2 class="case-section-heading">Choose Your Own Adventure</h2>
     <p>
-      With Material UI already embedded in the engineering stack, I made the decision to build on top of it rather than replace it. The goal was to extend the Material component library with a cohesive visual layer specific to NextHealth — establishing consistent color use, typographic hierarchy, density standards, and interaction states that could be documented and handed off systematically.
+      Trial abandonment was the most pressing conversion problem. Outdated visuals and complicated form fields were creating friction before users ever reached the product. A competitive analysis of peer platforms revealed how far the trial onboarding experience had fallen behind — most competitors had reduced their sign-up to under three fields and led immediately into a guided first-use moment.
     </p>
     <p>
-      The before/after below shows the shift from an ad-hoc component approach to a structured design language. This work reduced design-to-dev handoff friction significantly and gave the engineering team a clear reference for new feature work.
+      To move quickly and build internal alignment, I facilitated a two-day onsite working session with stakeholders from product, marketing, and sales. The goal was to map the full trial journey, identify drop-off moments, and generate ideas across disciplines rather than passing documents back and forth. What came out of it shaped the redesigned trial flow directly.
+    </p>
+    <div class="img-wrap">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+        <span class="img-placeholder-label">Image carousel</span>
+      </div>
+      <span class="img-caption">Onsite workshop — trial journey mapping</span>
+    </div>
+    <div class="img-pair">
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
+          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
+        </svg>
+      </div>
+    </div>
+    <div class="img-pair-captions">
+      <span class="img-caption">Before — original trial sign-up flow</span>
+      <span class="img-caption">After — redesigned onboarding experience</span>
+    </div>
+  </section>
+
+  <section class="case-section">
+    <h2 class="case-section-heading">Interfacing</h2>
+    <p>
+      The visual redesign of Wowza Video was already in motion when I joined — brand direction had been established, but the execution was fragmented. My first task was importing the existing Sketch files into Figma and establishing a working component library that engineering could reference consistently. That alone reduced the back-and-forth on implementation questions significantly.
+    </p>
+    <p>
+      One of the more impactful early wins was solving the empty dashboard problem. New users landing in an empty product with no guidance were churning before reaching their first value moment. I designed a system of contextual prompts and getting-started links that surfaced the right action at the right time — reducing the gap between sign-up and first meaningful use.
     </p>
     <div class="img-pair">
       <div class="img-placeholder">
@@ -409,18 +489,24 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
     </div>
     <div class="img-pair-captions">
-      <span class="img-caption">Before — legacy component patterns</span>
-      <span class="img-caption">After — unified component library</span>
+      <span class="img-caption">Before — fragmented visual language</span>
+      <span class="img-caption">After — unified Figma component system</span>
     </div>
+    <ul class="highlights-list">
+      <li>Improved navigation contrast and hierarchy to reduce cognitive load across the primary sidebar</li>
+      <li>Removed the persistent trial banner that was visually dominating the interface and creating anxiety rather than urgency</li>
+      <li>Established a clearer visual hierarchy within the content panel so users could orient quickly to the task at hand</li>
+      <li>Introduced useful getting started content into the empty state experience to guide new users toward their first action</li>
+    </ul>
   </section>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Navigating Platform Navigation</h2>
+    <h2 class="case-section-heading">Cross-functional Communication</h2>
     <p>
-      The navigation redesign was among the most complex challenges of the engagement. The platform served different user roles — care managers, analysts, and administrators — each with distinct workflows and access requirements. The existing navigation made no distinction between these paths, surfacing everything to everyone.
+      One of the more unexpected dimensions of this role was stepping into a cross-functional facilitator position. As the sole designer embedded in the product organization, I became a natural connective point between departments that weren't communicating efficiently — particularly product, engineering, and marketing.
     </p>
     <p>
-      I worked closely with the product team to define a role-aware navigation model that surfaced relevant features contextually. The restructure reduced top-level navigation items by roughly 40% while improving discoverability of key features across user testing sessions.
+      I introduced a lightweight requirements process that gave each team a consistent format for submitting and reviewing work, replacing informal Slack threads and misaligned email chains. Whiteboarding sessions that had previously been ad-hoc became structured touchpoints with clear outputs. Over time, the process improvements were as visible as the design work itself.
     </p>
     <div class="img-wrap">
       <div class="img-placeholder">
@@ -429,19 +515,10 @@ a.top-logo:hover svg line { stroke: var(--ink); }
           <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
         </svg>
+        <span class="img-placeholder-label">Image carousel</span>
       </div>
-      <span class="img-caption">Navigation architecture — before and after restructure</span>
+      <span class="img-caption">Cross-functional workshops — process documentation</span>
     </div>
-  </section>
-
-  <section class="case-section">
-    <h2 class="case-section-heading">Reusable Patterns</h2>
-    <p>
-      A significant output of this engagement was a documented pattern library built in Figma — covering form elements, data table variants, filter patterns, status indicators, and modal workflows. These patterns were tied directly to Material UI component names and variants, so engineers could cross-reference the design file without ambiguity.
-    </p>
-    <p>
-      Beyond components, I documented interaction patterns: how empty states behaved, when to use inline vs. modal editing, how error states should surface across different contexts. This gave the team a shared design language that extended past my direct involvement.
-    </p>
     <div class="img-wrap">
       <div class="img-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -450,20 +527,20 @@ a.top-logo:hover svg line { stroke: var(--ink); }
           <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
         </svg>
       </div>
-      <span class="img-caption">Figma component library — pattern documentation</span>
+      <span class="img-caption">Requirements framework — cross-team communication template</span>
     </div>
   </section>
 
   <div class="closing-block">
     <p class="closing-label">Closing Thoughts</p>
     <p class="closing-body">
-      This engagement taught me a lot about the shape of design influence in organizations that are new to it. With no prior design culture, nearly every conversation was also an education — making the case for process, for documentation, for slowing down to go faster. The work that had the most lasting impact wasn't any single screen, but the systems and shared language left behind when the engagement concluded.
+      This role reinforced something I carry into every engagement: clearly defined goals and genuine team alignment are prerequisites for good design work, not outcomes of it. Being included in strategic conversations from the start — sitting in the room with the VP of Product and the CEO — meant the work was grounded in business reality rather than design assumptions. Looking back, the value created here wasn't just in screens shipped, but in the connective tissue built between teams that hadn't previously had a shared language.
     </p>
   </div>
 
   <nav class="case-footer-nav">
-    <a href="../wowza-video/index.html" class="case-nav-link prev">Previous</a>
-    <a href="../journeyid/index.html" class="case-nav-link next">Next</a>
+    <a href="#" class="case-nav-link prev">Previous</a>
+    <a href="../nexthealth-technologies/index.html" class="case-nav-link next">Next</a>
   </nav>
 
 </div>
@@ -484,7 +561,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   </div>
   <div class="drawer-body">
 
-    <a class="case-card" href="../wowza-video/index.html" data-case="wowza-video">
+    <a class="case-card" href="./index.html" data-case="wowza-video">
       <p class="case-card-tag">Video Live Streaming</p>
       <h3 class="case-card-title">Wowza Video</h3>
       <p class="case-card-desc">Strategic design leadership bridging product development with sales and marketing.</p>
@@ -493,7 +570,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
     </a>
 
-    <a class="case-card" href="./index.html" data-case="nexthealth-technologies">
+    <a class="case-card" href="../nexthealth-technologies/index.html" data-case="nexthealth-technologies">
       <p class="case-card-tag">Healthcare Analytics</p>
       <h3 class="case-card-title">NextHealth Technologies</h3>
       <p class="case-card-desc">Design Lead role building UX focused practices in engineering platform migration.</p>

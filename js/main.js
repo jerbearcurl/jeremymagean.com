@@ -9,6 +9,11 @@ function openDrawer() {
   document.getElementById('drawer').classList.add('open');
   document.getElementById('drawerOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  const currentCase = document.body.dataset.case;
+  document.querySelectorAll('.case-card').forEach(function(card) {
+    card.classList.toggle('active', !!currentCase && card.dataset.case === currentCase);
+  });
 }
 
 function closeDrawer() {
