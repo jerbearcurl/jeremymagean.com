@@ -359,19 +359,30 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   </blockquote>
 
   <p class="case-intro">
-    NextHealth Technologies is a healthcare analytics platform serving health plans, ACOs, and employer groups. When I joined as the first UX hire, the product had grown organically through engineering-led development — functional, but without a cohesive design language or systematic approach to interaction. My work focused on establishing that foundation while delivering immediate improvements to key product areas.
+    I'm contractually limited in what I can share due to the nature of the industry but will cover high level frameworks and reasoning behind my approach below.
   </p>
 
   <div class="section-divider"></div>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Initial Assessment</h2>
+    <h2 class="case-section-heading">Backstory</h2>
     <p>
-      The platform had accumulated years of interface debt. Components were inconsistent across modules, navigation patterns conflicted, and there was no shared vocabulary between design and engineering. Before any redesign work could begin, I needed to map what existed — conducting a full audit of the product's UI patterns, documenting inconsistencies, and identifying which areas had the highest user-facing impact.
+      I initially joined the engineering team responsible for the migration from Angular to React codebase after months of developers attempting to navigate the rebuild without design input. The outputs created leading up to my arrival were in need of some serious attention — and particularly noticeable considering the legacy platform was also created without a hint of UX consideration.
     </p>
     <p>
-      Stakeholder interviews surfaced a recurring theme: users found the platform powerful but difficult to navigate, particularly when moving between programs and reports. The audit confirmed this — there were four distinct navigation paradigms operating simultaneously with no clear hierarchy.
+      Aligned with a group of four developers and a dev lead, I was assured that 'better whiteboard drawings' was the extent of their needs and would go a long way to help steer things in the right direction.
     </p>
+  </section>
+
+  <section class="case-section">
+    <h2 class="case-section-heading">Initial assessment</h2>
+    <p>
+      In my first weeks on the team, I scheduled time with members of the team across all departments intending to create a list of high value items based on those conversations. Themes emerged and I created a prioritized list to review my team's dev lead along with the product team.
+    </p>
+    <p>— Consistent UI patterns to replace bandaid fixes for one-off client/prospect requests (in several instances the same functionality existed in multiple locations in the legacy platform)</p>
+    <p>— Platform Navigation Redesign</p>
+    <p>— Dashboard, charting library and rule builder integrations</p>
+    <p>— Customer feature request backlog (ongoing)</p>
     <div class="img-wrap">
       <div class="img-placeholder">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -385,12 +396,12 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   </section>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Addressing the Platform UI</h2>
+    <h2 class="case-section-heading">Addressing the platform ui</h2>
     <p>
-      With Material UI already embedded in the engineering stack, I made the decision to build on top of it rather than replace it. The goal was to extend the Material component library with a cohesive visual layer specific to NextHealth — establishing consistent color use, typographic hierarchy, density standards, and interaction states that could be documented and handed off systematically.
+      Highlighting the many pitfalls of the whiteboard sketch handoff to dev approach in the Angular platform, I made a case for standardizing on Figma and creating a components library to enhance consistency across the new platform, focusing on how this would also help to increase the velocity of the newly formed Denver-based React dev team.
     </p>
     <p>
-      The before/after below shows the shift from an ad-hoc component approach to a structured design language. This work reduced design-to-dev handoff friction significantly and gave the engineering team a clear reference for new feature work.
+      My approach was based on creating simple reusable patterns for the team to adopt. As soon as the general layout for my first large scale undertaking was defined, I began creating and testing medium fidelity mockups with a handful of engaged customers to better define the flow of the single scrolling form that would replace the multi-step wizard style modal that was creating the most issues for users on the legacy platform.
     </p>
     <div class="img-pair">
       <div class="img-placeholder">
@@ -409,18 +420,24 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
     </div>
     <div class="img-pair-captions">
-      <span class="img-caption">Before — legacy component patterns</span>
+      <span class="img-caption">Legacy patterns like these were common and proved difficult to navigate — often preventing users from saving their place during multistep modals.</span>
       <span class="img-caption">After — unified component library</span>
     </div>
+    <p>
+      I mapped complex user flows and simplified when possible, which helped to highlight the cascading effects of user decisions higher in the form. This exercise created alignment as to the ordering of components within the form, leading to an intuitive flow within the form based on user testing.
+    </p>
+    <p>
+      With increasing momentum on the React team and better alignment cross-functionally with the product team, I gathered support to adopt a MaterialUI components library to further increase dev velocity and integrate more flexible options for responsive tables and charts. I created a condensed version of the library as a style guide reference to increase familiarity within product and dev after making the shift.
+    </p>
   </section>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Navigating Platform Navigation</h2>
+    <h2 class="case-section-heading">Navigating platform navigation</h2>
     <p>
-      The navigation redesign was among the most complex challenges of the engagement. The platform served different user roles — care managers, analysts, and administrators — each with distinct workflows and access requirements. The existing navigation made no distinction between these paths, surfacing everything to everyone.
+      The overall layout of the legacy platform left much to be desired by our highly technical and savvy user base. Unexpected team turnover in the early part of 2021 left me working closely with c-level execs to determine priorities based on a long list of navigation improvements requested by users.
     </p>
     <p>
-      I worked closely with the product team to define a role-aware navigation model that surfaced relevant features contextually. The restructure reduced top-level navigation items by roughly 40% while improving discoverability of key features across user testing sessions.
+      I advocated for a side navigation layout to compliment and simplify the basic top navigation that had created confusion across all user types in Angular. This lefthand panel resolved high priority issues and received positive feedback from the internal customer support team during initial testing. Depending on which aspect of the platform was being accessed, users benefited from an improved search experience, a jumping off point for creating new programs, and a simple option for adding paid modules.
     </p>
     <div class="img-wrap">
       <div class="img-placeholder">
@@ -432,15 +449,18 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
       <span class="img-caption">Navigation architecture — before and after restructure</span>
     </div>
+    <p>
+      A simplified version of the existing navigation served as an interim solution based on dev constraints and provided an opportunity for me to leverage the benefits of prototyping natively in Figma.
+    </p>
+    <p>
+      Hover states and dropdown menu orientation was specified in detail as a prototype to help developers understand constraints that may have otherwise been lost in the Jira ticket acceptance criteria. I also adopted an approach that I discovered in a particularly inspiring blog post to help guide developers with pixel-level layout guidelines which dramatically increased accuracy in QA.
+    </p>
   </section>
 
   <section class="case-section">
-    <h2 class="case-section-heading">Reusable Patterns</h2>
+    <h2 class="case-section-heading">Reusable patterns</h2>
     <p>
-      A significant output of this engagement was a documented pattern library built in Figma — covering form elements, data table variants, filter patterns, status indicators, and modal workflows. These patterns were tied directly to Material UI component names and variants, so engineers could cross-reference the design file without ambiguity.
-    </p>
-    <p>
-      Beyond components, I documented interaction patterns: how empty states behaved, when to use inline vs. modal editing, how error states should surface across different contexts. This gave the team a shared design language that extended past my direct involvement.
+      As the team focused on setting up the initial structure of the scrolling form layout, I shifted my focus onto other aspects of the platform that had the potential to leverage similar patterns.
     </p>
     <div class="img-wrap">
       <div class="img-placeholder">
@@ -452,12 +472,24 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
       <span class="img-caption">Figma component library — pattern documentation</span>
     </div>
+    <p>
+      Programs, Goals, and Segments all related to a specific ecosystem within the platform so I reused the general MUI patterns in each case to cover the needs of the specific user flow while building familiarity with similar layouts in each case.
+    </p>
+    <p>
+      Dynamic tables were another focal point, allowing users to view critical data at a glance while also serving as a launching off point for adding and editing content related to the view.
+    </p>
+    <p>
+      As must-have features were delivered and QA tested, the need for additional actions — specifically the ability to save a draft version of a program — became apparent and were added to the design based on the initial patterns I created. Some refinement on button text was necessary to prevent confusion, standardizing on 'Activate Program' 'Save Draft' and 'Cancel' to provide more differentiation that the old Save and Activate/Cancel model.
+    </p>
+    <p>
+      The addition of an actions bar served to clean up old patterns (where buttons were often hidden at the bottom of a page) providing the user with constant visibility as to any actions available to be taken, regardless of scroll position on longer tasks.
+    </p>
   </section>
 
   <div class="closing-block">
-    <p class="closing-label">Closing Thoughts</p>
+    <p class="closing-label">Closing thoughts</p>
     <p class="closing-body">
-      This engagement taught me a lot about the shape of design influence in organizations that are new to it. With no prior design culture, nearly every conversation was also an education — making the case for process, for documentation, for slowing down to go faster. The work that had the most lasting impact wasn't any single screen, but the systems and shared language left behind when the engagement concluded.
+      My time at the company highlighted the importance of effective communication within teams and across departments. This was my first experience onboarding into a new role in a fully remote work environment, and I also gained valuable experience working with teams of developers based on other continents.<br><br>I often relied on previous experience in order to sell the value of ideas that were worthwhile/necessary but impacted feature delivery dates — this was a constant balancing act between engineering and our broader business commitments. I always made an effort to consider both when presenting ideas to product-focused decision makers, and will be interested to see how the final product direction impacts the arc of the company's success in the coming months and years.
     </p>
   </div>
 
