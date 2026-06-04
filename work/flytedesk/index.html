@@ -295,6 +295,45 @@ a.top-logo:hover svg line { stroke: var(--ink); }
 .case-nav-link.prev::before { content: '←'; font-family: var(--sans); font-size: 14px; }
 .case-nav-link.next::after  { content: '→'; font-family: var(--sans); font-size: 14px; }
 
+/* Carousel */
+.carousel { margin-top: 8px; margin-bottom: 8px; }
+.carousel-track { position: relative; }
+.carousel-slide { display: none; }
+.carousel-slide.active { display: block; }
+.carousel-slide img { width: 100%; display: block; }
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.carousel-btn {
+  background: none;
+  border: 1px solid rgba(26,26,31,0.12);
+  color: var(--muted);
+  width: 32px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  padding: 0;
+}
+
+.carousel-btn:hover { border-color: var(--ink); color: var(--ink); }
+.carousel-btn:disabled { opacity: 0.3; cursor: default; }
+
+.carousel-counter {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
 @media (max-width: 640px) {
   .cs-page { padding: 96px 24px 72px; }
   .meta-strip { grid-template-columns: 1fr; }
@@ -353,7 +392,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
 <div class="cs-page">
 
   <nav class="breadcrumb">
-    <a href="../../index.html">Work</a>
+    <a href="../../index.html">Case Study</a>
     <span class="breadcrumb-sep">/</span>
     <span>Flytedesk</span>
   </nav>
@@ -365,7 +404,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <div class="meta-strip">
       <div class="meta-cell">
         <p class="meta-label">Role</p>
-        <p class="meta-value">Digital Product Design</p>
+        <p class="meta-value">UX Designer</p>
       </div>
       <div class="meta-cell">
         <p class="meta-label">Timeline</p>
@@ -373,7 +412,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
       <div class="meta-cell">
         <p class="meta-label">Context</p>
-        <p class="meta-value">Full-time internship · Agile team</p>
+        <p class="meta-value">Full-time internship</p>
       </div>
     </div>
   </header>
@@ -393,16 +432,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       Flytedesk aims to support college media publications by connecting local businesses and national brands with the available advertising opportunities that reach students across the country. Traditional print and digital ads, along with various on-campus options including billboards, digital signs, stickers, and street teams are available on the platform's Ad Shop, a country wide online store curated by individual publications as a reflection of their current advertising inventory.
     </p>
-    <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Flytedesk platform — Ad Shop and inventory overview</span>
-    </div>
+ 
   </section>
 
   <section class="case-section">
@@ -423,37 +453,28 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       Presenting information within tables is a given for most aspects of the Flytedesk platform, and through this project I learned to appreciate the value of well organized data, as well as the difficulties that arise when large amounts of content are constrained to a single view. Below is an example of the basic user flow for a common interaction.
     </p>
-    <div class="img-row-4">
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
+    <div class="carousel" id="carousel-flytedesk-1">
+      <div class="carousel-track">
+        <div class="carousel-slide active">
+          <img src="/images/casestudies/flytedesk/F01.webp" alt="Slide 1">
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/casestudies/flytedesk/F02.webp" alt="Slide 2">
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/casestudies/flytedesk/F03.webp" alt="Slide 3">
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/casestudies/flytedesk/F04.webp" alt="Slide 4">
+        </div>
       </div>
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" aria-label="Previous" disabled><svg width="7" height="16" viewBox="0 0 7 16" fill="none"><path d="M5.5 1L1 8L5.5 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <span class="carousel-counter">1 / 4</span>
+        <button class="carousel-btn next" aria-label="Next"><svg width="7" height="16" viewBox="0 0 7 16" fill="none"><path d="M1.5 1L6 8L1.5 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
-    <span class="img-caption">Low fidelity wireframes — admin tag tracking table iterations</span>
+    <br>
     <p>
       The project evolved rapidly through user testing I conducted with internal stakeholders. Having easy access to the people that would be using the tool in their daily workflow (they sat on the other side of the office and were more than willing to discuss their needs and provide feedback) made my job a bit more straightforward. These sessions highlighted a few consistent needs.
     </p>
@@ -463,53 +484,43 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       Inline editing provided a simple way to add a new product path on the tags page.
     </p>
-    <div class="img-pair">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
+    <div class="carousel" id="carousel-flytedesk-2">
+      <div class="carousel-track">
+        <div class="carousel-slide active">
+          <img src="/images/casestudies/flytedesk/F05.webp" alt="Slide 1">
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/casestudies/flytedesk/F06.webp" alt="Slide 2">
+        </div>
       </div>
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" aria-label="Previous" disabled><svg width="7" height="16" viewBox="0 0 7 16" fill="none"><path d="M5.5 1L1 8L5.5 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <span class="carousel-counter">1 / 2</span>
+        <button class="carousel-btn next" aria-label="Next"><svg width="7" height="16" viewBox="0 0 7 16" fill="none"><path d="M1.5 1L6 8L1.5 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
-    <div class="img-pair-captions">
-      <span class="img-caption">Before — initial table layout</span>
-      <span class="img-caption">After — refined with user testing findings</span>
-    </div>
+    <br>
     <p>
       Working on the inventory page created the biggest challenge from a content perspective. After reaching a limit on what could be displayed in a traditional table view, I experimented with a slide-out drawer that incorporated tabs corresponding to critical user actions. This addition was later approved in the final designs and released to production.
     </p>
-    <div class="img-row-3">
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
+    <div class="carousel" id="carousel-flytedesk-3">
+      <div class="carousel-track">
+        <div class="carousel-slide active">
+          <img src="/images/casestudies/flytedesk/F07.webp" alt="Slide 1">
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/casestudies/flytedesk/F08.webp" alt="Slide 2">
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/casestudies/flytedesk/F09.webp" alt="Slide 3">
+        </div>
       </div>
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" aria-label="Previous" disabled><svg width="7" height="16" viewBox="0 0 7 16" fill="none"><path d="M5.5 1L1 8L5.5 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <span class="carousel-counter">1 / 3</span>
+        <button class="carousel-btn next" aria-label="Next"><svg width="7" height="16" viewBox="0 0 7 16" fill="none"><path d="M1.5 1L6 8L1.5 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
-    <span class="img-caption">Slide-out drawer — tabbed actions panel, approved for production</span>
   </section>
 
   <section class="case-section">
@@ -520,69 +531,41 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       During a brainstorming session focusing on customer communication — think general email cadences and notifications intended to drive critical actions on pending tasks — I suggested that a dashboard could be an effective way to cut down on the number of emails sent out to users. This comment evolved into a series of interviews with power-users to validate the idea, and eventually a high fidelity mockup of a dashboard landing page for the Flytedesk platform.
     </p>
-    <p>
-      Update: A basic MVP of the dashboard concept is live in production as of November 2019.
-    </p>
-    <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Dashboard — high fidelity mockup, MVP released Nov 2019</span>
+    <br>
+   
+     <div class="img-wrap">
+      <img src="/images/casestudies/flytedesk/F11.webp" alt="Dashboard — high fidelity mockup, MVP released Nov 2019" style="width:100%;display:block;">
     </div>
+    <br>
+    <br>
     <p>
       My focus for this project was to enable users to access information about their most pressing tasks from a single view. Pending actions, verifications, and general notifications that would have previously triggered separate emails are displayed alongside trackable statuses for campaigns set to go live in the upcoming days and weeks.
     </p>
+    
     <div class="img-row-4">
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
+      <img src="/images/casestudies/flytedesk/F12.webp" alt="Dashboard iteration 1" style="width:100%;display:block;">
+      <img src="/images/casestudies/flytedesk/F13.webp" alt="Dashboard iteration 2" style="width:100%;display:block;">
+      <img src="/images/casestudies/flytedesk/F14.webp" alt="Dashboard iteration 3" style="width:100%;display:block;">
+      <img src="/images/casestudies/flytedesk/F15.webp" alt="Dashboard iteration 4" style="width:100%;display:block;">
     </div>
-    <span class="img-caption">Dashboard — component explorations and layout iterations</span>
+    <br>
+    <br>
     <p>
       I conducted another round of user testing after low fidelity wireframes were completed. A clear pattern emerged indicating a preference for notifications as the main focal point, so the high fidelity mockups reflect this feedback.
     </p>
     <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Dashboard — notification-first layout after second round of user testing</span>
+      <img src="/images/casestudies/flytedesk/F16.webp" alt="Dashboard — notification-first layout after second round of user testing" style="width:100%;display:block;">
     </div>
+    <br>
     <p>
       The long-term target for this project is a fully customizable dashboard with a variety of widgets that allow Flytedesk users to see exactly what is relevant to their specific workflows within the platform, but I believe there is also value in a static view of the most pressing actions as an introduction for existing users.
     </p>
+ <p>
+    A basic MVP of the dashboard concept is live in production as of November 2019.
+    </p>
+    <div class="img-wrap">
+      <img src="/images/casestudies/flytedesk/F10.webp" alt="Dashboard — high fidelity mockup, MVP released Nov 2019" style="width:100%;display:block;">
+    </div>
   </section>
 
   <section class="case-section">
@@ -593,62 +576,28 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       General usability aside, this was concerning because many local business ad sales occurred in the field. Ideally, providing these users with the ability to access their publication's inventory from mobile devices would create a better first impression for buyers, reduce friction in the sales process, and ultimately lead to more revenue. I began by sketching the existing desktop Ad Shop to familiarize myself with the general layout and then started with small screen brainstorms to highlight critical components.
     </p>
-    <div class="img-pair">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
+    <div class="img-wrap">
+      <img src="/images/casestudies/flytedesk/F17.webp" alt="Desktop Ad Shop — sketches and structural analysis" style="width:100%;display:block;">
     </div>
-    <div class="img-pair-captions">
-      <span class="img-caption">Desktop Ad Shop — sketches and structural analysis</span>
-      <span class="img-caption">Small screen — layout brainstorm explorations</span>
-    </div>
+    <br>
     <p>
       From there I began to create digital mockups for both mobile and tablet screen sizes.
     </p>
     <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Responsive Ad Shop — mobile and tablet mockups</span>
+      <img src="/images/casestudies/flytedesk/F18.webp" alt="Responsive Ad Shop — mobile and tablet mockups" style="width:100%;display:block;">
     </div>
+    <br>
     <p>
       And explored options for new mobile-friendly displays that would include publisher branding.
     </p>
     <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Mobile display options — publisher branding explorations</span>
+      <img src="/images/casestudies/flytedesk/F19.webp" alt="Mobile display options — publisher branding explorations" style="width:100%;display:block;">
     </div>
+    <br>
     <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Publisher branding — alternative display treatments</span>
+      <img src="/images/casestudies/flytedesk/F20.webp" alt="Publisher branding — alternative display treatments" style="width:100%;display:block;">
     </div>
+    <br>
     <p>
       In the end this project was out of scope for further consideration within my internship. Next steps would include contextual inquiry with publisher field reps to better understand use cases that would streamline sales, along with more research of the local buyer persona — often a less tech savvy user with little experience in purchasing digital ads.
     </p>
@@ -727,5 +676,27 @@ a.top-logo:hover svg line { stroke: var(--ink); }
 </aside>
 
 <script src="../../js/main.js" defer></script>
+<script>
+  document.querySelectorAll('.carousel').forEach(function(carousel) {
+    var slides = carousel.querySelectorAll('.carousel-slide');
+    var prevBtn = carousel.querySelector('.carousel-btn.prev');
+    var nextBtn = carousel.querySelector('.carousel-btn.next');
+    var counter = carousel.querySelector('.carousel-counter');
+    var current = 0;
+    var total = slides.length;
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      current = (index + total) % total;
+      slides[current].classList.add('active');
+      counter.textContent = (current + 1) + ' / ' + total;
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = false;
+    }
+
+    prevBtn.addEventListener('click', function() { if (current > 0) goTo(current - 1); });
+    nextBtn.addEventListener('click', function() { goTo(current + 1); });
+  });
+</script>
 </body>
 </html>
