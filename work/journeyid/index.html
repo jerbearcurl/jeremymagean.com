@@ -191,6 +191,23 @@ a.top-logo:hover svg line { stroke: var(--ink); }
 /* Image placeholders */
 .img-wrap { margin-top: 8px; margin-bottom: 8px; }
 
+.img-portrait {
+  max-height: 480px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.img-row-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.img-row-5 img { width: 100%; display: block; }
+
 .img-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -352,11 +369,11 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   <header>
     <p class="case-eyebrow">Identity Verification</p>
     <h1 class="case-title">JourneyID</h1>
-    <p class="case-subtitle">simplified identity verification, mobile telehealth solution</p>
+    <p class="case-subtitle">visual design, rapid prototyping, design / dev QA</p>
     <div class="meta-strip">
       <div class="meta-cell">
         <p class="meta-label">Role</p>
-        <p class="meta-value">Visual Design + Rapid Prototyping</p>
+        <p class="meta-value">Design Generalist</p>
       </div>
       <div class="meta-cell">
         <p class="meta-label">Timeline</p>
@@ -364,7 +381,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
       </div>
       <div class="meta-cell">
         <p class="meta-label">Context</p>
-        <p class="meta-value">Stealth mode startup · Pre-launch</p>
+        <p class="meta-value">Stealth mode startup</p>
       </div>
     </div>
   </header>
@@ -383,16 +400,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       My day to day responsibilities were often variable as I supported a senior designer that was focused mainly on designing and coding the company's website. I enjoyed the dynamic nature of my projects, which provided me a somewhat unconventional opportunity to refine skills across many disciplines with guidance from a more experienced teammate.
     </p>
-    <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Early stage — product and brand design overview</span>
-    </div>
+   
   </section>
 
   <section class="case-section">
@@ -403,41 +411,23 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       A sponsored event provided real world feedback of early identity verification functionality. I also learned a bit about creating marketing collateral for the app stores.
     </p>
-    <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Identity verification app — demo flows and investor presentation</span>
-    </div>
+    
     <p>
       Considerations for multiple screen sizes had been overlooked across the board so I managed this aspect of the design process for several instances including the agent dashboard of Journey's proposed call center offering.
     </p>
     <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Agent dashboard — responsive design across screen sizes</span>
+      <img src="/images/casestudies/journeyid/J02.webp" alt="Agent dashboard — responsive design across screen sizes" style="width:100%;display:block;">
     </div>
+    <br>
     <p>
       Along with identity verification, I focused on mobile app features for secure calls and seamless transfers supported by our backend technology.
     </p>
-    <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Mobile app — secure calls and seamless agent transfers</span>
+    <div class="img-row-5">
+      <img src="/images/casestudies/journeyid/J03.webp" alt="Slide 1">
+      <img src="/images/casestudies/journeyid/J04.webp" alt="Slide 2">
+      <img src="/images/casestudies/journeyid/J05.webp" alt="Slide 3">
+      <img src="/images/casestudies/journeyid/J06.webp" alt="Slide 4">
+      <img src="/images/casestudies/journeyid/J07.webp" alt="Slide 5">
     </div>
   </section>
 
@@ -446,30 +436,21 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       After refining the banking and in person event check-in flows, I created a telehealth application leveraging similar patterns for identity verification while adding necessary functionality for appointment setting, video calling and payment.
     </p>
-    <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Telehealth app — appointment, video, and payment flows</span>
+  <div class="img-row-5">
+      <img src="/images/casestudies/journeyid/J08.webp" alt="Slide 1">
+      <img src="/images/casestudies/journeyid/J09.webp" alt="Slide 2">
+      <img src="/images/casestudies/journeyid/J10.webp" alt="Slide 3">
+      <img src="/images/casestudies/journeyid/J11.webp" alt="Slide 4">
     </div>
-
     <h3 class="case-subsection-heading">Rapid prototyping</h3>
     <p>
       An ongoing element of my role was supporting the business development team with creating mockups for sales demos that mirrored company logos and branding. This often involved same day turnaround and honed my visual design skills for a variety of prospects and clients.
     </p>
-    <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Rapid prototyping — client-branded mockups for business development</span>
+      <div class="img-row-5">
+      <img src="/images/casestudies/journeyid/J12.webp" alt="Slide 1">
+      <img src="/images/casestudies/journeyid/J13.webp" alt="Slide 2">
+      <img src="/images/casestudies/journeyid/J14.webp" alt="Slide 3">
+      <img src="/images/casestudies/journeyid/J15.webp" alt="Slide 4">
     </div>
   </section>
 
