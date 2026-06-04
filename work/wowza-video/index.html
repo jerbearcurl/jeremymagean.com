@@ -209,7 +209,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink);
   margin-top: 10px;
   margin-bottom: 32px;
 }
@@ -515,25 +515,13 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       Next, I shifted my focus onto many initial updates intended to streamline and modernize the first impression created by the UI.
     </p>
-    <div class="img-pair">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-    </div>
-    <div class="img-pair-captions">
+    <div class="img-wrap">
+      <img src="/images/casestudies/wowza-video/Screenshot01.webp" alt="Before — original trial sign-up flow" style="width:100%;display:block;">
       <span class="img-caption">Before — original trial sign-up flow</span>
-      <span class="img-caption">After — redesigned onboarding experience</span>
+    </div>
+    <div class="img-wrap">
+      <img src="/images/casestudies/wowza-video/Screenshot02.webp" alt="After — redesigned onboarding experience" style="width:100%;display:block;">
+      <span class="img-caption">After — redesigned portal to better match brand identity</span>
     </div>
   </section>
 
@@ -545,25 +533,13 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       Keeping the trial experience in mind as the highest priority, I created a solution that removed the confusion of the empty dashboard that was central to the previous flow's home screen. Instead of a welcome experience that led users to a landing page containing blank charts and graphs that would only be valuable to experienced users after interacting with the platform, a set of prompts and getting started links combined with table overlays helped orient new users.
     </p>
-    <div class="img-pair">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
+    <div class="img-wrap">
+      <img src="/images/casestudies/wowza-video/Screenshot03.webp" alt="Before — empty state as starting point" style="width:100%;display:block;">
+      <span class="img-caption">Before — empty state as starting point</span>
     </div>
-    <div class="img-pair-captions">
-      <span class="img-caption">Before — fragmented visual language</span>
-      <span class="img-caption">After — unified Figma component system</span>
+    <div class="img-wrap">
+      <img src="/images/casestudies/wowza-video/Screenshot04.webp" alt="After — unified Figma component system" style="width:100%;display:block;">
+      <span class="img-caption">After — updated guidance anticipating user needs</span>
     </div>
     <p>
       There was a wide range of low hanging fruit to address, which made for a notable morale boost on the product and sales teams early on.
@@ -588,26 +564,36 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     <p>
       Sometimes just creating a simple graphic went a long way, other times interactive whiteboarding sessions that evolved into working documents and references for leadership were the final output. I was always eager to take on the facilitator role when colleagues were in need of guidance, or just looking for a less rigid container to operate in a design-oriented mindset.
     </p>
-    <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-        <span class="img-placeholder-label">Image carousel</span>
+    <div class="carousel" id="carousel-workshops">
+      <div class="carousel-track">
+
+        <div class="carousel-slide active">
+          <img src="/images/casestudies/wowza-video/slide2.1.png" alt="Slide 1">
+        </div>
+
+        <div class="carousel-slide">
+          <img src="/images/casestudies/wowza-video/slide2.2.png" alt="Slide 2">
+        </div>
+
+        <div class="carousel-slide">
+          <img src="/images/casestudies/wowza-video/slide2.3.png" alt="Slide 3">
+        </div>
+
+        <div class="carousel-slide">
+          <img src="/images/casestudies/wowza-video/slide2.4.png" alt="Slide 4">
+        </div>
+
       </div>
-      <span class="img-caption">Cross-functional workshops — process documentation</span>
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" aria-label="Previous" disabled>←</button>
+        <span class="carousel-counter">1 / 4</span>
+        <button class="carousel-btn next" aria-label="Next">→</button>
+      </div>
+      <span class="img-caption">process documentation</span>
     </div>
     <div class="img-wrap">
-      <div class="img-placeholder">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-          <rect x="4" y="8" width="32" height="24" rx="2" stroke="#8a8698" stroke-width="1.2"/>
-          <path d="M4 26l9-8 7 6 5-4 11 8" stroke="#8a8698" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13" cy="16" r="3" stroke="#8a8698" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <span class="img-caption">Requirements framework — cross-team communication template</span>
+      <img src="/images/casestudies/wowza-video/Screenshot05.webp" alt="Requirements framework — cross-team communication template" style="width:100%;display:block;">
+      <span class="img-caption">Requirements landscape</span>
     </div>
     <p>
       These examples organized and simplified thoughts, and most importantly in my opinion helped to catalyze conversations across teams. An evolving visual reference enabled a basis for shared clarity long term.
