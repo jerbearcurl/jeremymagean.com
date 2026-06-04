@@ -441,6 +441,73 @@ html, body {
   text-transform: uppercase;
 }
 
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #f3ede4;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox > img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+  display: flex;
+}
+
+.lightbox-close:hover { color: var(--ink); }
+
+.lightbox-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 92vw;
+}
+
+.lightbox-inner img {
+  max-width: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  cursor: default;
+  flex-shrink: 1;
+}
+
+.lightbox-nav {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s;
+  display: none;
+  flex-shrink: 0;
+}
+
+.lightbox-nav:hover { color: var(--ink); }
+.lightbox.has-carousel .lightbox-nav { display: block; }
+
+.cs-page img:not(.no-lightbox) { cursor: zoom-in; }
+
 .deco {
   position: fixed;
   top: 0; right: 0;
