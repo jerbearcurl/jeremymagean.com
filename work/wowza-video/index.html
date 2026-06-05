@@ -391,11 +391,21 @@ a.top-logo:hover svg line { stroke: var(--ink); }
   </svg>
 </a>
 
-<nav class="top-nav">
-  <a href="../../thoughts.html">Thoughts</a>
-  <a href="../../lab.html">Lab</a>
-  <a href="../../info.html">Info</a>
-</nav>
+<script>
+  (function() {
+    var d = location.pathname.split('/').filter(function(s){ return s.length > 0; }).length;
+    var p = d > 1 ? Array(d - 1).fill('..').join('/') + '/' : '';
+    var el = document.currentScript;
+    fetch(p + 'nav.html').then(function(r){ return r.text(); }).then(function(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      var nav = tmp.firstElementChild;
+      nav.querySelectorAll('a[href]').forEach(function(a) { a.setAttribute('href', p + a.getAttribute('href')); });
+      el.parentNode.insertBefore(nav, el);
+      el.parentNode.removeChild(el);
+    });
+  })();
+</script>
 
 <div class="deco" aria-hidden="true">
   <svg viewBox="0 0 500 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
