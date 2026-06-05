@@ -374,10 +374,19 @@ a.top-logo:hover svg line { stroke: var(--ink); }
     fetch(p + 'nav.html').then(function(r){ return r.text(); }).then(function(html) {
       var tmp = document.createElement('div');
       tmp.innerHTML = html;
-      var nav = tmp.firstElementChild;
-      nav.querySelectorAll('a[href]').forEach(function(a) { a.setAttribute('href', p + a.getAttribute('href')); });
-      el.parentNode.insertBefore(nav, el);
-      el.parentNode.removeChild(el);
+      tmp.querySelectorAll('a[href]').forEach(function(a) { a.setAttribute('href', p + a.getAttribute('href')); });
+      var parent = el.parentNode;
+      var codes = [];
+      Array.from(tmp.childNodes).forEach(function(node) {
+        if (node.nodeName === 'SCRIPT') { codes.push(node.textContent); }
+        else { parent.insertBefore(node, el); }
+      });
+      parent.removeChild(el);
+      codes.forEach(function(code) {
+        var s = document.createElement('script');
+        s.textContent = code;
+        document.head.appendChild(s);
+      });
     });
   })();
 </script>

@@ -19,13 +19,40 @@
     fetch(p + 'nav.html').then(function(r){ return r.text(); }).then(function(html) {
       var tmp = document.createElement('div');
       tmp.innerHTML = html;
-      var nav = tmp.firstElementChild;
-      nav.querySelectorAll('a[href]').forEach(function(a) { a.setAttribute('href', p + a.getAttribute('href')); });
-      el.parentNode.insertBefore(nav, el);
-      el.parentNode.removeChild(el);
+      tmp.querySelectorAll('a[href]').forEach(function(a) { a.setAttribute('href', p + a.getAttribute('href')); });
+      var parent = el.parentNode;
+      var codes = [];
+      Array.from(tmp.childNodes).forEach(function(node) {
+        if (node.nodeName === 'SCRIPT') { codes.push(node.textContent); }
+        else { parent.insertBefore(node, el); }
+      });
+      parent.removeChild(el);
+      codes.forEach(function(code) {
+        var s = document.createElement('script');
+        s.textContent = code;
+        document.head.appendChild(s);
+      });
     });
   })();
 </script>
+
+<a href="index.html" class="top-logo">
+  <svg width="48" height="48" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="pyramidGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="#241840"/>
+        <stop offset="55%" stop-color="#6b3fa0"/>
+        <stop offset="100%" stop-color="#2d6ecf"/>
+      </linearGradient>
+    </defs>
+    <line x1="21" y1="3"  x2="5"  y2="37" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="21" y1="3"  x2="34" y2="35" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="5"  y1="37" x2="34" y2="35" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="21" y1="3"  x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="34" y1="35" x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="5"  y1="37" x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
+  </svg>
+</a>
 
 <div class="deco" aria-hidden="true">
   <svg viewBox="0 0 500 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">

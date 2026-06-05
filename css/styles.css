@@ -234,13 +234,10 @@ html, body {
 /* Top logo */
 .top-logo {
   position: fixed;
-  top: 32px;
+  top: 5px;
   left: 52px;
-  z-index: 99;
+  z-index: 100;
   padding: 6px;
-  background: white;
-  border: 1px solid rgba(26,26,31,0.08);
-  box-shadow: 0 4px 24px rgba(107,63,160,0.10), 0 1px 2px rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -249,43 +246,6 @@ html, body {
   display: block;
 }
 
-/* Top nav */
-.top-nav {
-  position: fixed;
-  top: 32px;
-  right: 52px;
-  display: flex;
-  gap: 6px;
-  padding: 6px;
-  z-index: 99;
-  background: white;
-  border: 1px solid rgba(26,26,31,0.08);
-  box-shadow: 0 4px 24px rgba(107,63,160,0.10), 0 1px 2px rgba(0,0,0,0.06);
-}
-.top-nav a {
-  display: block;
-  padding: 14px 22px;
-  text-align: center;
-  font-family: var(--mono);
-  font-size: 16.5px;
-  line-height: 20px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 0;
-  transition: opacity 0.2s;
-}
-.top-nav a {
-  background: linear-gradient(135deg, var(--violet), var(--blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.top-nav a:hover,
-.top-nav a:nth-child(1):hover,
-.top-nav a:nth-child(2):hover,
-.top-nav a:nth-child(3):hover { opacity: 1; -webkit-text-fill-color: var(--ink); }
 
 /* Case Studies vertical tab */
 .case-studies-tab {
