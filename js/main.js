@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', function() {
+  var articles = document.querySelector('.articles');
+  var outer = document.querySelector('.articles-outer');
+  if (articles && outer) {
+    articles.addEventListener('scroll', function() {
+      outer.classList.toggle('is-scrolled', articles.scrollTop > 0);
+    });
+  }
+});
+
 function handleSubmit(e) {
   e.preventDefault();
   document.getElementById('confirm').style.display = 'block';
