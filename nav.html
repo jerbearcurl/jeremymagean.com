@@ -167,28 +167,33 @@
 
 <script>
 (function() {
-  var nav = document.getElementById('topNav');
-  var hamburger = document.getElementById('topNavHamburger');
-  var drawer = document.getElementById('navMobileDrawer');
-  var drawerClose = document.getElementById('navMobileDrawerClose');
-  if (!nav || !hamburger || !drawer || !drawerClose) return;
+  setTimeout(function() {
+    var nav = document.getElementById('topNav') || document.querySelector('.top-nav');
+    var hamburger = document.getElementById('topNavHamburger');
+    var drawer = document.getElementById('navMobileDrawer');
+    var drawerClose = document.getElementById('navMobileDrawerClose');
+    if (!nav || !hamburger || !drawer || !drawerClose) return;
 
-  var lastY = window.scrollY || 0;
-  window.addEventListener('scroll', function() {
-    var y = window.scrollY;
-    if (y > lastY && y > 56) { nav.classList.add('nav-hidden'); }
-    else { nav.classList.remove('nav-hidden'); }
-    lastY = y < 0 ? 0 : y;
-  }, { passive: true });
+    var lastY = 0;
+    function handleScroll() {
+      var y = window.scrollY || window.pageYOffset || document.body.scrollTop || 0;
+      if (y > lastY && y > 56) { nav.classList.add('nav-hidden'); }
+      else { nav.classList.remove('nav-hidden'); }
+      lastY = y < 0 ? 0 : y;
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener('scroll', handleScroll, { passive: true });
+    document.body.addEventListener('scroll', handleScroll, { passive: true });
 
-  hamburger.addEventListener('click', function() {
-    drawer.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
+    hamburger.addEventListener('click', function() {
+      drawer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
 
-  drawerClose.addEventListener('click', function() {
-    drawer.classList.remove('open');
-    document.body.style.overflow = '';
-  });
+    drawerClose.addEventListener('click', function() {
+      drawer.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }, 0);
 })();
 </script>
