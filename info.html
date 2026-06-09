@@ -69,7 +69,7 @@
     margin-left: 12px;
     border-radius: 50%;
     background: linear-gradient(135deg, rgba(107,63,160,0.12), rgba(45,110,207,0.10));
-    border: 1px solid rgba(26,26,31,0.10);
+    border: none;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -143,7 +143,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    border-top: 1px solid rgba(26,26,31,0.08);
+    border-top: none;
     padding-top: 14px;
     width: 100%;
   }
@@ -294,11 +294,22 @@
     font-weight: 300;
     letter-spacing: 0.08em;
     color: var(--ink);
-    border: 1px solid rgba(26,26,31,0.15);
+    border: none;
     padding: 6px 12px;
     background: white;
   }
-
+@media (max-width: 1360px) {
+  .info-page {
+    gap: 0 40px;
+    padding: 52px 40px 44px 40px;
+  }
+  .bio-photo {
+    max-width: 380px;
+  }
+  .info-main {
+    padding-right: 24px;
+  }
+}
   @media (max-width: 1080px) {
     .info-page {
       padding: 32px 24px;
@@ -308,11 +319,60 @@
     }
     .info-main { grid-column: 1; grid-row: 2; padding-top: 32px; padding-right: 0; max-width: 100%; }
     .info-sidebar { grid-column: 1; grid-row: 1; padding-top: 32px; flex-direction: column; align-items: flex-start; gap: 24px; }
-    .bio-photo { width: 280px; max-width: 280px; margin-top: 0; margin-left: 0; }
+    .bio-photo { width: 360px; max-width: 420px; margin-top: 0; margin-left: 0; }
     .bio-lower { width: 100%; }
-    .bio-details { width: 100%; }
+    .bio-details { width: 100%; margin-top: 16px; }
     .info-footer { grid-column: 1; grid-row: 3; }
   }
+  @media (max-width: 1024px) {
+  .info-page {
+    grid-template-columns: 1fr;
+    padding: 80px 24px 44px 24px;
+  }
+   .info-main {
+    grid-column: 1;
+    grid-row: 2;
+    padding-top: 32px;
+    padding-right: 0;
+    max-width: 100%;
+  }
+  .info-sidebar {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 32px;
+    align-items: flex-start;
+  }
+  .bio-social {
+  margin-bottom: 8px;
+}
+  .bio-photo {
+    max-width: 360px;
+    margin-left: 0;
+    margin-top: 0;
+  }
+ 
+ .footer {
+  grid-column: 1;
+  grid-row: 3;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 44px;
+  padding-top: 48px;
+}
+  .top-logo {
+    display: none;
+  }
+  .bio-details {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 16px;
+}
+.bio-lower {
+  gap: 24px;
+  padding-left: 0;
+}
+}
+
 </style>
 </head>
 <body>
@@ -382,6 +442,7 @@
         <span class="bio-focus-item">Prototyping</span>
         <span class="bio-focus-item">AI Implementation</span>
         <span class="bio-focus-item">Sales &amp; Marketing</span>
+        
       </div>
     </div>
   </main>
