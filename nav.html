@@ -121,11 +121,22 @@
 .nav-mobile-drawer-links a:first-child {
   border-top: 0.5px solid rgba(255,255,255,0.1);
 }
-.nav-mobile-drawer-footer {
+.nav-drawer-home {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
   font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.3);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.5);
+  -webkit-text-fill-color: rgba(255,255,255,0.5);
+  transition: color 0.15s;
+}
+.nav-drawer-home:hover {
+  color: rgba(255,255,255,0.9);
+  -webkit-text-fill-color: rgba(255,255,255,0.9);
 }
 @media (max-width: 768px) {
   .top-nav-links { display: none; }
@@ -163,7 +174,24 @@
     <a href="lab.html">Lab <span style="font-size: 20px; opacity: 0.5;">&#8250;</span></a>
     <a href="info.html">Info <span style="font-size: 20px; opacity: 0.5;">&#8250;</span></a>
   </nav>
-
+  <a href="index.html" class="nav-drawer-home">
+    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="pyramidGradDrawer" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#9b6dd1"/>
+          <stop offset="55%" stop-color="#7a54b8"/>
+          <stop offset="100%" stop-color="#5c9fe8"/>
+        </linearGradient>
+      </defs>
+      <line x1="21" y1="3"  x2="5"  y2="37" stroke="url(#pyramidGradDrawer)" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="21" y1="3"  x2="34" y2="35" stroke="url(#pyramidGradDrawer)" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="5"  y1="37" x2="34" y2="35" stroke="url(#pyramidGradDrawer)" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="21" y1="3"  x2="23" y2="22" stroke="url(#pyramidGradDrawer)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="34" y1="35" x2="23" y2="22" stroke="url(#pyramidGradDrawer)" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="5"  y1="37" x2="23" y2="22" stroke="url(#pyramidGradDrawer)" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <span>jeremymagean.com</span>
+  </a>
 </div>
 
 <script>
