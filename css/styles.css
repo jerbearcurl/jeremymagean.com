@@ -341,6 +341,10 @@ html, body {
   transition: opacity 0.2s;
 }
 .footer-links a:hover { opacity: 1; -webkit-text-fill-color: var(--ink); }
+a.footer-left { text-decoration: none; }
+a.footer-left svg line { transition: stroke 0.2s; }
+a.footer-left:hover .footer-left-text { background: none; -webkit-text-fill-color: var(--ink); }
+a.footer-left:hover svg line { stroke: var(--ink); }
 
 
 
