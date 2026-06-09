@@ -65,7 +65,7 @@
   top: 0; right: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(135deg, #6b3fa0 0%, #2d6ecf 55%, #1a9e82 100%);
+  background: linear-gradient(135deg, #0a0a0f 0%, #0f0f1a 40%, #1a0a2e 70%, #2a1560 100%);
   z-index: 400;
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -157,12 +157,12 @@
 <div class="nav-mobile-drawer" id="navMobileDrawer">
   <button class="nav-mobile-drawer-close" id="navMobileDrawerClose" aria-label="Close menu">✕</button>
   <nav class="nav-mobile-drawer-links">
-    <a href="index.html" onclick="if(typeof openDrawer==='function'){event.preventDefault();var d=document.getElementById('navMobileDrawer');d.classList.remove('open');document.body.style.overflow='';openDrawer();}">Case Studies <span>→</span></a>
-    <a href="thoughts.html">Thoughts <span>→</span></a>
-    <a href="lab.html">Lab <span>→</span></a>
-    <a href="info.html">Info <span>→</span></a>
+    <a href="index.html" onclick="if(typeof openDrawer==='function'){event.preventDefault();var d=document.getElementById('navMobileDrawer');d.classList.remove('open');document.body.style.overflow='';openDrawer();}">Case Studies <span style="font-size: 20px; opacity: 0.5;">&#8250;</span></a>
+    <a href="thoughts.html">Thoughts <span style="font-size: 20px; opacity: 0.5;">&#8250;</span></a>
+    <a href="lab.html">Lab <span style="font-size: 20px; opacity: 0.5;">&#8250;</span></a>
+    <a href="info.html">Info <span style="font-size: 20px; opacity: 0.5;">&#8250;</span></a>
   </nav>
-  <div class="nav-mobile-drawer-footer">jeremymagean.com</div>
+
 </div>
 
 <script>
