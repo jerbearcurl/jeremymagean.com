@@ -4,7 +4,7 @@
   --paper: #f3ede4;
   --violet: #6b3fa0;
   --blue: #2d6ecf;
-  --teal: #1a9e82;
+  --teal: #359a84;
   --muted: #8a8698;
   --serif: 'DM Serif Display', Georgia, serif;
   --sans: 'Urbanist', system-ui, sans-serif;
@@ -242,14 +242,14 @@ html, body {
   color: var(--ink);
 }
 .tagline {
-  font-family: var(--body);
+  font-family: var(--mono);
   font-weight: 300;
-  font-size: clamp(23px, 2.6vw, 32px);
+  font-size: clamp(21px, 2.6vw, 32px);
   color: var(--teal);
   margin-top: 36px;
   margin-bottom: 8px;
   line-height: 1.5;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.08em;
 }
 .status-block {
   display: flex;
