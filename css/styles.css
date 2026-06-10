@@ -323,7 +323,8 @@ html, body {
   justify-content: space-between;
   align-items: flex-end;
   padding-top: 24px;
-  border-top: 1px solid rgba(26,26,31,0.1);
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, #ccc4e5, rgba(61, 61, 101, 0.12)) 1;
   grid-column: 1 / -1;
   grid-row: 2;
 }
