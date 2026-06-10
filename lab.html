@@ -8,14 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <style>
-  a.top-logo { text-decoration: none; }
-  a.top-logo:hover svg line { stroke: var(--ink); }
-
   .lab-page {
     min-height: 100vh;
     display: grid;
     grid-template-rows: 1fr auto;
     padding: 42px 52px 44px 52px;
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
   .lab-main {
@@ -141,12 +140,23 @@
     line-height: 1.75;
   }
 
-  .lab-footer {
-    padding-top: 24px;
-    border-top: 1px solid rgba(26,26,31,0.1);
+  .footer-left {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    -webkit-text-fill-color: initial;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+  }
+  .footer-left-text {
+    font-size: 16.5px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    background: linear-gradient(135deg, var(--violet), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   @media (max-width: 768px) {
@@ -156,24 +166,6 @@
 </style>
 </head>
 <body>
-
-<a href="index.html" class="top-logo">
-  <svg width="48" height="48" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="pyramidGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#241840"/>
-        <stop offset="55%" stop-color="#6b3fa0"/>
-        <stop offset="100%" stop-color="#2d6ecf"/>
-      </linearGradient>
-    </defs>
-    <line x1="21" y1="3"  x2="5"  y2="37" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
-    <line x1="21" y1="3"  x2="34" y2="35" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
-    <line x1="5"  y1="37" x2="34" y2="35" stroke="url(#pyramidGrad)" stroke-width="1.8" stroke-linecap="round"/>
-    <line x1="21" y1="3"  x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="34" y1="35" x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
-    <line x1="5"  y1="37" x2="23" y2="22" stroke="url(#pyramidGrad)" stroke-width="1.2" stroke-linecap="round"/>
-  </svg>
-</a>
 
 <script>
   (function() {
@@ -260,11 +252,28 @@
     </div>
   </main>
 
-  <footer class="lab-footer">
-    <span class="footer-left">jeremymagean.com</span>
+  <footer class="footer">
+    <a class="footer-left" href="index.html">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pyramidGradFooter" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#241840"/>
+            <stop offset="55%" stop-color="#6b3fa0"/>
+            <stop offset="100%" stop-color="#2d6ecf"/>
+          </linearGradient>
+        </defs>
+        <line x1="21" y1="3"  x2="5"  y2="37" stroke="url(#pyramidGradFooter)" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="21" y1="3"  x2="34" y2="35" stroke="url(#pyramidGradFooter)" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="5"  y1="37" x2="34" y2="35" stroke="url(#pyramidGradFooter)" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="21" y1="3"  x2="23" y2="22" stroke="url(#pyramidGradFooter)" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="34" y1="35" x2="23" y2="22" stroke="url(#pyramidGradFooter)" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="5"  y1="37" x2="23" y2="22" stroke="url(#pyramidGradFooter)" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <span class="footer-left-text">jeremymagean.com</span>
+    </a>
     <nav class="footer-links">
-      <a href="mailto:jeremy.magean@gmail.com">Contact</a>
-      <a href="https://www.linkedin.com/in/jeremy-magean/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:jeremy.magean@gmail.com">[ Contact ]</a>
+      <a href="https://www.linkedin.com/in/jeremy-magean/" target="_blank" rel="noopener noreferrer">[ LinkedIn ]</a>
     </nav>
   </footer>
 </div>
