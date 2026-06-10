@@ -186,7 +186,16 @@ html, body {
     background: linear-gradient(90deg, var(--violet), var(--blue));
   }
 .articles-view-all {
-  align-self: flex-end;
+  max-width:600px;
+  width: 100%;
+  text-align: right;
+  display: block;
+  padding-right: 40px;
+}
+@media (max-width: 630px) {
+  .articles-view-all {
+    padding-right: 0;
+  }
 }
 }
 .pre-footer {
