@@ -244,7 +244,7 @@ html, body {
 .tagline {
   font-family: var(--mono);
   font-weight: 300;
-  font-size: clamp(21px, 2.6vw, 32px);
+  font-size: clamp(21px, 2.6vw, 31px);
   color: var(--teal);
   margin-top: 36px;
   margin-bottom: 8px;
@@ -422,7 +422,7 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   right: 0;
   width: min(520px, 92vw);
   height: 100vh;
-  background: linear-gradient(160deg, #08080f 0%, #130b24 50%, #241840 100%);
+  background: var(--paper);
   z-index: 101;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.32, 0, 0.14, 1);
@@ -439,7 +439,7 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   justify-content: space-between;
   align-items: center;
   padding: 32px 36px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(26,26,31,0.08);
   flex-shrink: 0;
 }
 .drawer-title {
@@ -447,20 +447,20 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  color: rgba(255,255,255,0.9);
+  color: var(--ink);
 }
 .drawer-close {
   border: none;
   background: none;
   cursor: pointer;
   padding: 4px;
-  color: rgba(255,255,255,0.45);
+  color: var(--muted);
   font-size: 30px;
   font-weight: 200;
   line-height: 1;
   transition: color 0.2s;
 }
-.drawer-close:hover { color: rgba(255,255,255,0.9); }
+.drawer-close:hover { color: var(--ink); }
 .drawer-body {
   flex: 1;
   overflow-y: auto;
