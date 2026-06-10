@@ -311,66 +311,22 @@
   }
 }
   @media (max-width: 1100px) {
-    .info-page {
-      padding: 32px 24px;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto;
-      gap: 0 72;
-    }
-    .info-main { grid-column: 1; grid-row: 2; padding-top: 32px; padding-right: 0; max-width: 100%; }
-    .info-sidebar { grid-column: 1; grid-row: 1; padding-top: 32px; flex-direction: column; align-items: flex-start; gap: 24px; }
-    .bio-photo { width: 360px; max-width: 420px; margin-top: 0; margin-left: 0; }
-    .bio-lower { width: 100%; }
-    .bio-details { width: 100%; margin-top: 16px; }
-    .info-footer { grid-column: 1; grid-row: 3; }
-  }
-  @media (max-width: 1024px) {
   .info-page {
-    grid-template-columns: 1fr;
     padding: 80px 24px 44px 24px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
   }
-   .info-main {
-    grid-column: 1;
-    grid-row: 2;
-    padding-top: 32px;
-    padding-right: 0;
-    max-width: 100%;
-  }
-  .info-sidebar {
-    grid-column: 1;
-    grid-row: 1;
-    padding-top: 32px;
-    align-items: flex-start;
-  }
-  .bio-social {
-  margin-bottom: 8px;
+  .info-main { grid-column: 1; grid-row: 2; padding-top: 32px; padding-right: 0; max-width: 100%; }
+  .info-sidebar { grid-column: 1; grid-row: 1; padding-top: 32px; align-items: flex-start; }
+  .bio-photo { max-width: 360px; margin-top: 0; margin-left: 0; }
+  .bio-lower { width: 100%; gap: 24px; padding-left: 0; }
+  .bio-details { width: 100%; margin-top: 16px; border-top: none; padding-top: 0; }
+  .bio-social { margin-bottom: 8px; }
+  .footer { grid-column: 1; grid-row: 3; flex-direction: column; align-items: flex-start; gap: 44px; padding-top: 48px; }
+  .top-logo { display: none; }
 }
-  .bio-photo {
-    max-width: 360px;
-    margin-left: 0;
-    margin-top: 0;
-  }
- 
- .footer {
-  grid-column: 1;
-  grid-row: 3;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 44px;
-  padding-top: 48px;
-}
-  .top-logo {
-    display: none;
-  }
-  .bio-details {
-  border-top: none;
-  padding-top: 0;
-  margin-top: 16px;
-}
-.bio-lower {
-  gap: 24px;
-  padding-left: 0;
-}
+
 }
 
 </style>
