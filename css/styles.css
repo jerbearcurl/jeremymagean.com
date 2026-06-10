@@ -233,7 +233,7 @@ html, body {
   color: var(--ink);
 }
 @media (max-width: 1100px) {
-  .name { font-size: clamp(32px, 4.8vw, 60px); }
+  .name { font-size: clamp(48px, 4.8vw, 60px); }
 }
 @media (max-width: 900px) {
   .name { font-size: clamp(32px, 4.8vw, 54px); }
@@ -244,7 +244,7 @@ html, body {
 .tagline {
   font-family: var(--mono);
   font-weight: 300;
-  font-size: clamp(21px, 2.6vw, 31px);
+  font-size: clamp(21px, 2.2vw, 31px);
   color: var(--teal);
   margin-top: 36px;
   margin-bottom: 8px;
@@ -277,7 +277,7 @@ html, body {
 }
 .email-form {
   display: flex;
-  max-width: 460px;
+  max-width: 440px;
   border: 1px solid rgba(26,26,31,0.2);
   background: white;
 }
@@ -606,7 +606,7 @@ a.footer-left:hover svg line { stroke: var(--ink); }
 }
 .page > * { position: relative; z-index: 1; }
 @media (max-width: 1024px) {
-  .name { font-size: clamp(36px, 8vw, 52px); }
+  .name { font-size: clamp(36px, 10vw, 56px); }
   .pre-footer { grid-column: 1; grid-row: 3; }
   .footer {
     grid-column: 1;
