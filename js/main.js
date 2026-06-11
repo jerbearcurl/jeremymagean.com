@@ -1,3 +1,16 @@
+// Shared case studies drawer — single source of truth in drawer.html
+(function() {
+  var d = location.pathname.split('/').filter(function(s){ return s.length > 0; }).length;
+  var p = d > 1 ? Array(d - 1).fill('..').join('/') + '/' : '';
+  fetch(p + 'drawer.html').then(function(r){ return r.text(); }).then(function(html) {
+    if (document.getElementById('drawer')) return;
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    tmp.querySelectorAll('a[href]').forEach(function(a) { a.setAttribute('href', p + a.getAttribute('href')); });
+    while (tmp.firstChild) { document.body.appendChild(tmp.firstChild); }
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
   var articles = document.querySelector('.articles');
   var outer = document.querySelector('.articles-outer');
