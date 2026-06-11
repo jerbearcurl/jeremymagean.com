@@ -397,7 +397,7 @@ a.top-logo:hover svg line { stroke: var(--ink); }
 var d = parts.length;
     var p = d > 0 ? Array(d).fill('..').join('/') + '/' : '';
     var el = document.currentScript;
-    fetch(p + 'nav.html').then(function(r){ return r.text(); }).then(function(html) {
+    fetch(p + 'nav.html', { cache: 'no-cache' }).then(function(r){ return r.text(); }).then(function(html) {
       var tmp = document.createElement('div');
       tmp.innerHTML = html;
       tmp.querySelectorAll('a[href]').forEach(function(a) { a.setAttribute('href', p + a.getAttribute('href')); });
