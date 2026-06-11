@@ -52,7 +52,7 @@ html, body {
   position: absolute;
   left: 0;
   right: 0;
-  height: 16px;
+  height: 32px;
   pointer-events: none;
   z-index: 2;
 }
