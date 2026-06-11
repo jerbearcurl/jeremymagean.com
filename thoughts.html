@@ -69,6 +69,7 @@
   }
 
   .thought-item {
+    position: relative;
     display: grid;
     grid-template-columns: 80px 1fr;
     gap: 0 32px;
@@ -78,8 +79,26 @@
     transition: padding-left 0.2s ease;
   }
 
+  .thought-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 26px;
+    bottom: 26px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--violet), var(--blue));
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: none;
+  }
+
   .thought-item:hover {
     padding-left: 12px;
+  }
+
+  .thought-item:hover::before {
+    transform: scaleY(1);
+    transition: transform 0.15s ease;
   }
 
   .thought-item:hover .thought-title {
