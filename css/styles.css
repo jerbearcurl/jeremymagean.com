@@ -97,7 +97,7 @@ html, body {
   max-width: 480px;
 }
 .article-card:hover {
-  box-shadow: 0 4px 24px rgba(45,110,207,0.18);
+  box-shadow: 0 4px 24px rgba(26,26,31,0.14);
   border-color: rgba(45,110,207,0.6);
 }
 .article-card-tag {
@@ -135,9 +135,9 @@ html, body {
 }
 .articles-view-all {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 300;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--violet);
   text-decoration: none;
@@ -145,7 +145,7 @@ html, body {
 
   transition: color 0.2s;
 }
-.articles-view-all:hover { color: var(--blue); }
+.articles-view-all:hover { color: var(--ink); }
 .articles-label {
   display: none;
 }
@@ -487,7 +487,7 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   color: inherit;
 }
 .case-card:hover {
-  box-shadow: 0 4px 24px rgba(45,110,207,0.18);
+  box-shadow: 0 4px 24px rgba(26,26,31,0.14);
   border-color: rgba(45,110,207,0.6);
 }
 .case-card.active {
