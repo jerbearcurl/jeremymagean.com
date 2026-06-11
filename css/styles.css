@@ -139,13 +139,14 @@ html, body {
   font-weight: 300;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--violet);
   text-decoration: none;
   margin-top: 6px;
-
-  transition: color 0.2s;
+  background: linear-gradient(135deg, var(--violet), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-.articles-view-all:hover { color: var(--ink); }
+.articles-view-all:hover { -webkit-text-fill-color: var(--ink); }
 .articles-label {
   display: none;
 }
