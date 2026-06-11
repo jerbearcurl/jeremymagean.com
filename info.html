@@ -173,13 +173,15 @@
   }
 
   .bio-detail-value a {
-    color: var(--blue);
     text-decoration: none;
+    background: linear-gradient(135deg, var(--violet), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .bio-detail-value a:hover {
-    text-decoration: underline;
-    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
   }
 
   /* Lower sidebar wrapper */
@@ -437,7 +439,7 @@
       </div>
       <div class="bio-detail">
         <span class="bio-detail-label">Resume</span>
-        <span class="bio-detail-value"><a href="images/info/JeremyMagean_resume2026.pdf" target="_blank" rel="noopener noreferrer">Download PDF</a></span>
+        <span class="bio-detail-value"><a href="images/info/JeremyMagean_resume2026.pdf" target="_blank" rel="noopener noreferrer">View Resume PDF</a></span>
       </div>
       </div>
     </div>
