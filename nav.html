@@ -34,14 +34,18 @@
   text-decoration: none;
   padding: 0 28px;
   line-height: 56px;
+  transition: opacity 0.2s;
+}
+.top-nav-links a .grad {
   background: linear-gradient(135deg, #6b3fa0, #2d6ecf);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  transition: opacity 0.2s;
 }
 .top-nav-links a:hover {
   opacity: 1;
+}
+.top-nav-links a:hover .grad {
   -webkit-text-fill-color: #1a1a1f;
 }
 .top-nav-hamburger {
@@ -138,6 +142,22 @@
   color: rgba(255,255,255,0.9);
   -webkit-text-fill-color: rgba(255,255,255,0.9);
 }
+.top-nav-links .nav-word { position: relative; }
+.nav-active .nav-word::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(135deg, #6b3fa0, #2d6ecf);
+  animation: navUnderline 0.6s cubic-bezier(0.34, 1.9, 0.4, 1) both;
+}
+@keyframes navUnderline {
+  from { width: 0; }
+  to { width: 100%; }
+}
 @media (max-width: 768px) {
   .top-nav-links { display: none; }
   .top-nav-hamburger { display: flex; }
@@ -154,9 +174,9 @@
 <nav class="top-nav" id="topNav">
   <div class="top-nav-inner">
     <div class="top-nav-links">
-      <a href="thoughts.html">[ Thoughts ]</a>
-      <a href="lab.html">[ Lab ]</a>
-      <a href="info.html">[ Info ]</a>
+      <a href="thoughts.html"><span class="grad">[ </span><span class="nav-word"><span class="grad">Thoughts</span></span><span class="grad"> ]</span></a>
+      <a href="lab.html"><span class="grad">[ </span><span class="nav-word"><span class="grad">Lab</span></span><span class="grad"> ]</span></a>
+      <a href="info.html"><span class="grad">[ </span><span class="nav-word"><span class="grad">Info</span></span><span class="grad"> ]</span></a>
     </div>
     <button class="top-nav-hamburger" id="topNavHamburger" aria-label="Open menu">
       <span></span>
@@ -202,6 +222,16 @@
     var drawer = document.getElementById('navMobileDrawer');
     var drawerClose = document.getElementById('navMobileDrawerClose');
     if (!nav || !hamburger || !drawer || !drawerClose) return;
+
+    function normPath(p) {
+      p = p.split('?')[0].split('#')[0];
+      if (p.charAt(p.length - 1) === '/') p += 'index.html';
+      return p;
+    }
+    var here = normPath(window.location.pathname);
+    document.querySelectorAll('.top-nav-links a').forEach(function(a) {
+      if (normPath(new URL(a.href).pathname) === here) a.classList.add('nav-active');
+    });
 
     var lastY = 0;
     function handleScroll() {
