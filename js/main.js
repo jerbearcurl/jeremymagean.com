@@ -2,7 +2,7 @@
 (function() {
   var d = location.pathname.split('/').filter(function(s){ return s.length > 0; }).length;
   var p = d > 1 ? Array(d - 1).fill('..').join('/') + '/' : '';
-  fetch(p + 'drawer.html').then(function(r){ return r.text(); }).then(function(html) {
+  fetch(p + 'drawer.html', { cache: 'no-cache' }).then(function(r){ return r.text(); }).then(function(html) {
     if (document.getElementById('drawer')) return;
     var tmp = document.createElement('div');
     tmp.innerHTML = html;
