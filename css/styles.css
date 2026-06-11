@@ -250,7 +250,7 @@ html, body {
 .tagline {
   font-family: var(--mono);
   font-weight: 300;
-  font-size: clamp(21px, 2.2vw, 31px);
+  font-size: clamp(21px, 2.2vw, 30px);
   color: var(--teal);
   margin-top: 36px;
   margin-bottom: 8px;
