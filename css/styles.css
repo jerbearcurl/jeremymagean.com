@@ -92,10 +92,13 @@ html, body {
   padding: 16px 18px;
   text-decoration: none;
   display: block;
-  transition: border-color 0.2s;
+  transition: box-shadow 0.2s, border-color 0.2s;
   max-width: 480px;
 }
-.article-card:hover { border-color: rgba(45,110,207,0.25); }
+.article-card:hover {
+  box-shadow: 0 4px 24px rgba(45,110,207,0.18);
+  border-color: rgba(45,110,207,0.6);
+}
 .article-card-tag {
   font-family: var(--mono);
   font-size: 11px;
