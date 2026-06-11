@@ -39,6 +39,10 @@ html, body {
   padding-top: calc(12vh - 8px);
   max-width: 640px;
 }
+.cs-page p {
+  font-family: var(--body);
+}
+
 .articles-outer {
   grid-column: 2;
   grid-row: 1;
