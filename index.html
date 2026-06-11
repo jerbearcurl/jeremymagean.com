@@ -30,6 +30,7 @@
 </head>
 <body>
 
+
 <script>
   (function() {
     var parts = location.pathname.split('/').filter(function(s){ return s.length > 0 && s !== 'index.html'; });
@@ -56,6 +57,7 @@ var d = parts.length;
   })();
 </script>
 
+
 <div class="deco" aria-hidden="true">
   <svg viewBox="0 0 500 900" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -80,7 +82,7 @@ var d = parts.length;
     <h1 class="name">
       <span style="display:block">Design Strategist &amp;</span>
       <span style="display:block">Experience Builder</span>
-      <span style="display:block" class="gradient-text">based in Denver</span>
+      <span style="display:block" class="gradient-text">based Denver</span>
     </h1>
     <p class="tagline">Translating design intent<br>into real world solutions</p>
     <div class="pre-footer">
@@ -123,7 +125,7 @@ var d = parts.length;
       <p class="article-card-excerpt">Tokens only work when designers and engineers agree on meaning. Getting alignment early saves months of downstream confusion.</p>
       <span class="article-card-meta">Jan 2026 · 3 min read</span>
     </a>
-    <a class="articles-view-all" href="thoughts.html">Read more...</a>
+    <a class="articles-view-all" href="#">Read more...</a>
   </aside>
   </div>
 
@@ -152,6 +154,63 @@ var d = parts.length;
     </nav>
   </footer>
 </div>
+
+<button class="case-studies-tab" onclick="openDrawer()">Case Studies</button>
+
+<!-- Drawer overlay -->
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+
+<!-- Case studies drawer -->
+<aside class="drawer" id="drawer" aria-label="Case Studies">
+  <div class="drawer-header">
+    <span class="drawer-title">Case Studies</span>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">
+      <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="2" y1="14" x2="26" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <polyline points="17,5 26,14 17,23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+
+    <a class="case-card" href="work/wowza-video/index.html" data-case="wowza-video">
+      <p class="case-card-tag">Video Live Streaming</p>
+      <h3 class="case-card-title">Wowza Video</h3>
+      <p class="case-card-desc">Strategic design leadership bridging product development with sales and marketing.</p>
+      <div class="case-card-meta">
+<span>Navigation Redesign · Platform Merge · Sales Optimization</span>
+      </div>
+    </a>
+
+    <a class="case-card" href="work/nexthealth-technologies/index.html" data-case="nexthealth-technologies">
+      <p class="case-card-tag">Healthcare Analytics</p>
+      <h3 class="case-card-title">NextHealth Technologies</h3>
+      <p class="case-card-desc">Design Lead role building UX focused practices in engineering platform migration.</p>
+      <div class="case-card-meta">
+<span>Systems Design · Figma · Components Library</span>
+      </div>
+    </a>
+
+    <a class="case-card" href="work/journeyid/index.html" data-case="journeyid">
+      <p class="case-card-tag">Identity Verification</p>
+      <h3 class="case-card-title">JourneyID</h3>
+      <p class="case-card-desc">Stealth mode startup with a variety of design needs ahead of public launch.</p>
+      <div class="case-card-meta">
+<span>Rapid Prototyping · Mobile Telehealth Solution</span>
+      </div>
+    </a>
+
+    <a class="case-card" href="work/flytedesk/index.html" data-case="flytedesk">
+      <p class="case-card-tag">Online Store</p>
+      <h3 class="case-card-title">Flytedesk</h3>
+      <p class="case-card-desc">Full-time internship in close collaboration with product and engineering teams.</p>
+      <div class="case-card-meta">
+<span>User Dashboard · Responsive Ad Shop</span>
+      </div>
+    </a>
+
+  </div>
+</aside>
 
 <script src="js/main.js" defer></script>
 </body>
