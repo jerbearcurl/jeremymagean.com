@@ -128,7 +128,7 @@ html, body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--blue);
-  margin-bottom: 9px;
+  margin-bottom: 11px;
 }
 .article-card-title {
   font-family: var(--sans);
