@@ -5,7 +5,7 @@
   --violet: #6b3fa0;
   --blue: #205dba;
   --darkblue: #0b285a;
-  --teal: #359a84;
+  --teal: #218e77;
   --green: #065e45;
   --muted: #8a8698;
   --serif: 'DM Serif Display', Georgia, serif;
@@ -96,11 +96,11 @@ html, body {
   position: relative;
   background: white;
   border: 1px solid rgba(26,26,31,0.08);
-  padding: 16px 18px;
+  padding: 20px 18px;
   text-decoration: none;
   display: block;
   transition: box-shadow 0.2s;
-  max-width: 480px;
+  max-width: 500px;
 }
 .article-card::before {
   content: '';
