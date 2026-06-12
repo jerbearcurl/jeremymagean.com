@@ -533,19 +533,19 @@ a.footer-left:hover svg line { stroke: var(--ink); }
 }
 .case-card-tag {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 300;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--blue);
-  margin-bottom: 14px;
+  margin-bottom: 13px;
 }
 .case-card-title {
   font-family: var(--sans);
   font-size: 19px;
   font-weight: 500;
   color: var(--ink);
-  margin-bottom: 12px;
+  margin-bottom: 9px;
   letter-spacing: -0.01em;
 }
 .case-card-desc {
