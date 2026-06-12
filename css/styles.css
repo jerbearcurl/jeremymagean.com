@@ -6,6 +6,7 @@
   --blue: #205dba;
   --darkblue: #0b285a;
   --teal: #359a84;
+  --green: #065e45;
   --muted: #8a8698;
   --serif: 'DM Serif Display', Georgia, serif;
   --sans: 'Urbanist', system-ui, sans-serif;
@@ -537,7 +538,7 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--blue);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .case-card-title {
   font-family: var(--sans);
@@ -566,6 +567,7 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   letter-spacing: 0.03em;
   color: #065e45;
   text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
 /* Lightbox */
