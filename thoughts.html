@@ -207,7 +207,7 @@
     z-index: 90;
     background: rgba(218, 209, 196, 0.80);
     overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
+   
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0s linear 0.3s;
@@ -230,7 +230,25 @@
   box-shadow: 0 2px 12px rgba(26,26,31,0.12);
   max-height: calc(100vh - 48px - 70px);
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+ 
+}
+#overlayContent {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(26,26,31,0.15) transparent;
+}
+
+#overlayContent::-webkit-scrollbar {
+  width: 4px;
+}
+
+#overlayContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#overlayContent::-webkit-scrollbar-thumb {
+  background: rgba(26,26,31,0.15);
+  border-radius: 2px;
 }
   #overlaySand {
   background: transparent;
@@ -304,10 +322,13 @@
     .thoughts-footer { grid-column: 1; }
     .thought-item { grid-template-columns: 64px 1fr; gap: 0 20px; }
     #overlayContent {
-      margin: 24px 16px;
-      padding: 56px 28px 40px;
+      margin: 40px 2px;
+      padding: 56px 24px 40px;
       max-height: calc(100vh - 56px - 48px);
     }
+    #overlaySand {
+  padding: 24px 22px 48px 22px;
+}
     #overlayClose { top: 16px; right: 16px; }
   }
 </style>
