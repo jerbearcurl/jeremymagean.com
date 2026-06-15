@@ -194,11 +194,121 @@
     background-clip: text;
   }
 
+  .thought-item { cursor: pointer; }
+
+  /* ── Article modal overlay ────────────────────────────── */
+  /* Dark scrim covering the viewport below the fixed 56px nav. */
+  #articleOverlay {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    background: rgba(218, 209, 196, 0.80);
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  }
+
+  #articleOverlay.overlay-open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+  }
+
+  /* Centered white content card. */
+#overlayContent {
+  position: relative;
+  max-width: 900px;
+  margin: 0px auto;
+  background: #ffffff;
+  padding: 86px 110px 56px 120px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(26,26,31,0.12);
+  max-height: calc(100vh - 48px - 70px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+  #overlaySand {
+  background: transparent;
+  padding: 92px 32px 96px 32px;
+}
+
+  #overlayClose {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-family: var(--mono);
+    font-size: 22px;
+    color: var(--muted);
+    cursor: pointer;
+    line-height: 1;
+    padding: 6px;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  #overlayClose:hover {
+    color: var(--ink);
+    transform: scale(1.1);
+  }
+
+  .article-headline {
+    font-family: var(--sans);
+    font-size: clamp(24px, 4vw, 30px);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  .article-subtitle {
+    font-family: var(--body);
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .article-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid rgba(26,26,31,0.10);
+  }
+
+  .article-body {
+    font-family: var(--body);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+
   @media (max-width: 768px) {
     .thoughts-page { padding: 32px 24px; grid-template-columns: 1fr; grid-template-rows: auto auto; }
     .thoughts-main { grid-column: 1; padding-top: 32px; }
     .thoughts-footer { grid-column: 1; }
     .thought-item { grid-template-columns: 64px 1fr; gap: 0 20px; }
+    #overlayContent {
+      margin: 24px 16px;
+      padding: 56px 28px 40px;
+      max-height: calc(100vh - 56px - 48px);
+    }
+    #overlayClose { top: 16px; right: 16px; }
   }
 </style>
 </head>
@@ -253,7 +363,15 @@
 
     <div class="thoughts-list">
 
-      <a class="thought-item" href="#">
+      <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
+        <h1 class="article-headline">Why the best interfaces feel invisible</h1>
+        <p class="article-date">April 2026</p>
+        <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p class="article-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        
+      `)'>
         <div class="thought-meta">
           <span class="thought-date">Apr 2026</span>
           <span class="thought-read">4 min</span>
@@ -265,7 +383,13 @@
         </div>
       </a>
 
-      <a class="thought-item" href="#">
+      <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
+        <h1 class="article-headline">Designing for trust in an age of AI skepticism</h1>
+        <p class="article-date">March 2026</p>
+        <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p class="article-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+      `)'>
         <div class="thought-meta">
           <span class="thought-date">Mar 2026</span>
           <span class="thought-read">6 min</span>
@@ -277,7 +401,13 @@
         </div>
       </a>
 
-      <a class="thought-item" href="#">
+      <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
+        <h1 class="article-headline">The case for slower, deeper user research</h1>
+        <p class="article-date">February 2026</p>
+        <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p class="article-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+      `)'>
         <div class="thought-meta">
           <span class="thought-date">Feb 2026</span>
           <span class="thought-read">5 min</span>
@@ -317,6 +447,52 @@
     </nav>
   </footer>
 </div>
+
+<div id="articleOverlay" aria-hidden="true">
+  <div id="overlaySand">
+    <div id="overlayContent">
+      <button id="overlayClose" aria-label="Close article">&#10005;</button>
+      <div id="overlayBody"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var overlay = document.getElementById('articleOverlay');
+    var card = document.getElementById('overlayContent');
+    var body = document.getElementById('overlayBody');
+    var closeBtn = document.getElementById('overlayClose');
+
+    window.openArticle = function(html) {
+      body.innerHTML = html;
+      overlay.classList.add('overlay-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      overlay.scrollTop = 0;
+      card.scrollTop = 0;
+    };
+
+    function closeArticle() {
+      overlay.classList.remove('overlay-open');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    closeBtn.addEventListener('click', closeArticle);
+
+    // Click on the dark scrim (outside the white card) closes the modal.
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closeArticle();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('overlay-open')) {
+        closeArticle();
+      }
+    });
+  })();
+</script>
 
 <script src="js/main.js" defer></script>
 </body>
