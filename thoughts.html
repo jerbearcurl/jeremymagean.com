@@ -205,7 +205,7 @@
     right: 0;
     bottom: 0;
     z-index: 90;
-    background: rgba(218, 209, 196, 0.80);
+    background: rgba(211, 200, 182, 0.8);
     overflow-y: hidden;
    
     opacity: 0;
@@ -225,10 +225,10 @@
   max-width: 900px;
   margin: 0px auto;
   background: #ffffff;
-  padding: 86px 110px 56px 120px;
-  border-radius: 12px;
+  padding: 80px 110px 72px 120px;
+  border-radius: 12px 12px 0 0;
   box-shadow: 0 2px 12px rgba(26,26,31,0.12);
-  max-height: calc(100vh - 48px - 70px);
+  max-height: calc(100vh - 80px - 0px);
   overflow-y: auto;
   overscroll-behavior: contain;
  
@@ -252,7 +252,7 @@
 }
   #overlaySand {
   background: transparent;
-  padding: 92px 32px 96px 32px;
+  padding: 84px 32px 96px 32px;
 }
 
   #overlayClose {
@@ -262,8 +262,8 @@
     background: none;
     border: none;
     font-family: var(--mono);
-    font-size: 22px;
-    color: var(--muted);
+    font-size: 28px;
+    color: var(--gray);
     cursor: pointer;
     line-height: 1;
     padding: 6px;
@@ -273,6 +273,16 @@
   #overlayClose:hover {
     color: var(--ink);
     transform: scale(1.1);
+  }
+
+  /* Gradient rule above the title. Spans full content width to start —
+     change `width` (e.g. 64px) to make it much shorter. */
+  .article-rule {
+    width: 100%;
+    height: 1px;
+    border: none;
+    margin: 0 0 40px;
+    background: linear-gradient(90deg, var(--blue), var(--teal));
   }
 
   .article-headline {
@@ -287,12 +297,12 @@
 
   .article-subtitle {
     font-family: var(--body);
-    font-size: 19px;
-    font-style: italic;
+    font-size: 15px;
+    font-style: regular;
     font-weight: 300;
     line-height: 1.5;
     color: var(--muted);
-    margin-bottom: 28px;
+    margin-bottom: 16px;
   }
 
   .article-date {
@@ -302,9 +312,31 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
-    padding-bottom: 28px;
-    margin-bottom: 36px;
+    margin-bottom: 30px;
+  }
+
+  .article-figure {
+    margin: 0 0 36px;
+    padding-bottom: 36px;
     border-bottom: 1px solid rgba(26,26,31,0.10);
+  }
+
+  .article-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background:
+      linear-gradient(135deg, rgba(107,63,160,0.10), rgba(45,110,207,0.10)),
+      #ece7df;
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
   }
 
   .article-body {
@@ -316,6 +348,53 @@
     margin-bottom: 24px;
   }
 
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(26,26,31,0.10);
+  }
+
+  .article-back {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 36px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .article-back:hover { color: var(--ink); }
+
+  .article-back::before {
+    content: '←';
+    font-family: var(--sans);
+    font-size: 14px;
+  }
+
+  .article-tag {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    border: none;
+    padding: 6px 12px;
+    background: var(--paper);
+  }
+
   @media (max-width: 768px) {
     .thoughts-page { padding: 32px 24px; grid-template-columns: 1fr; grid-template-rows: auto auto; }
     .thoughts-main { grid-column: 1; padding-top: 32px; }
@@ -324,7 +403,7 @@
     #overlayContent {
       margin: 40px 2px;
       padding: 56px 24px 40px;
-      max-height: calc(100vh - 56px - 48px);
+      max-height: calc(100vh - 48px - 0px);
     }
     #overlaySand {
   padding: 24px 22px 48px 22px;
@@ -385,13 +464,21 @@
     <div class="thoughts-list">
 
       <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
+        <hr class="article-rule">
         <h1 class="article-headline">Why the best interfaces feel invisible</h1>
-        <p class="article-date">April 2026</p>
+        <p class="article-subtitle">On restraint, and the quiet craft of getting out of the user&rsquo;s way.</p>
+        <p class="article-date">April 12, 2026</p>
+        <figure class="article-figure"><div class="article-image">Image</div></figure>
         <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         <p class="article-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
         <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
         <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-        
+        <div class="article-tags">
+          <span class="article-tag">Design</span>
+          <span class="article-tag">Simplicity</span>
+          <span class="article-tag">Craft</span>
+        </div>
+        <button class="article-back" onclick="closeArticle()">Back</button>
       `)'>
         <div class="thought-meta">
           <span class="thought-date">Apr 2026</span>
@@ -405,11 +492,20 @@
       </a>
 
       <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
+        <hr class="article-rule">
         <h1 class="article-headline">Designing for trust in an age of AI skepticism</h1>
-        <p class="article-date">March 2026</p>
+        <p class="article-subtitle">Why transparency and consistency are the new foundations of product confidence.</p>
+        <p class="article-date">March 8, 2026</p>
+        <figure class="article-figure"><div class="article-image">Image</div></figure>
         <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         <p class="article-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
         <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <div class="article-tags">
+          <span class="article-tag">Trust</span>
+          <span class="article-tag">AI</span>
+          <span class="article-tag">Strategy</span>
+        </div>
+        <button class="article-back" onclick="closeArticle()">Back</button>
       `)'>
         <div class="thought-meta">
           <span class="thought-date">Mar 2026</span>
@@ -423,11 +519,20 @@
       </a>
 
       <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
+        <hr class="article-rule">
         <h1 class="article-headline">The case for slower, deeper user research</h1>
-        <p class="article-date">February 2026</p>
+        <p class="article-subtitle">The best insights surface in the silences and the questions no one planned to ask.</p>
+        <p class="article-date">February 21, 2026</p>
+        <figure class="article-figure"><div class="article-image">Image</div></figure>
         <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         <p class="article-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
         <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <div class="article-tags">
+          <span class="article-tag">Research</span>
+          <span class="article-tag">Discovery</span>
+          <span class="article-tag">Process</span>
+        </div>
+        <button class="article-back" onclick="closeArticle()">Back</button>
       `)'>
         <div class="thought-meta">
           <span class="thought-date">Feb 2026</span>
@@ -497,6 +602,7 @@
       overlay.classList.remove('overlay-open');
       overlay.setAttribute('aria-hidden', 'true');
     }
+    window.closeArticle = closeArticle;
 
     closeBtn.addEventListener('click', closeArticle);
 
