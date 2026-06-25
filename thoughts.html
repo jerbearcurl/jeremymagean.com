@@ -32,6 +32,19 @@
     overflow: hidden;
   }
 
+  /* Bottom fade so the scrolling list doesn't cut off abruptly. */
+  .thoughts-main::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 56px;
+    background: linear-gradient(to top, var(--paper) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
   .thoughts-eyebrow {
     font-family: var(--mono);
     font-size: 11px;
@@ -76,6 +89,7 @@
     overflow-clip-margin: 12px;
     overscroll-behavior: contain;
     padding-right: 12px;
+    padding-bottom: 40px;
     scrollbar-width: thin;
     scrollbar-color: rgba(26,26,31,0.15) transparent;
   }
@@ -428,8 +442,9 @@
   @media (max-width: 768px) {
     .thoughts-page { padding: 32px 24px; grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; min-height: 100vh; }
     .thoughts-main { grid-column: 1; padding-top: 32px; overflow: visible; }
+    .thoughts-main::after { display: none; }
     .thoughts-footer { grid-column: 1; }
-    .thoughts-list { overflow-y: visible; flex: 0 1 auto; padding-right: 0; }
+    .thoughts-list { overflow-y: visible; flex: 0 1 auto; padding-right: 0; padding-bottom: 0; }
     .thought-item { grid-template-columns: 64px 1fr; gap: 0 20px; }
     #overlayContent {
       margin: 40px 2px;
@@ -513,7 +528,7 @@
         <button class="article-back" onclick="closeArticle()">Back</button>
       `)'>
         <div class="thought-meta">
-          <span class="thought-date">Jun 2026</span>
+          <span class="thought-date">June 2026</span>
           <span class="thought-read">5 min</span>
         </div>
         <div class="thought-content">
@@ -569,7 +584,7 @@
         <button class="article-back" onclick="closeArticle()">Back</button>
       `)'>
         <div class="thought-meta">
-          <span class="thought-date">Feb 2026</span>
+          <span class="thought-date">May 2026</span>
           <span class="thought-read">5 min</span>
         </div>
         <div class="thought-content">
@@ -597,7 +612,7 @@
         <button class="article-back" onclick="closeArticle()">Back</button>
       `)'>
         <div class="thought-meta">
-          <span class="thought-date">Jan 2026</span>
+          <span class="thought-date">April 2026</span>
           <span class="thought-read">3 min</span>
         </div>
         <div class="thought-content">
