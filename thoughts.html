@@ -10,6 +10,7 @@
 <style>
   .thoughts-page {
     min-height: 100vh;
+    height: 100vh;
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: 1fr auto;
@@ -27,6 +28,8 @@
     display: flex;
     flex-direction: column;
     padding-top: 7vh;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .thoughts-eyebrow {
@@ -66,6 +69,22 @@
     gap: 0;
     max-width: 720px;
     border-top: 1.5px solid rgba(26,26,31,0.14);
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: clip;
+    overflow-clip-margin: 12px;
+    overscroll-behavior: contain;
+    padding-right: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(26,26,31,0.15) transparent;
+  }
+
+  .thoughts-list::-webkit-scrollbar { width: 8px; }
+  .thoughts-list::-webkit-scrollbar-track { background: transparent; }
+  .thoughts-list::-webkit-scrollbar-thumb {
+    background: rgba(26,26,31,0.15);
+    border-radius: 4px;
   }
 
   .thought-item {
@@ -76,13 +95,13 @@
     padding: 30px 4px;
     border-bottom: 1px solid rgba(26,26,31,0.10);
     text-decoration: none;
-    transition: padding-left 0.2s ease;
+    transition: transform 0.2s ease;
   }
 
   .thought-item::before {
     content: '';
     position: absolute;
-    left: -6px;
+    left: -9px;
     top: 26px;
     bottom: 26px;
     width: 2px;
@@ -93,7 +112,7 @@
   }
 
   .thought-item:hover {
-    padding-left: 12px;
+    transform: translateX(12px);
   }
 
   .thought-item:hover::before {
@@ -167,6 +186,7 @@
     opacity: 0.80;
     line-height: 1.7;
     margin-top: 2px;
+    max-width: 540px;
     transition: opacity 0.2s;
   }
 
@@ -406,9 +426,10 @@
   }
 
   @media (max-width: 768px) {
-    .thoughts-page { padding: 32px 24px; grid-template-columns: 1fr; grid-template-rows: auto auto; }
-    .thoughts-main { grid-column: 1; padding-top: 32px; }
+    .thoughts-page { padding: 32px 24px; grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; min-height: 100vh; }
+    .thoughts-main { grid-column: 1; padding-top: 32px; overflow: visible; }
     .thoughts-footer { grid-column: 1; }
+    .thoughts-list { overflow-y: visible; flex: 0 1 auto; padding-right: 0; }
     .thought-item { grid-template-columns: 64px 1fr; gap: 0 20px; }
     #overlayContent {
       margin: 40px 2px;
@@ -475,9 +496,9 @@
 
       <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
         <hr class="article-rule">
-        <h1 class="article-headline">Why the best interfaces feel invisible</h1>
-        <p class="article-subtitle">On restraint, and the quiet craft of getting out of the user&rsquo;s way.</p>
-        <p class="article-date">April 12, 2026</p>
+        <h1 class="article-headline">Accidently Learning How to Code Using Claude Code</h1>
+        <p class="article-subtitle">Starting from the ground up with Claude has expanded my understanding of coding more in one month than eight years working with developers.</p>
+        <p class="article-date">June 25, 2026</p>
         <figure class="article-figure"><div class="article-image">Image</div></figure>
         <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         <h2 class="article-h2">A section heading</h2>
@@ -485,65 +506,65 @@
         <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
         <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
         <div class="article-tags">
-          <span class="article-tag">Design</span>
-          <span class="article-tag">Simplicity</span>
-          <span class="article-tag">Craft</span>
+          <span class="article-tag">Evolving Roles</span>
+          <span class="article-tag">Claude Code</span>
+          <span class="article-tag">Learning</span>
         </div>
         <button class="article-back" onclick="closeArticle()">Back</button>
       `)'>
         <div class="thought-meta">
-          <span class="thought-date">Apr 2026</span>
-          <span class="thought-read">4 min</span>
+          <span class="thought-date">Jun 2026</span>
+          <span class="thought-read">5 min</span>
         </div>
         <div class="thought-content">
-          <span class="thought-tag">Design Thinking</span>
-          <h2 class="thought-title">Why the best interfaces feel invisible</h2>
-          <p class="thought-excerpt">Great design removes itself from the equation. When users stop noticing the UI and start achieving their goals, that's when you know it's working.</p>
+          <span class="thought-tag">Evolving Roles</span>
+          <h2 class="thought-title">Accidently Learning How to Code Using Claude Code</h2>
+          <p class="thought-excerpt">Starting from the ground up with Claude has expanded my understanding of coding more in one month than eight years working with developers.</p>
         </div>
       </a>
 
       <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
         <hr class="article-rule">
-        <h1 class="article-headline">Designing for trust in an age of AI skepticism</h1>
-        <p class="article-subtitle">Why transparency and consistency are the new foundations of product confidence.</p>
-        <p class="article-date">March 8, 2026</p>
+        <h1 class="article-headline">On Why All My Previous Case Stuides Are a Prompt</h1>
+        <p class="article-subtitle">Rebuilding my portfolio with Claude Code has created a new paradigm for how I approach design and development tasks.</p>
+        <p class="article-date">May 17, 2026</p>
         <figure class="article-figure"><div class="article-image">Image</div></figure>
         <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         <h2 class="article-h2">A section heading</h2>
         <p class="article-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
         <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
         <div class="article-tags">
-          <span class="article-tag">Trust</span>
-          <span class="article-tag">AI</span>
-          <span class="article-tag">Strategy</span>
+          <span class="article-tag">Systems &amp; Tools</span>
+          <span class="article-tag">Workflow</span>
+          <span class="article-tag">Claude Code</span>
         </div>
         <button class="article-back" onclick="closeArticle()">Back</button>
       `)'>
         <div class="thought-meta">
-          <span class="thought-date">Mar 2026</span>
-          <span class="thought-read">6 min</span>
+          <span class="thought-date">May 2026</span>
+          <span class="thought-read">5 min</span>
         </div>
         <div class="thought-content">
-          <span class="thought-tag">Strategy</span>
-          <h2 class="thought-title">Designing for trust in an age of AI skepticism</h2>
-          <p class="thought-excerpt">Users are increasingly wary of automated systems. Here's how to build products that earn confidence through transparency and consistency.</p>
+          <span class="thought-tag">Systems &amp; Tools</span>
+          <h2 class="thought-title">On Why All My Previous Case Stuides Are a Prompt</h2>
+          <p class="thought-excerpt">Rebuilding my portfolio with Claude Code has created a new paradigm for how I approach design and development tasks.</p>
         </div>
       </a>
 
       <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
         <hr class="article-rule">
-        <h1 class="article-headline">The case for slower, deeper user research</h1>
-        <p class="article-subtitle">The best insights surface in the silences and the questions no one planned to ask.</p>
-        <p class="article-date">February 21, 2026</p>
+        <h1 class="article-headline">The Conversation Around Using LLMs for Content Creation</h1>
+        <p class="article-subtitle">Speed is overrated in discovery. Useful insights tend to surface in the awkward silences and the follow-up questions no one planned to ask.</p>
+        <p class="article-date">February 2026</p>
         <figure class="article-figure"><div class="article-image">Image</div></figure>
         <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         <h2 class="article-h2">A section heading</h2>
         <p class="article-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
         <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
         <div class="article-tags">
-          <span class="article-tag">Research</span>
-          <span class="article-tag">Discovery</span>
-          <span class="article-tag">Process</span>
+          <span class="article-tag">Content Strategy</span>
+          <span class="article-tag">LLMs</span>
+          <span class="article-tag">Writing</span>
         </div>
         <button class="article-back" onclick="closeArticle()">Back</button>
       `)'>
@@ -552,9 +573,37 @@
           <span class="thought-read">5 min</span>
         </div>
         <div class="thought-content">
-          <span class="thought-tag">Process</span>
-          <h2 class="thought-title">The case for slower, deeper user research</h2>
-          <p class="thought-excerpt">Speed is overrated in discovery. The most useful insights tend to surface in the awkward silences and the follow-up questions no one planned to ask.</p>
+          <span class="thought-tag">Content Strategy</span>
+          <h2 class="thought-title">The Conversation Around Using LLMs for Content Creation</h2>
+          <p class="thought-excerpt">Speed is overrated in discovery. Useful insights tend to surface in the awkward silences and the follow-up questions no one planned to ask.</p>
+        </div>
+      </a>
+
+      <a class="thought-item" href="#" onclick='event.preventDefault(); openArticle(`
+        <hr class="article-rule">
+        <h1 class="article-headline">Good Design is Good for Business</h1>
+        <p class="article-subtitle">Teammates knowledgable about design principles (across roles) lead to better outcomes in corporate environments.</p>
+        <p class="article-date">January 2026</p>
+        <figure class="article-figure"><div class="article-image">Image</div></figure>
+        <p class="article-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <h2 class="article-h2">A section heading</h2>
+        <p class="article-body">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        <p class="article-body">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        <div class="article-tags">
+          <span class="article-tag">Collaboration</span>
+          <span class="article-tag">Design</span>
+          <span class="article-tag">Business</span>
+        </div>
+        <button class="article-back" onclick="closeArticle()">Back</button>
+      `)'>
+        <div class="thought-meta">
+          <span class="thought-date">Jan 2026</span>
+          <span class="thought-read">3 min</span>
+        </div>
+        <div class="thought-content">
+          <span class="thought-tag">Collaboration</span>
+          <h2 class="thought-title">Good Design is Good for Business</h2>
+          <p class="thought-excerpt">Teammates knowledgable about design principles (across roles) lead to better outcomes in corporate environments.</p>
         </div>
       </a>
 
