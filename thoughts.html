@@ -86,7 +86,6 @@
     min-height: 0;
     overflow-y: auto;
     overflow-x: clip;
-    overflow-clip-margin: 12px;
     overscroll-behavior: contain;
     padding-right: 12px;
     padding-bottom: 40px;
@@ -109,13 +108,12 @@
     padding: 30px 4px;
     border-bottom: 1px solid rgba(26,26,31,0.10);
     text-decoration: none;
-    transition: transform 0.2s ease;
   }
 
   .thought-item::before {
     content: '';
     position: absolute;
-    left: -10px;
+    left: 2px;
     top: 26px;
     bottom: 26px;
     width: 2px;
@@ -125,7 +123,8 @@
     transition: none;
   }
 
-  .thought-item:hover {
+  .thought-item:hover .thought-meta,
+  .thought-item:hover .thought-content {
     transform: translateX(12px);
   }
 
@@ -147,11 +146,12 @@
     flex-direction: column;
     gap: 4px;
     padding-top: 3px;
+    transition: transform 0.2s ease;
   }
 
   .thought-date {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 300;
     letter-spacing: 0.08em;
     color: var(--ink);
@@ -160,7 +160,7 @@
 
   .thought-read {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 300;
     letter-spacing: 0.06em;
     color: var(--muted);
@@ -171,6 +171,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    transition: transform 0.2s ease;
   }
 
   .thought-tag {
