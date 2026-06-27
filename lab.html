@@ -339,7 +339,7 @@
     if (!diagLine) { return; }
 
     // Immediately: diagonal line
-    diagLine.style.transition = 'opacity 1.1s ' + ease + ', stroke-dashoffset 1.1s ' + ease;
+    diagLine.style.transition = 'opacity 1.1s ' + ease + ', stroke-dashoffset 0.8s ' + ease;
     requestAnimationFrame(function () {
       diagLine.style.opacity = '1';
       diagLine.style.strokeDashoffset = '0';
@@ -375,11 +375,11 @@
     // 1100ms: gradient circles
     setTimeout(function () {
       if (gradOuter) {
-        gradOuter.style.transition = 'opacity 1.0s ease';
+        gradOuter.style.transition = 'opacity 0.8s ease';
         gradOuter.style.opacity = '0.18';
       }
       if (gradInner) {
-        gradInner.style.transition = 'opacity 1.1s ease';
+        gradInner.style.transition = 'opacity 1.8s ease';
         gradInner.style.opacity = '0.22';
       }
     }, 1100);
