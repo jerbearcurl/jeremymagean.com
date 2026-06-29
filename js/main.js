@@ -8,16 +8,45 @@
     tmp.innerHTML = html;
     tmp.querySelectorAll('a[href]').forEach(function(a) { a.setAttribute('href', p + a.getAttribute('href')); });
     while (tmp.firstChild) { document.body.appendChild(tmp.firstChild); }
-    setupCasePreview();
+    setupCasePreview(p);
   });
 })();
 
+// Real preview images per case study (relative to the site root). Cases without an
+// entry fall back to the plain gray placeholder.
+var CASE_PREVIEW_IMAGES = {
+  'wowza-video': 'images/casestudies/wowza-video/hover-preview.png',
+  'nexthealth-technologies': 'images/casestudies/nexthealth-technologies/hover-preview.png'
+};
+
 // Desktop-only hover preview for case study items. Does nothing on touch devices.
-function setupCasePreview() {
+function setupCasePreview(p) {
   if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   var body = document.querySelector('.drawer-body');
   var preview = document.getElementById('casePreview');
   if (!body || !preview) return;
+  var img = preview.querySelector('.case-preview-img');
+  var label = preview.querySelector('.case-preview-label');
+
+  function showCase(name) {
+    var src = CASE_PREVIEW_IMAGES[name];
+    if (src) {
+      img.src = p + src;
+      img.hidden = false;
+      label.hidden = true;
+    } else {
+      img.hidden = true;
+      img.removeAttribute('src');
+      label.hidden = false;
+    }
+  }
+
+  // Swap content to whichever card is under the cursor (keeps last card's
+  // content while hovering the gaps between cards).
+  body.addEventListener('mouseover', function(e) {
+    var card = e.target.closest('.case-card');
+    if (card) showCase(card.dataset.case);
+  });
   // Show while the cursor is anywhere in the list; hide when it leaves entirely.
   body.addEventListener('mouseenter', function() {
     preview.classList.add('visible');

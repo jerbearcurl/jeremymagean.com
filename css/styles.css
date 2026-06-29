@@ -577,10 +577,10 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   position: fixed;
   top: 50%;
   /* biased toward the drawer (55/45 split) for cohesion with the list */
-  left: calc((100vw - min(600px, 92vw)) * 0.53);
+  left: calc((100vw - min(600px, 92vw)) * 0.52);
   transform: translate(-50%, -50%);
   /* ~70% of the available horizontal space to the left of the drawer */
-  width: calc((100vw - min(600px, 92vw)) * 0.82);
+  width: calc((100vw - min(600px, 92vw)) * 0.85);
   z-index: 102;
   display: none;
   pointer-events: none;
@@ -597,13 +597,20 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   padding: 6px;
 }
 .case-preview-image {
+  position: relative;
   border-radius: 9px;
   overflow: hidden;
   background: #f0f0f2;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.case-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .case-preview-image span {
   font-family: var(--mono);
