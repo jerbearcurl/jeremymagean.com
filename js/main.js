@@ -8,8 +8,24 @@
     tmp.innerHTML = html;
     tmp.querySelectorAll('a[href]').forEach(function(a) { a.setAttribute('href', p + a.getAttribute('href')); });
     while (tmp.firstChild) { document.body.appendChild(tmp.firstChild); }
+    setupCasePreview();
   });
 })();
+
+// Desktop-only hover preview for case study items. Does nothing on touch devices.
+function setupCasePreview() {
+  if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var body = document.querySelector('.drawer-body');
+  var preview = document.getElementById('casePreview');
+  if (!body || !preview) return;
+  // Show while the cursor is anywhere in the list; hide when it leaves entirely.
+  body.addEventListener('mouseenter', function() {
+    preview.classList.add('visible');
+  });
+  body.addEventListener('mouseleave', function() {
+    preview.classList.remove('visible');
+  });
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   var articles = document.querySelector('.articles');
@@ -43,6 +59,8 @@ function closeDrawer() {
   document.getElementById('drawer').classList.remove('open');
   document.getElementById('drawerOverlay').classList.remove('open');
   document.body.style.overflow = '';
+  var preview = document.getElementById('casePreview');
+  if (preview) preview.classList.remove('visible');
 }
 
 document.addEventListener('keydown', function(e) {

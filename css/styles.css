@@ -571,6 +571,50 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   margin-bottom: 4px;
 }
 
+/* Desktop hover preview panel — lives in the empty space to the left of the drawer.
+   Visibility is toggled in JS and gated behind a (hover: hover) media query check. */
+.case-preview {
+  position: fixed;
+  top: 50%;
+  /* biased toward the drawer (55/45 split) for cohesion with the list */
+  left: calc((100vw - min(600px, 92vw)) * 0.53);
+  transform: translate(-50%, -50%);
+  /* ~70% of the available horizontal space to the left of the drawer */
+  width: calc((100vw - min(600px, 92vw)) * 0.82);
+  z-index: 102;
+  display: none;
+  pointer-events: none;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 6px;
+  box-shadow: 0 1px 2px rgba(26,26,31,0.06), 0 8px 24px rgba(26,26,31,0.06);
+}
+.case-preview.visible { display: block; }
+.case-preview-inner {
+  background: #ffffff;
+  border: 1px solid rgba(26,26,31,0.06);
+  border-radius: 13px;
+  padding: 6px;
+}
+.case-preview-image {
+  border-radius: 9px;
+  overflow: hidden;
+  background: #f0f0f2;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.case-preview-image span {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0.6;
+}
+
 /* Lightbox */
 .lightbox {
   display: none;
