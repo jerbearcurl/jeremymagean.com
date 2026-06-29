@@ -16,7 +16,8 @@
 // entry fall back to the plain gray placeholder.
 var CASE_PREVIEW_IMAGES = {
   'wowza-video': 'images/casestudies/wowza-video/hover-preview.png',
-  'nexthealth-technologies': 'images/casestudies/nexthealth-technologies/hover-preview.png'
+  'nexthealth-technologies': 'images/casestudies/nexthealth-technologies/hover-preview.png',
+  'flytedesk': 'images/casestudies/flytedesk/hover-preview.png'
 };
 
 // Desktop-only hover preview for case study items. Does nothing on touch devices.
