@@ -174,7 +174,7 @@
 <nav class="top-nav" id="topNav">
   <div class="top-nav-inner">
     <div class="top-nav-links">
-      <a href="thoughts.html"><span class="grad">[ </span><span class="nav-word"><span class="grad">Thoughts</span></span><span class="grad"> ]</span></a>
+      <a href="index.html" data-drawer-trigger onclick="if(typeof openDrawer==='function'){event.preventDefault();openDrawer();}"><span class="grad">[ </span><span class="nav-word"><span class="grad">Work</span></span><span class="grad"> ]</span></a>
       <a href="lab.html"><span class="grad">[ </span><span class="nav-word"><span class="grad">Lab</span></span><span class="grad"> ]</span></a>
       <a href="info.html"><span class="grad">[ </span><span class="nav-word"><span class="grad">Info</span></span><span class="grad"> ]</span></a>
     </div>
@@ -190,7 +190,6 @@
   <button class="nav-mobile-drawer-close" id="navMobileDrawerClose" aria-label="Close menu">✕</button>
   <nav class="nav-mobile-drawer-links">
     <a href="index.html" onclick="if(typeof openDrawer==='function'){event.preventDefault();var d=document.getElementById('navMobileDrawer');d.classList.remove('open');document.body.style.overflow='';openDrawer();}">Case Studies <span style="font-size: 28px; color: rgba(255,255,255,0.7); -webkit-text-fill-color: rgba(255,255,255,0.7);">&#8250;</span></a>
-    <a href="thoughts.html">Thoughts <span style="font-size: 28px; color: rgba(255,255,255,0.7); -webkit-text-fill-color: rgba(255,255,255,0.7);">&#8250;</span></a>
     <a href="lab.html">Lab <span style="font-size: 28px; color: rgba(255,255,255,0.7); -webkit-text-fill-color: rgba(255,255,255,0.7);">&#8250;</span></a>
     <a href="info.html">Info <span style="font-size: 28px; color: rgba(255,255,255,0.7); -webkit-text-fill-color: rgba(255,255,255,0.7);">&#8250;</span></a>
   </nav>
@@ -230,6 +229,7 @@
     }
     var here = normPath(window.location.pathname);
     document.querySelectorAll('.top-nav-links a').forEach(function(a) {
+      if (a.hasAttribute('data-drawer-trigger')) return;
       if (normPath(new URL(a.href).pathname) === here) a.classList.add('nav-active');
     });
 
