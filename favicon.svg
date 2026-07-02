@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pyramidGradDrawer" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9b6dd1"/>
+      <stop offset="55%" stop-color="#7a54b8"/>
+      <stop offset="100%" stop-color="#5c9fe8"/>
+    </linearGradient>
+  </defs>
+  <line x1="21" y1="3"  x2="5"  y2="37" stroke="url(#pyramidGradDrawer)" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="21" y1="3"  x2="34" y2="35" stroke="url(#pyramidGradDrawer)" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="5"  y1="37" x2="34" y2="35" stroke="url(#pyramidGradDrawer)" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="21" y1="3"  x2="23" y2="22" stroke="url(#pyramidGradDrawer)" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="34" y1="35" x2="23" y2="22" stroke="url(#pyramidGradDrawer)" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="5"  y1="37" x2="23" y2="22" stroke="url(#pyramidGradDrawer)" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

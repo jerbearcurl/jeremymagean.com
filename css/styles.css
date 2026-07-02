@@ -579,7 +579,7 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   transform: translateY(-50%);
   /* anchor the panel a fixed gap to the left of the open drawer's edge, so it
      keeps the same relationship to the drawer at every desktop width */
-  right: calc(min(600px, 92vw) + 40px);
+  right: calc(min(600px, 92vw) + 44px);
   /* fill the space left of the drawer minus equal margins, capped so it doesn't
      grow indefinitely on very large screens */
   width: min(1000px, calc(100vw - min(600px, 92vw) - 96px));
