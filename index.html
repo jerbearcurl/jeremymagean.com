@@ -108,22 +108,40 @@ var d = parts.length;
       <span style="display:block" class="gradient-text">based in Denver</span>
     </h1>
     <p class="tagline">Translating design intent<br>into real world solutions</p>
-    <div class="pre-footer">
-      <div class="status-block">
-        <div class="dot"></div>
-        <span class="status-text">Build in progress. Keep in touch:</span>
-      </div>
-      <form class="email-form" onsubmit="handleSubmit(event)">
-        <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" required>
-        <button type="submit">Sign Up</button>
-      </form>
-      <p class="confirm-msg" id="confirm">↳ Got it — I'll be in touch.</p>
-    </div>
   </main>
+
+  <div class="pre-footer">
+    <div class="status-block">
+      <div class="dot"></div>
+      <span class="status-text">Build in progress. Keep in touch:</span>
+    </div>
+    <form class="email-form" onsubmit="handleSubmit(event)">
+      <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" required>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p class="confirm-msg" id="confirm">↳ Got it — I'll be in touch.</p>
+  </div>
 
   <div class="articles-outer">
   <aside class="articles">
-    <!-- Article cards removed; column retained for forthcoming content. -->
+    <div class="home-browser" id="homeBrowser">
+      <div class="home-browser-inner">
+        <div class="home-browser-chrome">
+          <span class="home-browser-dot" style="background:#ed6a5e"></span>
+          <span class="home-browser-dot" style="background:#f5bf4f"></span>
+          <span class="home-browser-dot" style="background:#61c55c"></span>
+        </div>
+        <div class="home-browser-screen">
+          <div class="hb-terminal" id="hbTerminal"></div>
+          <div class="hb-images" id="hbImages">
+            <img src="images/homepage-preview.png" alt="">
+            <img src="images/casestudies/wowza-video/Screenshot02.webp" alt="">
+            <img src="images/casestudies/nexthealth-technologies/NHT02.webp" alt="">
+            <img src="images/casestudies/flytedesk/flytedesk-preview.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
   </aside>
   </div>
 
@@ -211,6 +229,95 @@ var d = parts.length;
   } else {
     runSheen();
   }
+})();
+</script>
+<script>
+// Homepage browser-frame animation: loops terminal typing <-> image cycle.
+(function () {
+  // ---- Timing (all adjustable here; milliseconds) --------------------------
+  var TIMING = {
+    charDelay:         28,    // per-character typing speed
+    linePause:         260,   // pause between finished lines
+    postSequencePause: 1400,  // pause after the last line before fading out
+    fadeDuration:      600,   // terminal <-> image fade
+    imageHold:         1500,  // how long each image is held
+    imageCrossfade:    250    // crossfade between images
+  };
+
+  // ---- Terminal content ----------------------------------------------------
+  var LINES = [
+    { prefix: '>', prefixCls: 'hb-muted',   text: 'high fidelity discovery',           textCls: 'hb-muted' },
+    { prefix: '>', prefixCls: 'hb-muted',   text: 'designing homepage layout',    textCls: 'hb-muted' },
+    { prefix: '>', prefixCls: 'hb-muted',   text: 'usability testing',   textCls: 'hb-muted' },
+    { prefix: '>', prefixCls: 'hb-muted',   text: 'refining responsive behavior', textCls: 'hb-muted' },
+    { prefix: '$', prefixCls: 'hb-violet',  text: 'git push',                      textCls: 'hb-cmd' },
+    { prefix: '>', prefixCls: 'hb-success', text: 'deployed to jeremymagean.com',  textCls: 'hb-success' }
+  ];
+
+  var terminal = document.getElementById('hbTerminal');
+  var imagesEl = document.getElementById('hbImages');
+  if (!terminal || !imagesEl) { return; }
+  var imgs = Array.prototype.slice.call(imagesEl.querySelectorAll('img'));
+
+  // Wire fade/crossfade durations from TIMING so JS stays the single source.
+  terminal.style.transition = 'opacity ' + TIMING.fadeDuration + 'ms ease';
+  imagesEl.style.transition = 'opacity ' + TIMING.fadeDuration + 'ms ease';
+  imgs.forEach(function (im) {
+    im.style.transition = 'opacity ' + TIMING.imageCrossfade + 'ms ease';
+  });
+
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  async function typeLine(line) {
+    var row = document.createElement('div');
+    row.className = 'hb-line';
+    var prefix = document.createElement('span');
+    prefix.className = line.prefixCls;
+    prefix.textContent = line.prefix + ' ';
+    var body = document.createElement('span');
+    body.className = line.textCls;
+    var cursor = document.createElement('span');
+    cursor.className = 'hb-cursor';
+    row.appendChild(prefix);
+    row.appendChild(body);
+    row.appendChild(cursor);
+    terminal.appendChild(row);
+    for (var i = 0; i < line.text.length; i++) {
+      body.textContent += line.text.charAt(i);
+      await sleep(TIMING.charDelay);
+    }
+    cursor.remove();
+  }
+
+  async function runTerminal() {
+    terminal.innerHTML = '';
+    terminal.style.opacity = '1';
+    for (var i = 0; i < LINES.length; i++) {
+      await typeLine(LINES[i]);
+      await sleep(TIMING.linePause);
+    }
+    await sleep(TIMING.postSequencePause);
+    terminal.style.opacity = '0';
+    await sleep(TIMING.fadeDuration);
+    runImages();
+  }
+
+  async function runImages() {
+    imgs.forEach(function (im, idx) { im.style.opacity = idx === 0 ? '1' : '0'; });
+    imagesEl.style.opacity = '1';
+    await sleep(TIMING.imageHold);
+    for (var i = 1; i < imgs.length; i++) {
+      imgs[i].style.opacity = '1';          // fade next in on top
+      await sleep(TIMING.imageCrossfade);
+      imgs[i - 1].style.opacity = '0';
+      await sleep(TIMING.imageHold);
+    }
+    imagesEl.style.opacity = '0';           // fade back toward terminal
+    await sleep(TIMING.fadeDuration);
+    runTerminal();
+  }
+
+  runTerminal();
 })();
 </script>
 <script src="js/main.js" defer></script>

@@ -25,7 +25,7 @@ html, body {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto 1fr auto;
   gap: 0 48px;
   padding: 42px 52px 44px 52px;
   max-width: 1440px;
@@ -47,7 +47,7 @@ html, body {
 
 .articles-outer {
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 1 / 3;
   min-width: 0;
   align-self: start;
   position: relative;
@@ -228,6 +228,9 @@ html, body {
 }
 }
 .pre-footer {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
   margin-top: 56px;
 }
 .pre-footer .status-block {
@@ -355,7 +358,7 @@ html, body {
   border-top: 1px solid transparent;
   border-image: linear-gradient(90deg, #ccc4e5, rgba(61, 61, 101, 0.12)) 1;
   grid-column: 1 / -1;
-  grid-row: 2;
+  grid-row: 3;
 }
 .footer-left {
   font-size: 16.5px;
@@ -624,6 +627,86 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   opacity: 0.6;
 }
 
+/* Homepage browser-window frame (right column) ------------------------------ */
+.home-browser {
+  width: 100%;
+  margin-top: 4vh;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 1px 2px rgba(26,26,31,0.06);
+}
+.home-browser-inner {
+  background: #ffffff;
+  border: 1px solid rgba(26,26,31,0.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.home-browser-chrome {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(26,26,31,0.06);
+}
+.home-browser-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+.home-browser-screen {
+  position: relative;
+  /* Screen aspect ratio. Higher = wider/shorter screen, so cover-fit
+     screenshots clip less on the sides (was 16/10 = 1.60); nudge this up
+     to widen further. */
+  aspect-ratio: 1.68;
+  background: #17141d;
+  overflow: hidden;
+}
+/* State layers stacked in the screen area */
+.hb-terminal,
+.hb-images {
+  position: absolute;
+  inset: 0;
+}
+.hb-terminal {
+  padding: 22px 24px;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.95;
+  color: #8a8594;
+  /* opacity transition duration is set from JS (single source of timing) */
+}
+.hb-line { white-space: pre; }
+.hb-muted   { color: #7d7889; }
+.hb-violet  { color: #b39ddb; }
+.hb-cmd     { color: #f2eef8; }
+.hb-success { color: #57c99a; }
+.hb-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  vertical-align: -2px;
+  margin-left: 1px;
+  background: #cfc9dd;
+  animation: hbBlink 1s steps(1) infinite;
+}
+@keyframes hbBlink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+.hb-images { opacity: 0; pointer-events: none; }
+.hb-images img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  /* opacity (crossfade) transition duration is set from JS */
+}
+
 /* Lightbox */
 .lightbox {
   display: none;
@@ -702,10 +785,10 @@ a.footer-left:hover svg line { stroke: var(--ink); }
 .page > * { position: relative; z-index: 1; }
 @media (max-width: 1024px) {
   .name { font-size: clamp(36px, 10vw, 56px); }
-  .pre-footer { grid-column: 1; grid-row: 3; }
+  .pre-footer { grid-column: 1; grid-row: 3; margin-top: 4px; margin-bottom: 56px; }
   .footer {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 4;
     flex-direction: column;
     align-items: flex-start;
     gap: 44px;
@@ -745,4 +828,14 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   margin-left: 0;
   margin-right: 0;
 }
+}
+
+/* Tablet band (Case Studies tab is visible here): keep the stacked browser
+   frame left-aligned with the H1/tagline, insetting only the right side so the
+   fixed tab never overlaps it. */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .articles {
+    padding-left: 0;
+    padding-right: 64px;
+  }
 }
