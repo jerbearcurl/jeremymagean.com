@@ -637,7 +637,7 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   box-shadow: 0 1px 2px rgba(26,26,31,0.06);
 }
 .home-browser-inner {
-  background: #ffffff;
+  background: #e9e9e9;
   border: 1px solid rgba(26,26,31,0.06);
   border-radius: 10px;
   overflow: hidden;
@@ -651,8 +651,8 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   border-bottom: 1px solid rgba(26,26,31,0.06);
 }
 .home-browser-dot {
-  width: 7px;
-  height: 7px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
 }
 .home-browser-screen {
@@ -660,7 +660,7 @@ a.footer-left:hover svg line { stroke: var(--ink); }
   /* Screen aspect ratio. Higher = wider/shorter screen, so cover-fit
      screenshots clip less on the sides (was 16/10 = 1.60); nudge this up
      to widen further. */
-  aspect-ratio: 1.68;
+  aspect-ratio: 1.74;
   background: #17141d;
   overflow: hidden;
 }
